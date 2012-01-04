@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ncaa_player_id: 1
+  round: 1
+  points: 18
+
+
+two:
+  ncaa_player_id: 2
+  round: 1
+  points: 10
+

@@ -1,0 +1,2 @@
+module MmTeamsHelper
+end

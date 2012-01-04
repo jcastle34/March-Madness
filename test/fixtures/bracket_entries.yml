@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: 
+    id: 1
+    ncaa_team_id: 1
+    seed: 1
+    region_id: 1
+two: 
+    id: 2
+    ncaa_team_id: 2
+    seed: 2
+    region_id: 1
+five: 
+    id: 5
+    ncaa_team_id: 3
+    seed: 5
+    region_id: 1
+ten: 
+    id: 10
+    ncaa_team_id: 4
+    seed: 10
+    region_id: 1
+    
+sixteen: 
+    id: 16
+    ncaa_team_id: 5
+    seed: 16
+    region_id: 1
+

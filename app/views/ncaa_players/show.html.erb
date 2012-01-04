@@ -1,0 +1,20 @@
+<div class="left_container">
+	<h1>View NCAA Player</h1>
+
+	<p>
+	  	<b>First Name:</b>
+	  	<%= @ncaa_player.first_name %><br/>
+	  	<b>Last Name:</b>
+	  	<%= @ncaa_player.last_name %><br/>
+		<b>School:</b>
+	  	<%= @ncaa_player.ncaa_team.school %><br/>
+	  	<b>Position:</b>
+	  	<%= @ncaa_player.position %><br/> 
+		<b>PPG:</b>
+		<%= @ncaa_player.ppg_avg %><br/>
+	</p>
+
+	<%= link_to 'Edit', edit_ncaa_player_path(@ncaa_player) %> |
+	<%= link_to 'Back', ncaa_players_path %>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,56 @@
+
+<div class="module">
+	<div class="module_header">NCAA Players</div>
+	<div style="margin: 5px;">
+		<div style="float: left; padding-bottom: 5px;">
+			Filter players by: 
+			<%= collection_select(:ncaa_player, :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school, {:include_blank => 'All Teams', :selected => @selected_team_id}, html_options = {:onchange => "getNcaaPlayersByTeam()"})  %>
+		</div>
+		<div style="float: right;">
+			<% if current_user.is_admin? %>
+				<%= link_to 'New Player', new_ncaa_player_path %>
+			<% end %>
+		</div>
+		<div class="clear"></div>
+		<table cellspacing="0" cellpadding="0" border="0">
+		  	<tr>
+		    	<td>
+		       		<table class="players_table_headers">
+		         		<tr>
+		            		<th>Name</th>
+					    	<th>Position</th>
+							<th>PPG.</th>
+							<th>School</th>
+							<th>Action</th>
+		         		</tr>
+		       		</table>
+		    	</td>
+		  	</tr>
+		  	<tr>
+				<td>
+					<div class="players_list">
+					<table class="players_table">
+						<% @ncaa_players.each do |ncaa_player| %>
+						  <tr>
+							<td class="name"><%= ncaa_player.first_name + " " + ncaa_player.last_name%></td>
+							<td><%= ncaa_player.position %></td>
+							<td><%= ncaa_player.ppg_avg %></td>
+							<td><%= ncaa_player.ncaa_team.school %></td>
+						    <td>
+								<% if current_user.is_admin? %>
+						    		<%= link_to 'Edit', edit_ncaa_player_path(ncaa_player) %>
+									<%= link_to 'Draft', ncaa_player, :method => :draft_player %>
+						    		<%= link_to 'Remove', ncaa_player, :confirm => 'Are you sure?', :method => :delete %>
+								<% else %>
+									<%= link_to 'Draft', draft_draft_player_path(ncaa_player) %>
+								<% end %>
+							</td>
+						  </tr>
+						<% end %>
+					</table>
+					</div>
+				</td>
+			<tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<%= form_for(@ncaa_player) do |f| %>
+<% if @ncaa_player.errors.any? %>
+    <div id="error_explanation">
+      	<h2><%= pluralize(@ncaa_player.errors.count, "error") %> prohibited this ncaa_player from being saved:</h2>
+    </div>
+ <% end %>
+
+	<div class="field">
+	    First Name<br />
+	    <%= f.text_field :first_name %>
+	</div>
+	<div class="field">
+	    Last Name<br />
+	    <%= f.text_field :last_name %>
+	</div>
+	<div class="field">
+	    NCAA Team<br />
+		<%= collection_select(:ncaa_player, :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school) %>
+	</div>
+	<div class="field">
+		<%= f.label :position %><br />
+		<%= select(:ncaa_player, :position, NcaaPlayer::POSITIONS) %><br/>
+	</div>
+	<div class="field">
+	    PPG.<br />
+	    <%= f.text_field :ppg_avg%>
+	</div>
+  	<div class="actions">
+	    <%= f.submit %>
+	</div>
+<% end %>

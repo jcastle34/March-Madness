@@ -1,0 +1,2 @@
+module NcaaTeamsHelper
+end

@@ -1,0 +1,36 @@
+
+	<div id="standings_container_header">Standings</div>
+		
+		<table cellspacing="0" cellpadding="0" border="0">
+		  	<tr>
+		    	<td>
+		       		<table class="standings_table_headers">
+		         		<tr>
+					    	<th class="position">Position</th>
+					        <th class="team_name">MM Team</th> 	
+							<th class="points">Points</th>
+							<th class="games">Games</th>
+                           <th class="players_lost">Active Players</th>
+		         		</tr>
+		       		</table>
+		    	</td>
+		  	</tr>
+		  	<tr>
+				<td>
+					<div class="standings_list">
+					<table class="standings_table">
+						<% @standings.each_with_index do |team, index| %>
+						<tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
+							<td class="position"><%= index += 1 %></td>
+							<td class="team_name"><%= link_to team.name, "#", :onclick => "getRoster('#{team.id}');" %></td>
+							<td class="points"><%= team.total_points.nil? ? '0' : sprintf("%.0f",team.total_points) %></td>
+							<td class="games"><%= team.total_games.nil? ? '0' : sprintf("%.0f", team.total_games) %></td>
+                            <td class="games">TBD</td>
+						</tr>
+						<% end %>
+					</table>
+					</div>
+				</td>
+			<tr>
+		</table>
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+    overall_pick: 1
+    round: 1
+    ncaa_player_id: 1
+    mm_team_id: 1
+
+two:
+    overall_pick: 2
+    round: 1
+    ncaa_player_id: 2
+    mm_team_id: null
+  
+three:
+    overall_pick: 3
+    round: 1
+    ncaa_player_id: 3
+    mm_team_id: null

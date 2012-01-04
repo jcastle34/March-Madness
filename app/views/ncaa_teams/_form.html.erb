@@ -1,0 +1,19 @@
+<%= form_for(@ncaa_team) do |f| %>
+  	<% if @ncaa_team.errors.any? %>
+	    <div id="error_explanation">
+	      	<h2><%= pluralize(@ncaa_team.errors.count, "error") %> prohibited this ncaa_team from being saved:</h2>
+	    </div>
+	  <% end %>
+	
+	<div class="field">
+	    School<br />
+	    <%= f.text_field :school %>
+	</div>
+	<div class="field">
+	    Nickname<br />
+	    <%= f.text_field :nickname %>
+	</div>
+  	<div class="actions">
+    	<%= f.submit %>
+  	</div>
+<% end %>

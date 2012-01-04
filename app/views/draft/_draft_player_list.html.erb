@@ -1,0 +1,57 @@
+
+		<div id="draft_players_container_header">NCAA Players</div>
+	
+		<div class="left_container">
+			Filter players allowed to be drafted for: 
+			<%= select(:player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]], @selected_round), {}, html_options = {:onchange => "getEligiblePlayersByRound()"})  %>
+		</div>
+		<div class="right_container">
+            <% if !session[:mm_team_id].nil? %>
+			    <%= link_to 'My Team', "#", :onclick => "getRoster('#{session[:mm_team_id]}');" %>
+             <% end %>
+		</div>
+		<div class="clear"></div>
+		<div class="left_container"><b>Regions</b> - <span class="<%= get_region_css_class(1) %>">E = East</span>,
+          <span class="<%= get_region_css_class(2) %>">SE = South East</span>,
+          <span class="<%= get_region_css_class(3) %>">SW = South West</span>,
+          <span class="<%= get_region_css_class(4) %>">W = West</span>
+        </div>
+		<div class="clear"></div>
+		<table cellspacing="0" cellpadding="0" border="0">
+		  	<tr>
+		    	<td>
+		       		<table class="draft_players_table_headers">
+		         		<tr>
+							<th class="seed">Seed</th>
+		            		<th class="name">Name</th>
+					    	<th class="position">Pos.</th>
+							<th class="ppg">PPG.</th>
+							<th class="school">School</th>
+							<th class="region">Region</th>
+							<th class="action"></th>
+		         		</tr>
+		       		</table>
+		    	</td>
+		  	</tr>
+		  	<tr>
+				<td>
+					<div class="draft_players_list">
+					<table id="draft_players_table">
+						<% @ncaa_players.each_with_index do |ncaa_player, index| %>
+						  <tr id="<%= ncaa_player.id %>" class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
+							<td class="seed"><%= ncaa_player.ncaa_team.bracket_entry.seed %></td>
+							<td class="name"><%= ncaa_player.full_name %></td>
+							<td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
+							<td class="ppg"><%= ncaa_player.ppg_avg %></td>
+							<td class="school"><%= ncaa_player.ncaa_team.school %></td>
+							<td class="region"><span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location_abbr %></span></td>
+						    <td class="action">
+								<%= link_to 'Draft', draft_draft_player_url(:id => ncaa_player.id) %>
+							</td>
+						  </tr>
+						<% end %>
+					</table>
+					</div>
+				</td>
+			<tr>
+		</table>

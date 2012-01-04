@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>March Madness Player Challenge</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+    <div class="messages">
+        <% if notice %>
+            <div id="notice"><%= notice %></div>
+        <% end %>
+        <% if alert %>
+            <div id="alert"><%= alert %></div>
+        <% end %>
+	</div>
+	<div id="header">		
+		
+	</div>
+	
+	<div id="wrapper">
+		<div id="nav_container">
+			<% if user_signed_in?  %>
+				<div id="main_nav">
+					<%= link_to_unless_current('Home', home_index_path) {|link| content_tag 'span', link, :class => 'current_main_nav'} %>
+					<%= link_to_unless_current('Bracket', bracket_index_path) {|link| content_tag 'span', link, :class => 'current_main_nav'} %>
+					<%= link_to_unless_current('Draft', draft_index_path) {|link| content_tag 'span', link, :class => 'current_main_nav'} %>
+					<% if current_user.is_admin? %>
+						<%= link_to_unless_current('Admin', admin_index_path) {|link| content_tag 'span', link, :class => 'current_main_nav'} %>
+					<% end %>
+				</div>
+				<div class="current_user">Current User: <%= link_to current_user.email, edit_user_registration_path %>
+				| <%= link_to 'Logout', destroy_user_session_path  %></div>
+			<% end %>
+			<div class="clear"></div>
+		</div>
+		<div id="main_container">
+
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>
