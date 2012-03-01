@@ -24,6 +24,13 @@ $(document).ready(function() {
         $('#alert').slideUp('slow');
     }, 5000);
 
+    $('#my_team').colorbox({
+        href: function(){
+            var id = $(this).data('team');
+            return "/mm_teams/get_roster.js?mm_team_id=" + id;
+        }
+    });
+
 });
 
 function updateDraftStatus() {

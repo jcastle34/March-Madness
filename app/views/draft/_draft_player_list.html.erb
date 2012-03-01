@@ -5,7 +5,7 @@
 
 <div class="left_container">
   <% if !session[:mm_team_id].nil? %>
-    <%= link_to 'My Team', "#", :onClick => "getRoster(#{session[:mm_team_id]})" %>
+    <%= link_to 'My Team', "#", :data => { :team => session[:mm_team_id] }, :id => "my_team" %>
   <% end %>
 </div>
 

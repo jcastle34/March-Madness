@@ -86,6 +86,8 @@ class MmTeamsController < ApplicationController
   def get_roster
     @mm_team = MmTeam.find params[:mm_team_id]
     @roster = @mm_team.get_players
+
+    render :partial => "shared/mm_team_roster"
   end
 
 end
