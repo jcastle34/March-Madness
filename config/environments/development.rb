@@ -11,7 +11,6 @@ MarchMadness::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
@@ -27,14 +26,30 @@ MarchMadness::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => 'smtp.gmail.com',
-      :port => '587',
-      :authentication => :plain,
-      :domain => 'ffblitz.com',
-      :user_name => 'james.castle34@gmail.com',
-      :password => 'My3Girls'
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => '587',
+    :authentication => :plain,
+    :domain => 'ffblitz.com',
+    :user_name => 'james.castle34@gmail.com',
+    :password => 'My3Girls'
   }
+
+  # Do not compress assets
+  config.assets.compress = false
+
+  # Expands the lines which load the assets
+  config.assets.debug = true
+
+  # Generate digests for assets URLs
+  config.assets.digest = false
+
+  # Raise exception on mass assignment protection for Active Record models
+  config.active_record.mass_assignment_sanitizer = :strict
+
+  # Log the query plan for queries taking more than this (works
+  # with SQLite, MySQL, and PostgreSQL)
+  config.active_record.auto_explain_threshold_in_seconds = 0.5
   
 end
 

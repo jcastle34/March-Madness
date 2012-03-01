@@ -5,6 +5,9 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "please-change-me@config-initializers-devise.com"
 
+  # Upgrading to Devise 2.0
+  config.case_insensitive_keys = []
+
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
@@ -139,4 +142,9 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+
+  # Devise upgrade to 2.0 settings
+  Devise.reset_password_within = 6.hours
+  Devise.use_salt_as_remember_token = true
+
 end

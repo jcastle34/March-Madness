@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>March Madness Player Challenge</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>March Madness Player Challenge</title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
     <div class="messages">
-        <% if notice %>
-            <div id="notice"><%= notice %></div>
-        <% end %>
-        <% if alert %>
-            <div id="alert"><%= alert %></div>
-        <% end %>
-	</div>
-	<div id="login_wrapper">	
-		<div id="login_header">
-			<%= Time.now.year%> March Madness Player Challenge
-		</div>
-		<div id="container">
-			<%= yield %>
-		</div>
-	</div>
-</body>
+      <% if notice %>
+        <div id="notice"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div id="alert"><%= alert %></div>
+      <% end %>
+    </div>
+    <div id="login_wrapper">
+      <div id="login_header">
+        <%= Time.now.year%> March Madness Player Challenge
+      </div>
+      <div id="container">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>

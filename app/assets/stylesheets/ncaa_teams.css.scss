@@ -1,0 +1,30 @@
+#ncaa_teams_container {
+    padding: 5px;
+}
+
+div.teams_list {
+    height: 400px;
+    overflow: auto;
+    width: 350px;
+}
+
+.teams_table_headers {
+    width: 350px;
+    border: 0px solid #000;
+    color: #fff;
+    background-color: #2E4764;
+    th {
+        width: auto;
+    }
+}
+
+.teams_table {
+    width: 350px;
+    background-color: #fff;
+    border: 0px solid;
+    td {
+        width: auto;
+        padding: 2px;
+        text-align: left;
+    }
+}

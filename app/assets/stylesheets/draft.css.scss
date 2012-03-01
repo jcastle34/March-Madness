@@ -1,0 +1,265 @@
+#draft_board_container {
+padding: 5px; }
+
+#draft_board_container_header {
+    padding: 2px 0px;
+    margin: 0px;
+    font-size: 12px;
+    background-color: #2A4D75;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+.draftpicks_table_headers {
+    width: 100%;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    /*background-color: #2E4764;*/
+    th {
+        padding: 10px 0;
+        text-transform: uppercase;
+        font-size: 10px;
+        background: #FFF;
+        &.pick {
+            width: 10%;
+        }
+        &.mm_team {
+            width: 40%;
+        }
+        &.player {
+            width: 35%;
+        }
+    }
+}
+
+/*	.draftpicks_table_headers th.position {
+width: 15%;
+}*/
+
+.draftpicks_table {
+    width: 100%;
+    background-color: #fff;
+    border: 0px solid;
+    height: 500px;
+    overflow: auto;
+    td {
+        padding: 10px 2px;
+        text-align: center;
+        &.pick {
+            width: 10%;
+        }
+        &.mm_team {
+            width: 40%;
+        }
+        &.player {
+            width: 35%;
+        }
+    }
+}
+
+tr {
+    border-bottom: 1px solid #E5E5E5;
+    &.even {
+        background-color: #EEE;
+    }
+    &.odd {
+        background-color: #F5F5F5;
+    }
+    &:hover {
+        background-color: #FFF;
+    }
+}
+
+.current_user_team_selection {
+    font-weight: bold;
+    background-color: #FFFFCC;
+    color: #242424;
+}
+
+.current_pick_selection {
+    font-weight: bold;
+    background-color: #CEE5C5;
+}
+
+#draft_status_container {
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+    div {
+        display: inline;
+        padding: 3px;
+        &.label {
+            font-weight: bold;
+        }
+    }
+}
+
+.my_team_container {
+    padding: 5px 5px 5px 5px;
+}
+
+div.my_team_list {
+    width: 720px;
+    height: 140px;
+    overflow: auto;
+}
+
+.my_team_table_headers {
+    border: 0px solid #000;
+    color: #fff;
+    background-color: #2E4764;
+    th {
+        &.name {
+            width: 120px;
+        }
+        &.position {
+            width: 50px;
+        }
+        &.ppg {
+            width: 40px;
+        }
+        &.school {
+            width: 120px;
+        }
+        &.seed {
+            width: 40px;
+        }
+        &.region {
+            width: 80px;
+        }
+        &.points {
+            width: 50px;
+        }
+        &.status {
+            width: 60px;
+        }
+    }
+}
+
+.my_team_table {
+    background-color: #fff;
+    border: 0px solid;
+    td {
+        width: auto;
+        padding: 2px;
+        text-align: center;
+        &.name {
+            width: 120px;
+            text-align: left;
+        }
+        &.position {
+            width: 50px;
+        }
+        &.ppg {
+            width: 40px;
+        }
+        &.school {
+            width: 120px;
+        }
+        &.seed {
+            width: 40px;
+        }
+        &.region {
+            width: 80px;
+        }
+        &.points {
+            width: 50px;
+        }
+        &.status {
+            width: 60px;
+        }
+    }
+}
+
+#draft_players_container {
+    padding: 5px;
+}
+
+#draft_players_container_header {
+    padding: 2px 0px 2px 0px;
+    margin: 0px;
+    font-size: 12px;
+    background-color: #2A4D75;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+div.draft_players_list {
+    height: 500px;
+    overflow: auto;
+    width: 100%;
+}
+
+.draft_players_table_headers {
+    width: 100%;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    /*	background-color: #C1D2EC;*/
+    th {
+        padding: 5px 0;
+        &.seed {
+            width: 10%;
+        }
+        &.name {
+            width: 30%;
+        }
+        &.position, &.ppg {
+            width: 10%;
+        }
+        &.school {
+            width: 20%;
+        }
+        &.region {
+            width: 10%;
+        }
+    }
+}
+
+#draft_players_table {
+    background-color: #fff;
+    height: 722px;
+    overflow: auto;
+    display: block;
+    tbody {
+        width: 100%;
+        display: table;
+    }
+    td {
+        width: auto;
+        padding: 10px 2px;
+        text-align: center;
+        &.seed {
+            width: 10%;
+        }
+        &.name {
+            width: 30%;
+            text-align: left;
+        }
+        &.position, &.ppg {
+            width: 10%;
+        }
+        &.school {
+            width: 20%;
+        }
+        &.region {
+            width: 10%;
+        }
+    }
+}
+
+.east_region {
+    color: blue;
+}
+
+.west_region {
+    color: red;
+}
+
+.southeast_region {
+    color: purple;
+}
+
+.southwest_region {
+    color: green;
+}

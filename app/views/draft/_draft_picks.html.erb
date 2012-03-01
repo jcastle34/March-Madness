@@ -2,38 +2,27 @@
 <div class="left_container"><span class="current_pick_selection"><span style="white-space: pre;">    </span></span> - Indicates the current selection</div>
 <div class="left_container"><span class="current_user_team_selection"><span style="white-space: pre;">    </span></span> - Indicates your teams selection</div>
 <div class="clear"></div>
-<table cellspacing="0" cellpadding="0" border="0">
-<tr>
-	<td>
-   		<table class="draftpicks_table_headers">
-     		<tr>
-		    	<th class="pick">Pick</th>
-				<th class="mm_team">MM Team (Positions Drafted)</th>
-				<th class="player">Player</th>
-				<th class="position">Position</th>
-     		</tr>
-   		</table>
-	</td>
-</tr>
-<tr>
-	<td>
-		<div class="draftpicks_list">
-		<table class="draftpicks_table">
-			<% @draft.current_round_draft_picks.each_with_index do |pick, index| %>
-				<tr class="<%= pick.overall_pick == @draft.current_draft_pick.overall_pick ? 'current_pick_selection' : pick.mm_team.id == session[:mm_team_id] ? 'current_user_team_selection' : (index + 1) %2 == 0 ? 'even' : 'odd' %>">
-					<td class="pick"><%= pick.overall_pick %></td>
-					<td class="mm_team">
-						<%= pick.mm_team.name %>
-						( <% pick.mm_team.get_players.each do |player| %>
-							<span class='<%= get_position_css_class player.position %>'><%= player.position.first %></span>
-						<% end %> )
-					</td>
-					<td class="player"><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.first_name + " " + pick.ncaa_player.last_name %></td>	
-					<td><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.position %></td>		
-				</tr>
-			<% end %>
-		</table>
-		</div>
-	</td>
-<tr>
+<table class="draftpicks_table_headers">
+  <tr>
+    <th class="pick">Pick</th>
+    <th class="mm_team">MM Team (Positions Drafted)</th>
+    <th class="player">Player</th>
+    <th class="position">Position</th>
+  </tr>
+</table>
+
+<table class="draftpicks_table">
+  <% @draft.current_round_draft_picks.each_with_index do |pick, index| %>
+    <tr class="<%= pick.overall_pick == @draft.current_draft_pick.overall_pick ? 'current_pick_selection' : pick.mm_team.id == session[:mm_team_id] ? 'current_user_team_selection' : (index + 1) %2 == 0 ? 'even' : 'odd' %>">
+      <td class="pick"><%= pick.overall_pick %></td>
+      <td class="mm_team">
+        <%= pick.mm_team.name %>
+        ( <% pick.mm_team.get_players.each do |player| %>
+          <span class='<%= get_position_css_class player.position %>'><%= player.position.first %></span>
+        <% end %> )
+      </td>
+      <td class="player"><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.first_name + " " + pick.ncaa_player.last_name %></td>
+      <td><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.position %></td>
+    </tr>
+  <% end %>
 </table>

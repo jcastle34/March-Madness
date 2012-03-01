@@ -84,8 +84,8 @@ class MmTeamsController < ApplicationController
   end
   
   def get_roster
-      @mm_team = MmTeam.find params[:mm_team_id]
-      @roster= @mm_team.get_players
+    @mm_team = MmTeam.find params[:mm_team_id]
+    @roster = @mm_team.get_players
   end
 
 end

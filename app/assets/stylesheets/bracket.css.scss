@@ -1,0 +1,33 @@
+#bracket_container {
+    padding: 5%;
+    img {
+        border: 10px solid #EEE;
+    }
+}
+
+div.bracket_list {
+    float: left;
+    height: auto;
+    width: 210px;
+    margin: 5px;
+}
+
+.bracket_table {
+    width: 210px;
+    background-color: #2A4D75;
+    border: 0px;
+    th {
+        background-color: #2A4D75;
+        color: #fff;
+    }
+    td {
+        width: auto;
+        background-color: #fff;
+        padding: 2px 2px 2px 2px;
+        text-align: center;
+        &.school {
+            width: 130px;
+            text-align: left;
+        }
+    }
+}

@@ -1,34 +1,26 @@
 
-	<div id="top_perf_container_header">Top Performers</div>
-		<table cellspacing="0" cellpadding="0" border="0">
-		  	<tr>
-		    	<td>
-		       		<table class="top_perf_table_headers">
-		         		<tr>
-					    	<th class="position">Position</th>
-							<th class="player">Player</th>
-					        <th class="team_name">MM Team</th> 	
-							<th class="points">Points</th>
-							<th class="games">Games</th>
-		         		</tr>
-		       		</table>
-		    	</td>
-		  	</tr>
-		  	<tr>
-				<td>
-					<div class="top_perf_list">
-					<table class="top_perf_table">
-						<% @top_scorers.each_with_index do |player, index| %>
-						<tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
-							<td class="position"><%= index += 1 %></td>
-							<td class="player"><%= link_to player.first_name + ' ' + player.last_name, "#", :onclick => "getScoringDetails('#{player.id}');" %></td>
-							<td class="team_name"><%= player.team_name %></td>
-							<td class="points"><%= player.total_points.nil? ? '0' : sprintf("%.0f", player.total_points) %></td>
-							<td class="games"><%= player.total_games.nil? ? '0' : sprintf("%.0f", player.total_games) %></td>
-						</tr>
-						<% end %>
-					</table>
-					</div>
-				</td>
-			<tr>
-		</table>
+<div id="top_perf_container_header">Top Performers</div>
+
+<table class="top_perf_table_headers">
+  <tr>
+    <th class="position">Position</th>
+    <th class="player">Player</th>
+    <th class="team_name">MM Team</th>
+    <th class="points">Points</th>
+    <th class="games">Games</th>
+  </tr>
+</table>
+
+<div class="top_perf_list">
+  <table class="top_perf_table">
+    <% @top_scorers.each_with_index do |player, index| %>
+      <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
+        <td class="position"><%= index += 1 %></td>
+        <td class="player"><%= link_to player.first_name + ' ' + player.last_name, "#", :onclick => "getScoringDetails('#{player.id}');" %></td>
+        <td class="team_name"><%= player.team_name %></td>
+        <td class="points"><%= player.total_points.nil? ? '0' : sprintf("%.0f", player.total_points) %></td>
+        <td class="games"><%= player.total_games.nil? ? '0' : sprintf("%.0f", player.total_games) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

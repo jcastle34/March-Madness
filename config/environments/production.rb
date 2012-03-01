@@ -51,13 +51,25 @@ MarchMadness::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => 'smtp.gmail.com',
-      :port => '587',
-      :authentication => :plain,
-      :domain => 'www.ffblitz.com',
-      :user_name => 'james.castle34@gmail.com',
-      :password => 'My3Girls'
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => '587',
+    :authentication => :plain,
+    :domain => 'www.ffblitz.com',
+    :user_name => 'james.castle34@gmail.com',
+    :password => 'My3Girls'
   }
+
+  # Compress JavaScript and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline
+  config.assets.compile = true
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
+
+  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  config.assets.precompile += ['*.js', '*.css']
 
 end
