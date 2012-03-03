@@ -48,6 +48,11 @@ function getEligiblePlayersByRound() {
     $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
 }
 
+function getPreferredPlayersByRound() {
+    id = $("#preferred_player_selected_round").val();
+    $.getScript("/draft/get_preferred_players_by_round.js?selected_round=" + id);
+}
+
 function getNcaaPlayersByTeam() {
     id = $("#ncaa_player_ncaa_team_id").val();
     $.getScript("/ncaa_players/get_by_ncaa_team.js?ncaa_team_id=" + id);

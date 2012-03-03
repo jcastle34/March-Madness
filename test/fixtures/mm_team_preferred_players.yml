@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mmteam_id: 1
+  ncaa_player_id: 1
+
+two:
+  mmteam_id: 1
+  ncaa_player_id: 1

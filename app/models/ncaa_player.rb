@@ -17,8 +17,19 @@ class NcaaPlayer < ActiveRecord::Base
   
   def self.get_players_by_seed_range(start_value, end_value)
       if start_value < end_value
-					NcaaPlayer.joins('join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id join bracket_entries be on be.ncaa_team_id = nt.id').where('be.seed between ? and ?
-					 and ncaa_players.id not in (select ncaa_player_id from draft_picks where ncaa_player_id > 0)', start_value, end_value).order('be.seed asc, region_id, ncaa_players.ncaa_team_id asc, ncaa_players.position desc, ncaa_players.ppg_avg desc')
+					NcaaPlayer.joins('join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id join bracket_entries be on be.ncaa_team_id = nt.id')
+          .where('be.seed between ? and ? and ncaa_players.id not in (select ncaa_player_id from draft_picks where ncaa_player_id > 0)',
+          start_value, end_value).order('be.seed asc, region_id, ncaa_players.ncaa_team_id asc, ncaa_players.position desc, ncaa_players.ppg_avg desc')
+			else
+          []
+      end
+  end
+
+  def self.get_preferred_players_by_seed_range_for_mm_team(mm_team_id, start_value=1, end_value=4)
+    if start_value < end_value
+					NcaaPlayer.joins('join mm_team_preferred_players mtp on mtp.ncaa_player_id = ncaa_players.id join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id join bracket_entries be on be.ncaa_team_id = nt.id')
+          .where('be.seed between ? and ? and mtp.mm_team_id = ? and ncaa_players.id not in (select ncaa_player_id from draft_picks where ncaa_player_id > 0)',
+          start_value, end_value, mm_team_id).order('be.seed asc, ncaa_players.ppg_avg desc')
 			else
           []
       end

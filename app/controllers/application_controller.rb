@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 			    redirect_to home_index_path
 			    false
 			  end
-		end
+    end
+
+    def get_current_user
+      MmTeam.find session['mm_team_id']
+    end
   
 end

@@ -11,19 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229044226) do
+ActiveRecord::Schema.define(:version => 20120303042709) do
 
   create_table "bracket_entries", :force => true do |t|
-    t.integer  "ncaa_team_id"
-    t.integer  "seed"
-    t.integer  "region_id"
-    t.integer  "year"
-    t.integer  "round"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "bracket_matchups", :force => true do |t|
     t.integer  "ncaa_team_id"
     t.integer  "seed"
     t.integer  "region_id"
@@ -51,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20120229044226) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "mm_team_preferred_players", :force => true do |t|
+    t.integer  "mm_team_id"
+    t.integer  "ncaa_player_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "mm_team_preferred_players", ["ncaa_player_id", "mm_team_id"], :name => "index_mm_team_preferred_players_on_ncaa_player_id_and_mm_team_id", :unique => true
 
   create_table "mm_teams", :force => true do |t|
     t.string   "name"
@@ -112,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20120229044226) do
     t.datetime "updated_at"
     t.integer  "is_admin",                              :default => 0,  :null => false
     t.datetime "reset_password_sent_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -51,7 +51,7 @@
                 </li>
               <% end %>
             </ul>
-            <div class="current_user">Current User: <%= link_to current_user.email, edit_user_registration_path %>
+            <div class="current_user">Current User: <%= link_to current_user.full_name, edit_user_registration_path %>
               | <%= link_to 'Logout', destroy_user_session_path  %></div>
           <% end %>
           <div class="clear"></div>

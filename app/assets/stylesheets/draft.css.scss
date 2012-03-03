@@ -248,6 +248,72 @@ div.draft_players_list {
     }
 }
 
+#preferred_players_container_header {
+    padding: 2px 0px 2px 0px;
+    margin: 0px;
+    font-size: 12px;
+    background-color: #2A4D75;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+.preferred_players_table_headers {
+    width: 100%;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    /*	background-color: #C1D2EC;*/
+    th {
+        padding: 5px 0;
+        &.seed {
+            width: 10%;
+        }
+        &.name {
+            width: 30%;
+        }
+        &.position, &.ppg {
+            width: 10%;
+        }
+        &.school {
+            width: 20%;
+        }
+        &.region {
+            width: 10%;
+        }
+    }
+}
+
+#preferred_players_table {
+    background-color: #fff;
+    overflow: auto;
+    display: block;
+    tbody {
+        width: 100%;
+        display: table;
+    }
+    td {
+        width: auto;
+        padding: 10px 2px;
+        text-align: center;
+        &.seed {
+            width: 10%;
+        }
+        &.name {
+            width: 30%;
+            text-align: left;
+        }
+        &.position, &.ppg {
+            width: 10%;
+        }
+        &.school {
+            width: 20%;
+        }
+        &.region {
+            width: 10%;
+        }
+    }
+}
+
 .east_region {
     color: blue;
 }
