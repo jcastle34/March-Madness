@@ -80,22 +80,21 @@ div.clear {
 #nav_container {
     display: block;
     width: 15%;
-    background: asset-url("bg_menu_right.png", image) right top repeat-y;
+    background: asset-url("bg_menu_orange.png", image) 0 0 repeat;
+    border-right: 1px solid #d56d0d;
     float: left;
     height: 100%;
 }
 
 #nav_wrapper {
     display: block;
-    background: asset-url("bg_menu.png", image) 0 0 repeat;
     height: 100%;
 }
 
 #main_nav {
     display: block;
-    border-top: 1px solid #3a3a3a;
-    border-bottom: 1px solid #5d5d5d;
-    background: asset-url("bg_menu_right.png", image) right top repeat-y;
+    border-top: 1px solid #d56d0d;
+    border-bottom: 1px solid #ffb35f;
     li {
         list-style-type: none;
         position: relative;
@@ -108,25 +107,27 @@ div.clear {
         display: block;
     }
     a {
-        background: asset-url("bg_menu.png", image) 0 0 repeat;
-        border-top: 1px solid #5d5d5d;
-        border-bottom: 1px solid #3a3a3a;
+        background: #e48822;
+        border-top: 1px solid #ffb35f;
+        border-bottom: 1px solid #d56d0d;
         display: block;
-        color: #8f8f8f;
+        color: #FFF;
     }
     span.current_main_nav, a:hover {
-        background: #444;
+        background: #56453f;
+        border-top: 1px solid #5d5d5d;
+        border-bottom: 1px solid #3a3a3a;
         color: #FFF;
     }
     span.current_main_nav_tip {
-        background: asset-url("menu_active.png", image) 0 0 no-repeat;
+        background: asset-url("menu_active_orange.png", image) 0 0 no-repeat;
         position: absolute;
         z-index: 10;
         right: -26px;
         top: 0;
         display: block;
-        width: 27px;
-        height: 50px;
+        width: 26px;
+        height: 52px;
     }
 }
 
@@ -135,12 +136,11 @@ div.clear {
     float: right;
     margin-top: 6px;
     padding: 2px 10px 3px 10px;
-    -moz-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
+    a {
+        color: #7b3b00;
+        text-shadow: 0 1px #e48822;
+        font-size: 14px;
+    }
 }
 
 #admin_nav {
@@ -195,7 +195,7 @@ div.clear {
 #main_container {
     position: relative;
     display: block;
-    width: 85%;
+    width: 84%;
     float: left;
 }
 
