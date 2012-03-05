@@ -1,16 +1,11 @@
-#standings_container {
-    padding: 5px;
-    margin: 0px 0px 10px 0px;
-}
-
 #standings_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0px;
-    font-size: 12px;
-    background-color: #2A4D75;
+    margin: 0 0 20px;
+    font-size: 26px;
     font-weight: bold;
-    text-align: center;
-    color: #fff;
+    text-align: left;
+    color: #242424;
+    text-shadow: 0 1px #FFF;
 }
 
 .standings_list {
@@ -21,16 +16,23 @@
 
 .standings_table_headers {
     width: 100%;
-    border-bottom: 2px solid #000;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
     th {
+        text-transform: uppercase;
+        font-weight: normal;
+        padding: 10px;
+        background: #FFF;
+        font-size: 10px;
+        text-align: center;
         &.position {
-            width: 10%;
+            width: 15%;
         }
         &.team_name {
-            width: 30%;
+            width: 20%;
         }
         &.points, &.players_lost {
-            width: 20%;
+            width: 25%;
         }
     }
 }
@@ -82,19 +84,23 @@
 
 #top_perf_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0px;
-    font-size: 12px;
-    background-color: #2A4D75;
+    margin: 0 0 20px;
+    font-size: 26px;
     font-weight: bold;
-    text-align: center;
-    color: #fff;
+    text-align: left;
+    color: #666;
 }
 
 .top_perf_table_headers {
     width: 100%;
     border-top: 1px solid #E5E5E5;
     border-bottom: 1px solid #E5E5E5;
+    background: #F9F9F9;
     th {
+        padding: 10px 0;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 10px;
         &.position {
             width: 15%;
         }

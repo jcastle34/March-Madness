@@ -1,5 +1,5 @@
 html, body {
-    background-color: #f5f5f5;
+    background-color: #EEE;
     background-repeat: repeat-x;
     background-position: center 50px;
     color: #333;
@@ -16,7 +16,25 @@ a {
         color: #E7772D;
     }
     &:hover {
-        color: blue;
+        color: SaddleBrown;
+    }
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #242424;
+    margin: 0 0 20px;
+}
+
+h2 {
+    font-size: 16px;
+    color: #999;
+    margin: 20px 0 10px;
+    i {
+        font-size: 10px;
+        font-style: normal;
+        font-weight: normal;
     }
 }
 
@@ -24,7 +42,35 @@ strong {
     color: #242424;
 }
 
-div.clear {
+input {
+    &[type=text], &[type=password] {
+        background: white asset-url("bg_field.png", image) 0 0 repeat-x;
+        color: #242424;
+        font-weight: bold;
+        font-size: 16px;
+        border: 1px solid #CCC;
+        padding: 7px 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 90%;
+    }
+    &[type=submit] {
+        cursor: pointer;
+    }
+}
+
+textarea {
+    background: white asset-url("bg_field.png", image) 0 0 repeat-x;
+    color: #242424;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #CCC;
+    padding: 7px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+}
+
+
+.clear {
     clear: both;
 }
 
@@ -35,44 +81,69 @@ div.clear {
 }
 
 #login_wrapper {
-    padding-top: 10px;
-    margin: 0px auto;
+    padding: 20px;
+    margin: 0 auto;
     width: 500px;
-    height: 450px;
-    background-color: #fff;
-    border: 0;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-border-top-right-radius: 8px;
-    -webkit-border-top-left-radius: 8px;
-    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
+    background: #e8e9e6;
+    border: 1px solid #e0e0dd;
+    color: rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 0 #FFFFFF;
+    h2 {
+        font-weight: 200;
+        text-align: center;
+        text-shadow: 0 1px 0 #FFFFFF;
+        margin: 0 0 20px;
+        font-size: 26px;
+    }
+    label {
+        font-size: 13px;
+        line-height: 18px;
+        padding-top: 6px;
+    }
+    .login_field {
+        margin-bottom: 20px;
+    }
 }
 
-.login_left_container {
-    float: left;
-    width: 250px;
-    margin: 0px;
-    padding: 5px;
+.btn {
+    margin: 10px 0;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #e6e6e6;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    padding: 5px 14px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    color: #333;
+    font-size: 13px;
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;
 }
-
-.login_right_container {
-    float: right;
-    width: 200px;
-    margin: 0px;
-    padding: 2px;
+.btn:hover {
+    background-position: 0 -15px;
+    color: #333;
+    text-decoration: none;
 }
-
-#login_header {
-    padding: 5px 0px 5px 0px;
-    margin: 20px 0px 20px 0px;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    color: #68A9C6;
-    background-color: #000;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
+.btn:focus {
+    outline: 1px dotted #666;
 }
 
 /* Navigation Styles*/
@@ -89,6 +160,22 @@ div.clear {
 #nav_wrapper {
     display: block;
     height: 100%;
+}
+
+#logo {
+    display: block;
+    width: 180px;
+    height: 61px;
+    background: asset-url("logo.png", image) 0 0 no-repeat;
+    margin: 10px auto;
+}
+
+#logo_big {
+    display: block;
+    width: 215px;
+    height: 61px;
+    background: asset-url("logo_big.png", image) 0 0 no-repeat;
+    margin: 5% 0 3% 30%;
 }
 
 #main_nav {
@@ -132,14 +219,24 @@ div.clear {
 }
 
 .current_user {
-    font-size: 12px;
     float: right;
+    display: block;
+    width: 50%;
     margin-top: 6px;
     padding: 2px 10px 3px 10px;
-    a {
+    p {
+        font-size: 14px;
         color: #7b3b00;
         text-shadow: 0 1px #e48822;
-        font-size: 14px;
+    }
+    a {
+        font-size: 10px;
+        color: #7b3b00;
+        text-shadow: 0 1px #e48822;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
 
@@ -186,6 +283,7 @@ div.clear {
 #avatar {
     padding: 10px;
     display: block;
+    float: left;
     img {
         border: 1px solid #000;
         width: 50px;
@@ -206,46 +304,24 @@ div.clear {
     width: 44%;
 }
 
-.left_container {
-    background: #eee;
-}
-
 .right_container {
     background: #fff;
 }
 
-.module {
-    padding: 0px;
-    border: 1px solid #C1D2EC;
-    -moz-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    background-color: #fff;
-    text-align: center;
-}
-
 .module_header {
-    height: 20px;
-    padding: 3px 0px 0px 5px;
-    margin: 0px 0px 5px 0px;
-    background: -moz-linear-gradient(left, #c1d2ec, white, #c1d2ec);
-    background: -webkit-gradient(linear, left bottom, right bottom, from(#c1d2ec), color-stop(50%, white), to(#c1d2ec));
-    color: #000;
-    border-bottom: 1px solid #C1D2EC;
+    padding: 10px;
+    color: #242424;
     font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    -moz-border-radius: 3px 3px 0px 0px;
-    border-radius: 3px 3px 0px 0px;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-top-left-radius: 5px;
+    font-size: 26px;
+    text-align: left;
 }
 
+.module{
+    display: block;
+    width: 700px;
+}
 .module_container {
-    padding: 5px;
+    padding: 5px 5px 15px;
 }
 
 #notice {
@@ -324,4 +400,80 @@ div {
     &.field, &.actions {
         margin-bottom: 10px;
     }
+}
+
+.form_field{
+    display: block;
+    margin: 0 0 10px;
+    label {
+        font-size: 10px;
+        color: #666;
+        display: block;
+    }
+}
+
+.pad {
+    padding: 10px;
+}
+
+#flash {
+    display: block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+}
+
+.flash_notice, .flash_error, .flash_alert {
+    position: relative;
+    .icon_close {
+        position: absolute;
+        z-index: 10000;
+        display: block;
+        width: 30px;
+        height: 30px;
+        top: -10px;
+        right: -10px;
+        background: asset-url("icon_close.png", image) no-repeat 0 0;
+    }
+}
+
+.flash_notice {
+    background: asset-url("flashmessage_notice.png", image) no-repeat right bottom;
+    height: 59px;
+    padding-right: 30px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.flash_alert, .flash_error {
+    background: asset-url("flashmessage_error_alert.png", image) no-repeat scroll right bottom transparent;
+    display: inline-block;
+    height: 59px;
+    padding-right: 30px;
+}
+
+.flash_notice span, .flash_alert span, .flash_error span {
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 59px;
+    padding: 0 10px 0 70px;
+    text-shadow: 0 1px 0 #636E10;
+}
+
+.flash_notice span {
+    background: asset-url("flashmessage_notice.png", image) no-repeat 0 0;
+}
+
+.flash_alert span, .flash_error span {
+    background: asset-url("flashmessage_error_alert.png", image) no-repeat 0 0;
+}
+
+.hideText {
+    text-indent: -2000px;
+    font-size: 0em;
+    overflow: hidden;
 }

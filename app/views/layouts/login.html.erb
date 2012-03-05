@@ -7,18 +7,18 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div class="messages">
-      <% if notice %>
-        <div id="notice"><%= notice %></div>
-      <% end %>
-      <% if alert %>
-        <div id="alert"><%= alert %></div>
+    <div id="flash">
+      <% [:notice, :warning, :error, :alert].each do |type| %>
+        <% if flash[type] %>
+          <div class="flash_<%= type %> message">
+            <%= link_to "Close", "javascript:void(0);", :class => "hideText icon_close" %>
+            <span><%= flash[type] %></span>
+          </div>
+        <% end %>
       <% end %>
     </div>
+    <div id="logo_big"></div>
     <div id="login_wrapper">
-      <div id="login_header">
-        <%= Time.now.year%> March Madness Player Challenge
-      </div>
       <div id="container">
         <%= yield %>
       </div>

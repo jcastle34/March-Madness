@@ -3,12 +3,12 @@ padding: 5px; }
 
 #draft_board_container_header {
     padding: 2px 0px;
-    margin: 0px;
-    font-size: 12px;
-    background-color: #2A4D75;
+    margin: 0 0 15px;
+    font-size: 20px;
     font-weight: bold;
-    text-align: center;
-    color: #fff;
+    text-align: left;
+    color: #242424;
+    text-shadow: 0 1px #FFF;
 }
 
 .draftpicks_table_headers {
@@ -59,13 +59,21 @@ width: 15%;
 }
 
 tr {
-    border-bottom: 1px solid #E5E5E5;
+    padding: 10px 5px;
     &.even {
         background-color: #EEE;
+        border-bottom: 1px solid #E5E5E5;
     }
     &.odd {
         background-color: #F5F5F5;
+        border-bottom: 1px solid #E5E5E5;
     }
+    .no_border {
+        border: none;
+    }
+}
+
+tbody tr {
     &:hover {
         background-color: #FFF;
     }
@@ -104,69 +112,73 @@ div.my_team_list {
     overflow: auto;
 }
 
-.my_team_table_headers {
-    border: 0px solid #000;
-    color: #fff;
-    background-color: #2E4764;
-    th {
-        &.name {
-            width: 120px;
-        }
-        &.position {
-            width: 50px;
-        }
-        &.ppg {
-            width: 40px;
-        }
-        &.school {
-            width: 120px;
-        }
-        &.seed {
-            width: 40px;
-        }
-        &.region {
-            width: 80px;
-        }
-        &.points {
-            width: 50px;
-        }
-        &.status {
-            width: 60px;
-        }
-    }
-}
-
 .my_team_table {
     background-color: #fff;
     border: 0px solid;
+    display: block;
+    thead{
+        border-top: 1px solid #E5E5E5;
+        border-bottom: 1px solid #E5E5E5;
+        background-color: #EEE;
+        display: table;
+        width: 100%;
+        th {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: normal;
+            padding: 0 5px;
+            &.name {
+                width: 15%;
+            }
+            &.position {
+                width: 10%;
+            }
+            &.ppg {
+                width: 10%;
+            }
+            &.school {
+                width: 15%;
+            }
+            &.seed {
+                width: 10%;
+            }
+            &.region {
+                width: 15%;
+            }
+            &.status {
+                width: 10%;
+            }
+        }
+    }
+    tbody {
+        width: 100%;
+        display: table;
+    }
     td {
         width: auto;
-        padding: 2px;
+        padding: 10px 5px;
         text-align: center;
         &.name {
-            width: 120px;
+            width: 15%;
             text-align: left;
         }
         &.position {
-            width: 50px;
+            width: 10%;
         }
         &.ppg {
-            width: 40px;
+            width: 10%;
         }
         &.school {
-            width: 120px;
+            width: 15%;
         }
         &.seed {
-            width: 40px;
+            width: 10%;
         }
         &.region {
-            width: 80px;
-        }
-        &.points {
-            width: 50px;
+            width: 15%;
         }
         &.status {
-            width: 60px;
+            width: 10%;
         }
     }
 }
@@ -177,12 +189,11 @@ div.my_team_list {
 
 #draft_players_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0px;
-    font-size: 12px;
-    background-color: #2A4D75;
+    margin: 0 0 15px;
+    font-size: 20px;
     font-weight: bold;
-    text-align: center;
-    color: #fff;
+    text-align: left;
+    color: #999;
 }
 
 div.draft_players_list {
@@ -193,11 +204,14 @@ div.draft_players_list {
 
 .draft_players_table_headers {
     width: 100%;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    /*	background-color: #C1D2EC;*/
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    background: #F9F9F9;
     th {
-        padding: 5px 0;
+        padding: 10px 0;
+        font-size: 10px;
+        font-weight: normal;
+        text-transform: uppercase;
         &.seed {
             width: 10%;
         }
@@ -250,21 +264,20 @@ div.draft_players_list {
 
 #preferred_players_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0px;
-    font-size: 12px;
-    background-color: #2A4D75;
+    margin: 0 0 15px;
+    font-size: 20px;
     font-weight: bold;
-    text-align: center;
-    color: #fff;
+    text-align: left;
+    color: #999;
 }
 
 .preferred_players_table_headers {
+    display: block;
     width: 100%;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    /*	background-color: #C1D2EC;*/
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
     th {
-        padding: 5px 0;
+        padding: 10px 5px;
         &.seed {
             width: 10%;
         }
@@ -284,8 +297,7 @@ div.draft_players_list {
 }
 
 #preferred_players_table {
-    background-color: #fff;
-    overflow: auto;
+    width: 100%;
     display: block;
     tbody {
         width: 100%;
