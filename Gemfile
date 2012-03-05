@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.2'
 gem 'devise'
 gem 'mysql2'
 gem 'test-unit'

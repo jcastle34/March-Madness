@@ -1,24 +1,19 @@
 MarchMadness::Application.routes.draw do
 
   get "draft/index"
-
   get "draft/draft_player"
-
   get "draft/undraft_player"
-  
   get "draft/get_current_draft_status"
-  
   get "ncaa_players/get_by_ncaa_team"
-  
   get "draft/get_eligible_players_by_round"
-
+  get "draft/get_preferred_players_by_round"
   get "home/player_scoring_details"
-  
   get "mm_teams/get_roster"
-
   get "draft/start"
-
   get "draft/stop"
+  get "draft/preferred_players"
+  get "draft/add_preferred_player"
+  get "draft/remove_preferred_player"
 
   resources :bracket
 

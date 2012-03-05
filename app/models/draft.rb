@@ -35,14 +35,14 @@ class Draft < ActiveRecord::Base
 						pick.ncaa_player_id = player_id
 						pick.save
 					rescue ActiveRecord::RecordNotUnique
-						errors.add_to_base "This Player has already been drafted."
+						errors[:base] << "This Player has already been drafted."
 					end
 				else
-					errors.add_to_base "This would cause an invalid roster."
+					errors[:base] << "This would cause an invalid roster."
 					false
 				end
 			else
-				errors.add_to_base "This player is not eligible to be drafted in this round."
+				errors[:base] << "This player is not eligible to be drafted in this round."
 				false
 			end
 	end
@@ -56,16 +56,18 @@ class Draft < ActiveRecord::Base
 		
 		@picks = DraftPick.all
 		@picks.each { |pick| pick.destroy }
-		
+
+    mm_teams = mm_teams.shuffle
+
 		while round <= total_rounds
 			DraftPick.transaction do
-				mm_teams.each do |id|
+				mm_teams.each do |team|
 						overall_pick =+ overall_pick + 1
 						draft_pick = DraftPick.new
 						draft_pick.id = overall_pick
 						draft_pick.overall_pick = overall_pick
 						draft_pick.round = round
-						draft_pick.mm_team_id = id
+						draft_pick.mm_team_id = team.id
 						draft_pick.ncaa_player_id = nil
 						draft_pick.save!			
 				end

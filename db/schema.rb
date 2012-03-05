@@ -109,10 +109,10 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                              :default => 0,  :null => false
     t.datetime "reset_password_sent_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "is_admin",                              :default => 0,  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
