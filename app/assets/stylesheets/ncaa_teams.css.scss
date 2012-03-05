@@ -1,30 +1,25 @@
-#ncaa_teams_container {
-    padding: 5px;
-}
-
-div.teams_list {
-    height: 400px;
-    overflow: auto;
-    width: 350px;
-}
-
-.teams_table_headers {
-    width: 350px;
-    border: 0px solid #000;
-    color: #fff;
-    background-color: #2E4764;
-    th {
-        width: auto;
-    }
-}
-
 .teams_table {
-    width: 350px;
-    background-color: #fff;
-    border: 0px solid;
+    display: block;
+    width: 100%;
+    thead{
+        display: table;
+        width: 100%;
+        border-top: 1px solid #E5E5E5;
+        border-bottom: 1px solid #E5E5E5;
+        background-color: #FFF;
+        th {
+            padding: 10px 0;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: normal;
+        }
+    }
+    tbody {
+        display: table;
+        width: 100%;
+    }
     td {
-        width: auto;
-        padding: 2px;
+        padding: 10px 5px;
         text-align: left;
     }
 }

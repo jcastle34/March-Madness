@@ -1,41 +1,27 @@
 <div class="left_container">
-<div class="module">
-	<div class="module_header">March Madness Teams</div>
-	<div style="margin: 5px;">
-		<div style="float: right; padding-bottom: 5px;">
-			<%= link_to 'New Team', new_mm_team_path %>
-		</div>
-		<div class="clear"></div>
-		<table cellspacing="0" cellpadding="0" border="0">
-		  	<tr>
-		    	<td>
-		       		<table class="teams_table_headers">
-		         		<tr>
-							<th>Name</th>
-							<th>Action</th>
-		         		</tr>
-		       		</table>
-		    	</td>
-		  	</tr>
-			<tr>
-				<td>
-					<div class="teams_list">
-					<table class="teams_table">
-						<% @mm_teams.each do |mm_team| %>
-					  	<tr>
-					    	<td><%= mm_team.name %></td>
-					    	<td>
-								<%= link_to 'Edit', edit_mm_team_path(mm_team) %>
-					    		<%= link_to 'Destroy', mm_team, :confirm => 'Are you sure?', :method => :delete %>
-							</td>
-					  	</tr>
-						<% end %>
-					</table>
-					</div>
-				</td>
-			<tr>
-		</table>
-	</div>
-</div>
+  <div class="standings_container_header">March Madness Teams</div>
+  <div style="float: right; padding-bottom: 5px;">
+    <%= link_to 'New Team', new_mm_team_path %>
+  </div>
+  <div class="clear"></div>
+  <table class="teams_table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @mm_teams.each_with_index do |mm_team, index| %>
+        <tr class="<%= index.odd? ? 'odd' : 'even' %>">
+          <td><%= mm_team.name %></td>
+          <td>
+            <%= link_to 'Edit', edit_mm_team_path(mm_team) %>
+            <%= link_to 'Destroy', mm_team, :confirm => 'Are you sure?', :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <div class="clear"></div>

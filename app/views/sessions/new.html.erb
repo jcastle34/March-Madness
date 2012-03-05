@@ -1,22 +1,22 @@
-<div class="login_left_container">
-  <h2>Sign in</h2>
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <p><%= f.label :email %><br />
-      <%= f.text_field :email %></p>
+<h2>Sign in</h2>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-    <p><%= f.label :password %><br />
-      <%= f.password_field :password %></p>
+  <div class="login_field clear">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-    <% end -%>
+  <div class="login_field clear">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
 
-    <p><%= f.submit "Sign in" %></p>
-  <% end %>
+  <% if devise_mapping.rememberable? -%>
+    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+  <% end -%>
 
-  <%= render :partial => "devise/shared/links" %>
-</div>
-<div class="login_right_container">
-  <%= image_tag("silhouette.png", :border=>0, :style=>'vertical-align: top;')%>
-</div>
-<div class="clear">
+  <%= f.submit "Sign in", :class => "btn" %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+<div class="clear"></div>

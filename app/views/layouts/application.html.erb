@@ -7,25 +7,33 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div class="messages">
-      <% if notice %>
-        <div id="notice"><%= notice %></div>
-      <% end %>
-      <% if alert %>
-        <div id="alert"><%= alert %></div>
+    <div id="flash">
+      <% [:notice, :warning, :error, :alert].each do |type| %>
+        <% if flash[type] %>
+          <div class="flash_<%= type %> message">
+            <%= link_to "Close", "javascript:void(0);", :class => "hideText icon_close" %>
+            <span><%= flash[type] %></span>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
     <div id="wrapper">
       <div id="nav_container">
         <div id="nav_wrapper">
+          <div id="logo"></div>
           <% if user_signed_in?  %>
             <div id="avatar">
               <%= image_tag avatar_url(current_user) %>
             </div>
-            <ul id="main_nav">
+            <div class="current_user">
+              <p><%= current_user.full_name %></p>
+              <%= link_to "Edit Info", edit_user_registration_path, :id => "edit_user" %> |
+              <%= link_to 'Logout', destroy_user_session_path %>
+            </div>
+            <ul id="main_nav" class="clear">
               <li>
-                <%= link_to_unless_current('Home', home_index_path) do |link| %>
+                <%= link_to_unless_current('Home', root_path) do |link| %>
                   <span class="current_main_nav"><%= link %></span>
                   <span class="current_main_nav_tip"></span>
                 <% end %>
@@ -51,8 +59,6 @@
                 </li>
               <% end %>
             </ul>
-            <div class="current_user">Current User: <%= link_to current_user.full_name, edit_user_registration_path %>
-              | <%= link_to 'Logout', destroy_user_session_path  %></div>
           <% end %>
           <div class="clear"></div>
         </div>

@@ -10,6 +10,11 @@
 //= require_self
 
 $(document).ready(function() {
+    var heightFix = $(document).outerHeight();
+    $('#nav_container').css({
+        height: heightFix+"px"
+    });
+
     if ($("#draft_status_container").length > 0){
         setTimeout(updateDraftStatus, 30000);
     }
@@ -29,6 +34,16 @@ $(document).ready(function() {
             var id = $(this).data('team');
             return "/mm_teams/get_roster.js?mm_team_id=" + id;
         }
+    });
+
+    $('#flash').fadeIn('slow');
+    setTimeout(function(){
+        $('#flash').fadeOut('slow');
+    }, 5000);
+
+    $('.icon_close').click(function(){
+        $(this).parent().fadeOut();
+        return false;
     });
 
 });
