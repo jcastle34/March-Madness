@@ -3,6 +3,11 @@ $("#preferred_players_container").html("<%=raw escape_javascript(render('shared/
 
 var flashAlert = "<%=flash[:alert]%>";
 if (flashAlert){
-    $("#flash").append('<div class="flash_alert message"><a onclick="#" class="hideText icon_close">Close</a><span><%=flash[:alert]%></span></div>');
+    $('#flash').fadeIn('slow');
+    setTimeout(function(){
+        $('#flash').fadeOut('slow');
+    }, 5000);
+    
+    $("#flash").html('<div class="flash_alert message"><a onclick="javascript:void(0);" class="hideText icon_close">Close</a><span><%=flash[:alert]%></span></div>');
     $("#flash").show();
 }

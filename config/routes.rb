@@ -11,15 +11,20 @@ MarchMadness::Application.routes.draw do
   get "mm_teams/get_roster"
   get "draft/start"
   get "draft/stop"
-  get "draft/preferred_players"
-  get "draft/add_preferred_player"
-  get "draft/remove_preferred_player"
 
   resources :bracket
 
   resources :ncaa_teams
 
-  resources :mm_teams
+  resources :mm_teams do
+    member do
+      get "preferred_players", :as => "preferred_players", :action => :preferred_players
+      get "add_preferred_player", :as => "add_preferred_player", :action => :add_preferred_player
+      delete "remove_preferred_player", :as => "remove_preferred_player", :action => :remove_preferred_player
+      get "get_preferred_players_by_round", :as => "get_preferred_players_by_round", :action => :get_preferred_players_by_round
+      get "get_eligible_players_by_round", :as => "get_eligible_players_by_round", :action => :get_eligible_players_by_round
+    end
+  end
 
   resources :ncaa_players
 
