@@ -17,7 +17,7 @@ module DraftHelper
 				start_value = 1
 				end_value = 16
 		end
-		
+
 		return [start_value, end_value]
 	end
 end

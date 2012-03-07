@@ -1,30 +1,32 @@
-<div class="left_container">
-  
-  <div id="draft_status_container">
-    <%= render "draft_status" %>
-  </div>
+<div id="draft_page_container">
+    <div class="left_container">
+      <%= link_to 'My Preferred Players', preferred_players_mm_team_url(get_current_user) %>
+      <div id="draft_status_container">
+        <%= render "draft_status" %>
+      </div>
 
-  <div id="draft_board_container">
-    <%= render "draft_picks" %>
-  </div>
-  
-  <div id="mm_team_roster_container">
-  </div>
+      <div id="draft_board_container">
+        <%= render "draft_picks" %>
+      </div>
 
+      <div id="mm_team_roster_container">
+      </div>
+
+    </div>
+
+    <div class="right_container">
+        <% if !session[:mm_team_id].nil? %>
+            <%= link_to 'My Team', "#", :data => { :team => get_current_user }, :id => "my_team" %>
+        <% end %>
+      <div id="draft_players_container">
+        <%= render "shared/draft_player_list" %>
+      </div>
+
+      <div id="preferred_players_container" style="display: none;">
+        <%= render "shared/preferred_player_list" %>
+    </div>
+
+    </div>
+
+    <div class="clear"></div>
 </div>
-
-<div class="right_container">
-    <% if !session[:mm_team_id].nil? %>
-        <%= link_to 'My Team', "#", :data => { :team => session[:mm_team_id] }, :id => "my_team" %>
-    <% end %>
-  <div id="draft_players_container">
-    <%= render "draft_player_list" %>
-  </div>
-
-  <div id="preferred_players_container" style="display: none;">
-    <%= render "preferred_player_list" %>
-</div>
-
-</div>
-
-<div class="clear"></div>

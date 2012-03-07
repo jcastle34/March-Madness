@@ -1,6 +1,8 @@
 class MmTeamsController < ApplicationController
 	before_filter :user_is_admin?, :except => [:get_roster]
-	
+	include DraftHelper
+  include DraftExtension
+  
   # GET /mm_teams
   # GET /mm_teams.xml
   def index
@@ -88,6 +90,42 @@ class MmTeamsController < ApplicationController
     @roster = @mm_team.get_players
 
     render :partial => "shared/mm_team_roster"
+  end
+
+  def preferred_players
+      @mm_team = MmTeam.find params[:id]
+      @draft = Draft.find(1)
+			@draft.get_current
+      @selected_round = @draft.current_draft_pick.round
+      seed_range = get_seed_ranges_by_round @selected_round
+      @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
+			@preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+  end
+
+  def add_preferred_player
+    @mm_team = MmTeam.find(params[:id])
+    @selected_round = params[:selected_round].to_i
+    preferred_player = MmTeamPreferredPlayer.new(:mm_team_id => @mm_team.id, :ncaa_player_id => params[:ncaa_player_id])
+    preferred_player.save
+    seed_range = get_seed_ranges_by_round @selected_round
+		@ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
+    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+    flash[:notice] = "Player was successfully added to your list of preferred players."
+  rescue ActiveRecord::RecordNotUnique
+    seed_range = get_seed_ranges_by_round @selected_round
+    @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
+    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+    flash[:alert] = "This player has already been added to your preferred list."
+  end
+
+  def remove_preferred_player
+    preferred_player = MmTeamPreferredPlayer.find_by_ncaa_player_id(params[:id])
+    preferred_player.delete
+    flash[:notice] = "Player was successfully removed from your list of preferred players."
+    redirect_to :action => :preferred_players
+  rescue Exception
+    flash[:alert] = "There was a problem removing the player."
+    redirect_to :action => :preferred_players
   end
 
 end

@@ -1,0 +1,56 @@
+<div class="container">
+    Filter players allowed to be drafted for:
+    <%= select(:player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]], @selected_round), {}, html_options = {:onchange => "getEligiblePlayersByRound('#{@mm_team.id}')"})  %>
+  <% if controller.action_name != 'preferred_players' %>
+    <%= link_to 'Show Preferred Players', '#', :onclick => "$('#draft_players_container').hide(); $('#preferred_players_container').show();" %>
+  <% end %>
+</div>
+
+<div class="clear"></div>
+
+<div id="draft_players_container_header">NCAA Players</div>
+
+<div class="left_container">
+  <b>Regions</b> - <span class="<%= get_region_css_class(1) %>">E = East</span>,
+  <span class="<%= get_region_css_class(2) %>">SE = South East</span>,
+</div>
+<div class="left_container">
+  <span class="<%= get_region_css_class(3) %>">SW = South West</span>,
+  <span class="<%= get_region_css_class(4) %>">W = West</span>
+</div>
+<div class="clear"></div>
+
+<table class="draft_players_table_headers">
+  <tr>
+    <th class="seed">Seed</th>
+    <th class="name">Name</th>
+    <th class="position">Pos.</th>
+    <th class="ppg">PPG.</th>
+    <th class="school">School</th>
+    <th class="region">Region</th>
+    <th class="action"></th>
+  </tr>
+</table>
+<table id="draft_players_table">
+  <tbody>
+    <% @ncaa_players.each_with_index do |ncaa_player, index| %>
+      <tr id="<%= ncaa_player.id %>" class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
+        <td class="seed"><%= ncaa_player.ncaa_team.bracket_entry.seed %></td>
+        <td class="name"><%= ncaa_player.full_name %></td>
+        <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
+        <td class="ppg"><%= ncaa_player.ppg_avg %></td>
+        <td class="school"><%= ncaa_player.ncaa_team.school %></td>
+        <td class="region"><span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location_abbr %></span></td>
+        <% if controller.controller_name == 'mm_teams' %>
+            <td class="action">
+              <%= link_to 'Add', '#', :onclick => "addPreferredPlayer('#{ncaa_player.id}', '#{get_current_user.id}')" %>
+            </td>
+        <% else %>
+            <td class="action">
+                <%= link_to 'Draft', draft_draft_player_url(:id => ncaa_player.id) %>
+            </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
