@@ -1,5 +1,6 @@
 class MmTeamsController < ApplicationController
-	before_filter :user_is_admin?, :except => [:get_roster]
+	before_filter :user_is_admin?, :only => [:index, :edit, :new, :show, :update, :destroy]
+  before_filter :verify_owner?
 	include DraftHelper
   include DraftExtension
   
@@ -96,7 +97,7 @@ class MmTeamsController < ApplicationController
       @mm_team = MmTeam.find params[:id]
       @draft = Draft.find(1)
 			@draft.get_current
-      @selected_round = @draft.current_draft_pick.round
+      @selected_round = 1
       seed_range = get_seed_ranges_by_round @selected_round
       @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
 			@preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
@@ -122,10 +123,20 @@ class MmTeamsController < ApplicationController
     preferred_player = MmTeamPreferredPlayer.find_by_ncaa_player_id(params[:id])
     preferred_player.delete
     flash[:notice] = "Player was successfully removed from your list of preferred players."
-    redirect_to :action => :preferred_players
+    redirect_to preferred_players_mm_team_url(get_current_user)
   rescue Exception
     flash[:alert] = "There was a problem removing the player."
-    redirect_to :action => :preferred_players
+    redirect_to preferred_players_mm_team_url(get_current_user)
+  end
+
+  private
+
+  def verify_owner?
+    owner = MmTeam.find_by_id_and_user_id(params[:id], get_current_user)
+    if(owner.nil?)
+      flash[:alert] = "Invalid Access!"
+      redirect_to(home_index_url)
+    end
   end
 
 end

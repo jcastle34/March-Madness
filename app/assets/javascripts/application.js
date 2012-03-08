@@ -41,7 +41,7 @@ $(document).ready(function() {
         $('#flash').fadeOut('slow');
     }, 5000);
 
-    $('.icon_close').click(function(){
+    $('.icon_close').live('click', function(){
         $(this).parent().fadeOut();
         return false;
     });
@@ -93,6 +93,21 @@ function getScoringDetails(player_id)
 {
     $.getScript("/home/player_scoring_details.js?player_id=" + player_id);
 }
+
+function showPreferredPlayers() {
+    id = $("#player_selected_round").val();
+    $.getScript("/draft/get_preferred_players_by_round.js?selected_round=" + id);
+    $('#draft_players_container').hide();
+    $('#preferred_players_container').show();
+}
+
+function showEligiblePlayers() {
+    id = $("#preferred_player_selected_round").val();
+    $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
+    $('#preferred_players_container').hide();
+    $('#draft_players_container').show();
+}
+
 
 
 
