@@ -4,6 +4,17 @@
       <div id="draft_status_container">
         <%= render "draft_status" %>
       </div>
+        <div id="mm_team_draft_picks">
+          <ul style="list-style-type: none;">
+            <li style="float: left; padding: 5px;"><div class="label">My Draft Picks</div></li>
+            <% @my_draft_picks.each do |dp| %>
+                <li style="float: left; padding: 5px;">
+                  <div>Rd <%= dp.round %></div><hr/><div>Pick <%= @draft.total_teams - ((@draft.total_teams * dp.round) - dp.overall_pick) %></div>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+      <div class="clear"></div>
 
       <div id="draft_board_container">
         <%= render "draft_picks" %>

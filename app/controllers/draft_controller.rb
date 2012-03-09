@@ -14,6 +14,7 @@ class DraftController < ApplicationController
       @mm_team = MmTeam.find(get_current_user)
       @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id)
       get_roster_for_current_user
+      @my_draft_picks = DraftPick.where("mm_team_id = ?", get_current_user)
 	end
 
 	def get_current_draft_status 

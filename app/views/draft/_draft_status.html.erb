@@ -1,13 +1,14 @@
-	
+
 <div class="label">Current Round: </div> <div id="current_round"><%= @draft.current_draft_pick.round %></div>
-<div class="label">Current Overall Pick: </div> <div id="current_pick"><%= @draft.current_draft_pick.overall_pick <= 120 ? @draft.current_draft_pick.overall_pick : 'NONE' %></div>	
-<hr/>	
+<div class="label">Current Overall Pick: </div> <div id="current_pick"><%= @draft.current_draft_pick.overall_pick <= 120 ? @draft.current_draft_pick.overall_pick : 'NONE' %></div>
+<br/>
 <span style="display: none;" id="last_player_drafted_id"><%= @draft.last_player_drafted.nil? ? '' : @draft.last_player_drafted.ncaa_player.id %></span>
 <div class="label">Last Player Drafted:</div> <div id="player_drafted"><%= @draft.last_player_drafted.nil? ? 'TBD' : @draft.last_player_drafted.ncaa_player.full_name + ', ' + @draft.last_player_drafted.ncaa_player.position + ', ' + @draft.last_player_drafted.ncaa_player.ncaa_team.school %></div>
-<hr/>	
+<br/>
 <div class="label">Drafted Position Totals: </div>
 <% @draft.position_counts.each_with_index do |pick, index| %>
   <div class="label"><span class="<%=  get_position_css_class pick.position %>"><%= pick.position %></span> -</div><div><%= pick.total %></div>
 <% end %>
+
 
 

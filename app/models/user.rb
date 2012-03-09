@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    self.first_name + " " + self.last_name
+    if self.first_name.nil? || self.last_name.nil?
+      ""
+    else
+      self.first_name + " " + self.last_name
+    end
   end
 end

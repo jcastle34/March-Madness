@@ -13,8 +13,8 @@ padding: 5px; }
 
 .draftpicks_table_headers {
     width: 100%;
-    border-top: 1px solid #E5E5E5;
-    border-bottom: 1px solid #E5E5E5;
+    border-top: 2px solid #a3a3a3;
+    border-bottom: 2px solid #a3a3a3;
     /*background-color: #2E4764;*/
     th {
         padding: 10px 0;
@@ -93,6 +93,7 @@ tbody tr {
 #draft_status_container {
     padding: 5px;
     margin: 0px 0px 10px 0px;
+    background: #fff;
     div {
         display: inline;
         padding: 3px;
@@ -100,6 +101,16 @@ tbody tr {
             font-weight: bold;
         }
     }
+}
+
+#draft_status_container_header {
+    padding: 2px 0px;
+    margin: 0 0 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: #242424;
+    text-shadow: 0 1px #FFF;
 }
 
 .my_team_container {
@@ -189,7 +200,7 @@ div.my_team_list {
 
 #draft_players_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0 0 15px;
+    margin: 0 0 5px;
     font-size: 20px;
     font-weight: bold;
     text-align: left;
@@ -204,13 +215,13 @@ div.draft_players_list {
 
 .draft_players_table_headers {
     width: 100%;
-    border-top: 1px solid #E5E5E5;
-    border-bottom: 1px solid #E5E5E5;
+    border-top: 2px solid #a3a3a3;
+    border-bottom: 2px solid #a3a3a3;
     background: #F9F9F9;
     th {
         padding: 10px 0;
         font-size: 10px;
-        font-weight: normal;
+        font-weight: bold;
         text-transform: uppercase;
         &.seed {
             width: 10%;
@@ -264,7 +275,7 @@ div.draft_players_list {
 
 #preferred_players_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0 0 15px;
+    margin: 0 0 5px;
     font-size: 20px;
     font-weight: bold;
     text-align: left;
@@ -348,4 +359,8 @@ div.regions_container {
 .southwest_region {
     color: green;
     padding: 2px;
+}
+
+#mm_team_draft_picks {
+    background: #fff;
 }
