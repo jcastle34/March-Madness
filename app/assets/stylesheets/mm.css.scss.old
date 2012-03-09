@@ -151,7 +151,7 @@ textarea {
 #nav_container {
     display: block;
     width: 15%;
-    background: asset-url("bball_floor_vertical.jpg", image) 0 0 no-repeat;
+    background: asset-url("bball_floor.jpg", image) 0 0 repeat;
     border-right: 1px solid #d56d0d;
     float: left;
     height: 100%;
@@ -194,29 +194,20 @@ textarea {
         display: block;
     }
     a {
-        background: asset-url("bball_texture.jpg", image) 0 0 repeat;
-        border-top: 2px solid #000;
-        border-bottom: 2px solid #000;
-        border-right: 1px solid #000;
+        background: #e48822;
+        border-top: 1px solid #ffb35f;
+        border-bottom: 1px solid #d56d0d;
         display: block;
         color: #FFF;
     }
-    a:hover {
-        background: #000;
-        opacity: 0.8;
-        border-top: 2px solid #5d5d5d;
-        border-bottom: 2px solid #5d5d5d;
-        color: #FFF;
-    }
-    span.current_main_nav {
-        background: #000;
+    span.current_main_nav, a:hover {
+        background: #56453f;
         border-top: 1px solid #5d5d5d;
-        border-bottom: 1px solid #5d5d5d;
+        border-bottom: 1px solid #3a3a3a;
         color: #FFF;
     }
-
     span.current_main_nav_tip {
-        background: asset-url("menu_active.png", image) 0 0 no-repeat;
+        background: asset-url("menu_active_orange.png", image) 0 0 no-repeat;
         position: absolute;
         z-index: 10;
         right: -26px;
@@ -235,12 +226,13 @@ textarea {
     padding: 2px 10px 3px 10px;
     p {
         font-size: 14px;
-        color: #FFF;
-        text-shadow: 0 2px #000;
+        color: #662206;
+        text-shadow: 0 1px #ff6e33;
     }
     a {
         font-size: 10px;
-        color: #000;
+        color: #662206;
+        text-shadow: 0 1px #ff6e33;
         text-decoration: underline;
         &:hover {
             text-decoration: none;

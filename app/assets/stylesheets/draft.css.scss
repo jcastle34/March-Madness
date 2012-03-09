@@ -193,7 +193,7 @@ div.my_team_list {
     font-size: 20px;
     font-weight: bold;
     text-align: left;
-    color: #999;
+    color: #000;
 }
 
 div.draft_players_list {
@@ -268,7 +268,7 @@ div.draft_players_list {
     font-size: 20px;
     font-weight: bold;
     text-align: left;
-    color: #999;
+    color: #000;
 }
 
 .preferred_players_table_headers {
@@ -326,18 +326,26 @@ div.draft_players_list {
     }
 }
 
+div.regions_container {
+    padding: 5px;
+}
+
 .east_region {
     color: blue;
+    padding: 2px;
 }
 
 .west_region {
     color: red;
+    padding: 2px;
 }
 
 .southeast_region {
     color: purple;
+    padding: 2px;
 }
 
 .southwest_region {
     color: green;
+    padding: 2px;
 }
