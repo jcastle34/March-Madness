@@ -1,6 +1,6 @@
 <div id="draft_page_container">
     <div class="left_container">
-      <%= link_to 'My Preferred Players', preferred_players_mm_team_url(get_current_user) %>
+      <%= link_to 'My Preferred Players', preferred_players_mm_team_url(get_team_for_current_user) %>
       <div id="draft_status_container">
         <%= render "draft_status" %>
       </div>
@@ -27,7 +27,7 @@
 
     <div class="right_container">
         <% if !session[:mm_team_id].nil? %>
-            <%= link_to 'My Team', "#", :data => { :team => get_current_user }, :id => "my_team" %>
+            <%= link_to 'My Team', "#", :data => { :team => get_team_for_current_user }, :id => "my_team" %>
         <% end %>
       <div id="draft_players_container">
         <%= render "shared/draft_player_list" %>

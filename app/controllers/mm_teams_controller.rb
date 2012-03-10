@@ -111,6 +111,7 @@ class MmTeamsController < ApplicationController
     seed_range = get_seed_ranges_by_round @selected_round
 		@ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
     @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+    flash[:alert] = ""
     flash[:notice] = "Player was successfully added to your list of preferred players."
   rescue ActiveRecord::RecordNotUnique
     seed_range = get_seed_ranges_by_round @selected_round
@@ -120,19 +121,24 @@ class MmTeamsController < ApplicationController
   end
 
   def remove_preferred_player
-    preferred_player = MmTeamPreferredPlayer.find_by_ncaa_player_id(params[:id])
-    preferred_player.delete
-    flash[:notice] = "Player was successfully removed from your list of preferred players."
-    redirect_to preferred_players_mm_team_url(get_current_user)
-  rescue Exception
+    @mm_team = MmTeam.find(params[:id])
+    @selected_round = params[:selected_round].to_i
+    preferred_player = MmTeamPreferredPlayer.find_by_mm_team_id_and_ncaa_player_id(params[:id], params[:ncaa_player_id])
+    preferred_player.destroy
+    seed_range = get_seed_ranges_by_round @selected_round
+    @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
+    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+  rescue Exception => e
+    seed_range = get_seed_ranges_by_round @selected_round
+    @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
+    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
     flash[:alert] = "There was a problem removing the player."
-    redirect_to preferred_players_mm_team_url(get_current_user)
   end
 
   private
 
   def verify_owner?
-    owner = MmTeam.find_by_id_and_user_id(params[:id], get_current_user)
+    owner = MmTeam.find_by_id_and_user_id(params[:id], get_team_for_current_user)
     if(owner.nil?)
       flash[:alert] = "Invalid Access!"
       redirect_to(home_index_url)

@@ -11,10 +11,10 @@ class DraftController < ApplicationController
 			@selected_round = @draft.current_draft_pick.round
 			seed_range = get_seed_ranges_by_round @selected_round
 			@ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
-      @mm_team = MmTeam.find(get_current_user)
+      @mm_team = MmTeam.find(get_team_for_current_user)
       @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id)
       get_roster_for_current_user
-      @my_draft_picks = DraftPick.where("mm_team_id = ?", get_current_user)
+      @my_draft_picks = DraftPick.where("mm_team_id = ?", get_team_for_current_user)
 	end
 
 	def get_current_draft_status 
@@ -67,8 +67,8 @@ class DraftController < ApplicationController
 	private
 	
     def get_roster_for_current_user
-      if !get_current_user.nil?
-        mm_team = get_current_user
+      if !get_team_for_current_user.nil?
+        mm_team = get_team_for_current_user
         @my_roster = mm_team.get_players
       end
     end

@@ -1,4 +1,24 @@
 <div id="bracket_container">
-  <%= image_tag "2011_bracket.jpg", :alt => "" %>
+  <% if current_user.is_admin? %>
+        <%= form_tag(bracket_update_region_path, :method => "post") do %>
+        <% @bracket_entries.each do |entry|  %>
+            <% if entry.region.id == 4 %>
+                <% if entry.seed == 1 %>
+                    <div class="bracket_list">
+                    <div><%= entry.region.location %></div>
+                        <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+                <% elsif entry.seed == 16 %>
+                      <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+                    </div>
+                <% else %>
+                    <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <%= submit_tag 'Save' %>
+        <% end %>
+    <% else %>
+        <%= image_tag "2011_bracket.jpg", :alt => "" %>
+    <% end %>
 </div>
 

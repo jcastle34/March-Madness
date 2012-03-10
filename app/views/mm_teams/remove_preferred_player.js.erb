@@ -7,8 +7,7 @@ if (flashAlert){
     setTimeout(function(){
         $('#flash').fadeOut('slow');
     }, 5000);
-    
+
     $("#flash").html('<div class="flash_alert message"><a onclick="javascript:void(0);" class="hideText icon_close">Close</a><span><%=flash[:alert]%></span></div>');
     $("#flash").show();
 }
-

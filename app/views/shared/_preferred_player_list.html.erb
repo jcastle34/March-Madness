@@ -42,7 +42,7 @@
         <td class="region"><span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location_abbr %></span></td>
         <% if controller.controller_name == 'mm_teams' %>
             <td class="action">
-              <%= link_to 'Remove', remove_preferred_player_mm_team_url(:id => ncaa_player.id), :method => :delete %>
+              <%= link_to 'Remove', '#', :onclick => "removePreferredPlayer('#{ncaa_player.id}', '#{get_team_for_current_user.id}')" %>
             </td>
         <% else %>
             <td class="action">

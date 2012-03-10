@@ -84,6 +84,11 @@ function addPreferredPlayer(player_id, mm_team_id) {
     $.getScript("/mm_teams/" + mm_team_id + "/add_preferred_player.js?ncaa_player_id=" + player_id + "&selected_round=" + id);
 }
 
+function removePreferredPlayer(player_id, mm_team_id) {
+    id = $("#preferred_player_selected_round").val();
+    $.getScript("/mm_teams/" + mm_team_id + "/remove_preferred_player.js?ncaa_player_id=" + player_id + "&selected_round=" + id);
+}
+
 function getNcaaPlayersByTeam() {
     id = $("#ncaa_player_ncaa_team_id").val();
     $.getScript("/ncaa_players/get_by_ncaa_team.js?ncaa_team_id=" + id);
