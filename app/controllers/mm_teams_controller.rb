@@ -1,6 +1,6 @@
 class MmTeamsController < ApplicationController
 	before_filter :user_is_admin?, :only => [:index, :edit, :new, :show, :update, :destroy]
-  before_filter :verify_owner?
+  before_filter :verify_owner?, :except => :get_roster
 	include DraftHelper
   include DraftExtension
   
@@ -138,7 +138,7 @@ class MmTeamsController < ApplicationController
   private
 
   def verify_owner?
-    owner = MmTeam.find_by_id_and_user_id(params[:id], get_team_for_current_user)
+    owner = MmTeam.find_by_id_and_user_id(params[:id], get_team_for_current_user.id)
     if(owner.nil?)
       flash[:alert] = "Invalid Access!"
       redirect_to(home_index_url)

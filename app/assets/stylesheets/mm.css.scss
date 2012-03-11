@@ -151,7 +151,7 @@ textarea {
 #nav_container {
     display: block;
     width: 15%;
-    background: asset-url("bball_floor_vertical.jpg", image) 0 0 no-repeat;
+    background: asset-url("bball_floor_vertical.jpg", image) -40px 0 no-repeat;
     border-right: 1px solid #d56d0d;
     float: left;
     height: 100%;
@@ -201,8 +201,8 @@ textarea {
         color: #FFF;
     }
     a:hover {
-        background: #000;
-        opacity: 0.8;
+        background: asset-url("bball_texture_dark.jpg", image) 0 0 repeat;
+        /*opacity: 0.8;*/
         border-top: 2px solid #5d5d5d;
         border-bottom: 2px solid #5d5d5d;
         color: #FFF;
@@ -302,6 +302,7 @@ textarea {
     display: block;
     width: 84%;
     float: left;
+    height: 855px;
 }
 
 .left_container, .right_container {
@@ -309,10 +310,11 @@ textarea {
     margin: 0px;
     padding: 1% 3%;
     width: 44%;
+    height: 100%;
 }
 
 .left_container {
-    background: #eee;
+    background: #f9f9f9;
 }
 
 .right_container {

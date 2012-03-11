@@ -93,7 +93,8 @@ tbody tr {
 #draft_status_container {
     padding: 5px;
     margin: 0px 0px 10px 0px;
-    background: #fff;
+    background: #F9F9F9;
+    color: #000;
     div {
         display: inline;
         padding: 3px;
@@ -111,6 +112,25 @@ tbody tr {
     text-align: left;
     color: #242424;
     text-shadow: 0 1px #FFF;
+}
+
+div #mm_team_draft_picks {
+    div {
+        display: inline;
+        padding: 3px;
+        &.label {
+            font-weight: bold;
+        }
+    }
+    ul {
+        list-style-type: none;
+
+        li {
+            float: left; padding: 4px;
+            background: #F9F9F9;
+            color: #000;
+        }
+    }
 }
 
 .my_team_container {
@@ -273,6 +293,11 @@ div.draft_players_list {
     }
 }
 
+#preferred_players_container {
+    padding: 5px;
+    height: 100%;
+}
+
 #preferred_players_container_header {
     padding: 2px 0px 2px 0px;
     margin: 0 0 5px;
@@ -359,8 +384,4 @@ div.regions_container {
 .southwest_region {
     color: green;
     padding: 2px;
-}
-
-#mm_team_draft_picks {
-    background: #fff;
 }
