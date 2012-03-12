@@ -136,14 +136,38 @@ textarea {
     -ms-transition: 0.1s linear all;
     -o-transition: 0.1s linear all;
     transition: 0.1s linear all;
-}
-.btn:hover {
-    background-position: 0 -15px;
-    color: #333;
-    text-decoration: none;
-}
-.btn:focus {
-    outline: 1px dotted #666;
+
+    &:hover {
+        background-position: 0 -15px;
+        color: #333;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: 1px dotted #666;
+    }
+    &.left {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        margin-right: 0;
+    }
+    &.middle{
+        border-left-color: #F4F4F4;
+        border-radius: 0 0 0 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    &.right {
+        border-bottom-left-radius: 0;
+        border-left-color: #F4F4F4;
+        border-top-left-radius: 0;
+        margin-left: 0;
+    }
+    &.on{
+        border-color: #BBBBBB;
+        box-shadow: 0 0 10px #D4D4D4 inset;
+        background: #EEE;
+        color: #999;
+    }
 }
 
 /* Navigation Styles*/
@@ -151,14 +175,8 @@ textarea {
 #nav_container {
     display: block;
     width: 15%;
-    background: asset-url("bball_floor_vertical.jpg", image) -40px 0 no-repeat;
-    border-right: 1px solid #d56d0d;
+    background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
     float: left;
-    height: 100%;
-}
-
-#nav_wrapper {
-    display: block;
     height: 100%;
 }
 
@@ -180,8 +198,8 @@ textarea {
 
 #main_nav {
     display: block;
-    border-top: 1px solid #d56d0d;
-    border-bottom: 1px solid #ffb35f;
+    border-top: 1px solid #bc3218;
+    border-bottom: 1px solid #ff755b;
     li {
         list-style-type: none;
         position: relative;
@@ -195,16 +213,16 @@ textarea {
     }
     a {
         background: asset-url("bball_texture.jpg", image) 0 0 repeat;
-        border-top: 2px solid #000;
-        border-bottom: 2px solid #000;
+        border-top: 1px solid #ff755b;
+        border-bottom: 1px solid #bc3218;
         display: block;
         color: #FFF;
     }
     a:hover {
         background: asset-url("bball_texture_dark.jpg", image) 0 0 repeat;
         /*opacity: 0.8;*/
-        border-top: 2px solid #5d5d5d;
-        border-bottom: 2px solid #5d5d5d;
+        border-top: 1px solid #5d5d5d;
+        border-bottom: 1px solid #5d5d5d;
         color: #FFF;
     }
     span.current_main_nav {
@@ -239,7 +257,7 @@ textarea {
     }
     a {
         font-size: 11px;
-        color: #3E00FF;
+        color: #56453F;
         text-decoration: underline;
         &:hover {
             text-decoration: none;
@@ -300,7 +318,7 @@ textarea {
 #main_container {
     position: relative;
     display: block;
-    width: 84%;
+    width: 85%;
     float: left;
     height: 855px;
 }
@@ -489,4 +507,37 @@ div {
     text-indent: -2000px;
     font-size: 0em;
     overflow: hidden;
+}
+
+.float-right{
+    float: right !important;
+}
+
+.float-left{
+    float: left !important;
+}
+
+.blue{
+    background: #4C8FFD !important;
+    color: #FFF !important;
+}
+
+.clearfix {
+    &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
 }

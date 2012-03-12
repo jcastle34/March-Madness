@@ -1,39 +1,58 @@
 <div id="draft_page_container">
-    <div class="left_container">
-      <div id="draft_status_container">
-        <%= render "draft_status" %>
-      </div>
-        <div id="mm_team_draft_picks">
-          <div class="label">My Draft Picks:</div>
-          <ul>
-            <% @my_draft_picks.each do |dp| %>
-                <li>
-                  <div class="label">Rd <%= dp.round %>:</div><div>Pick <%= @draft.total_teams - ((@draft.total_teams * dp.round) - dp.overall_pick) %></div>
-                </li>
-            <% end %>
-          </ul>
-        </div>
-      <div class="clear"></div>
 
-      <div id="draft_board_container">
-        <%= render "draft_picks" %>
-      </div>
+  <div class="draft_menu">
+    <% if !session[:mm_team_id].nil? %>
+      <%= link_to 'Manage Draft', draft_index_path, :class=> "btn left float-left on" %>
+      <%= link_to 'Manage Preferred Players', preferred_players_mm_team_url(get_team_for_current_user), :class=> "btn right float-left" %>
+    <% end %>
 
-      <div id="mm_team_roster_container">
-      </div>
+    <%= link_to 'My Team', "#", :data => { :team => get_team_for_current_user.id }, :id => "my_team", :class => "btn float-left blue" %>
 
-    </div>
-
-    <div class="right_container">
-      <div id="draft_players_container">
-        <%= render "shared/draft_player_list" %>
-      </div>
-
-      <div id="preferred_players_container" style="display: none;">
-        <%= render "shared/preferred_player_list" %>
-    </div>
-
-    </div>
+    <%= link_to 'Show Preferred Players', '#', :onclick => "showPreferredPlayers()", :id => "show_preferred_players", :class => "btn right float-right" %>
+    <%= link_to 'Show All Players', '#', :onclick => "showEligiblePlayers()", :id => "show_all_players", :class => "btn left float-right on" %>
 
     <div class="clear"></div>
+  </div>
+
+  <div class="sub_draft_menu clearfix">
+    <div id="draft_status_container">
+      <%= render "draft_status" %>
+    </div>
+    <div id="mm_team_draft_picks">
+      <div class="label">My Draft Picks:</div>
+      <ul>
+        <% @my_draft_picks.each do |dp| %>
+          <li>
+            <div class="label">Rd <%= dp.round %>:
+              <span><%= @draft.total_teams - ((@draft.total_teams * dp.round) - dp.overall_pick) %> picks</span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="left_container">
+    <div id="draft_board_container">
+      <%= render "draft_picks" %>
+    </div>
+
+    <div id="mm_team_roster_container">
+    </div>
+
+  </div>
+
+  <div class="right_container">
+    <div id="draft_players_container">
+      <%= render "shared/draft_player_list" %>
+    </div>
+
+    <div id="preferred_players_container" style="display: none;">
+      <%= render "shared/preferred_player_list" %>
+    </div>
+
+  </div>
+
+  <div class="clear"></div>
 </div>

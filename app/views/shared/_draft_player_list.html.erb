@@ -1,11 +1,10 @@
+
+
 <div id="draft_players_container_header">NCAA Players</div>
 
 <div class="container">
-    Filter players allowed to be drafted for:
-    <%= select(:player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]], @selected_round), {}, html_options = {:onchange => "getEligiblePlayersByRound('#{@mm_team.id}')"})  %>
-  <% if controller.controller_name == 'draft' %>
-    <%= link_to 'Show Preferred Players', '#', :onclick => "showPreferredPlayers()" %>
-  <% end %>
+  Filter players allowed to be drafted for:
+  <%= select(:player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]], @selected_round), {}, html_options = {:onchange => "getEligiblePlayersByRound('#{@mm_team.id}')"})  %>
 </div>
 
 <div class="clear"></div>
@@ -40,13 +39,13 @@
         <td class="school"><%= ncaa_player.ncaa_team.school %></td>
         <td class="region"><span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location_abbr %></span></td>
         <% if controller.controller_name == 'mm_teams' %>
-            <td class="action">
-              <%= link_to 'Add', '#', :onclick => "addPreferredPlayer('#{ncaa_player.id}', '#{get_team_for_current_user.id}')" %>
-            </td>
+          <td class="action">
+            <%= link_to 'Add', '#', :onclick => "addPreferredPlayer('#{ncaa_player.id}', '#{get_team_for_current_user.id}')" %>
+          </td>
         <% else %>
-            <td class="action">
-                <%= link_to 'Draft', draft_draft_player_url(:id => ncaa_player.id) %>
-            </td>
+          <td class="action">
+            <%= link_to 'Draft', draft_draft_player_url(:id => ncaa_player.id) %>
+          </td>
         <% end %>
       </tr>
     <% end %>

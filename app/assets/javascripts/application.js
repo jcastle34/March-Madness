@@ -104,6 +104,7 @@ function showPreferredPlayers() {
     $.getScript("/draft/get_preferred_players_by_round.js?selected_round=" + id);
     $('#draft_players_container').hide();
     $('#preferred_players_container').show();
+    $('#show_preferred_players').addClass('on').next().removeClass('on');
 }
 
 function showEligiblePlayers() {
@@ -111,6 +112,7 @@ function showEligiblePlayers() {
     $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
     $('#preferred_players_container').hide();
     $('#draft_players_container').show();
+    $('#show_all_players').addClass('on').prev().removeClass('on');
 }
 
 
