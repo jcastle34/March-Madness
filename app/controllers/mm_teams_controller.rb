@@ -1,6 +1,6 @@
 class MmTeamsController < ApplicationController
 	before_filter :user_is_admin?, :only => [:index, :edit, :new, :show, :update, :destroy]
-  before_filter :verify_owner?, :except => :get_roster
+  before_filter :verify_owner?, :only => [:preferred_players, :add_preferred_player, :remove_preferred_player]
 	include DraftHelper
   include DraftExtension
   
@@ -141,7 +141,7 @@ class MmTeamsController < ApplicationController
     owner = MmTeam.find_by_id_and_user_id(params[:id], get_team_for_current_user.id)
     if(owner.nil?)
       flash[:alert] = "Invalid Access!"
-      redirect_to(home_index_url)
+      redirect_to(root_path)
     end
   end
 

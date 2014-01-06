@@ -12,13 +12,13 @@ class ApplicationController < ActionController::Base
 		def user_is_admin?
 			unless current_user.is_admin?
 			    flash[:alert] = "Unauthorized Access"
-			    redirect_to home_index_path
+			    redirect_to root_path
 			    false
 			  end
     end
 
     def get_team_for_current_user
-      MmTeam.find session['mm_team_id']
+        MmTeam.find session['mm_team_id']
     end
   
 end

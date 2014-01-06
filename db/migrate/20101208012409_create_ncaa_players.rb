@@ -4,7 +4,7 @@ class CreateNcaaPlayers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.integer :ncaa_team_id
-      t.decimal :ppg_avg
+      t.decimal :ppg_avg, :precision => 10, :scale => 1
       t.string :position
       t.timestamps
     end

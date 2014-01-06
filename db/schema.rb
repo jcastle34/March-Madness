@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.integer  "region_id"
     t.integer  "year"
     t.integer  "round"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "draft_picks", :force => true do |t|
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.integer  "round"
     t.integer  "ncaa_player_id"
     t.integer  "mm_team_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "draft_id"
   end
 
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
   create_table "drafts", :force => true do |t|
     t.integer  "total_rounds"
     t.integer  "total_teams"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "mm_team_preferred_players", :force => true do |t|
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.string   "name"
     t.integer  "user_id"
     t.integer  "year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "ncaa_players", :force => true do |t|
@@ -65,16 +65,16 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.integer  "ncaa_team_id"
     t.decimal  "ppg_avg",      :precision => 10, :scale => 1
     t.string   "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "ncaa_teams", :force => true do |t|
     t.string   "school"
     t.string   "nickname"
     t.integer  "is_active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "web_id"
   end
 
@@ -82,34 +82,29 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.integer  "ncaa_player_id"
     t.integer  "round"
     t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "regions", :force => true do |t|
     t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string "name", :limit => 20, :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                         :default => "", :null => false
     t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "reset_password_sent_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "is_admin",                              :default => 0,  :null => false

@@ -11,16 +11,15 @@ class Draft < ActiveRecord::Base
 	@@round_5_seed_range = (13..16)
 
   def get_current
-  	@current_draft_pick = DraftPick.get_current_draft_pick
-		if @current_draft_pick.nil?
+		if @current_draft_pick.nil? && DraftPick.all.length > 0
 			@current_draft_pick = DraftPick.last
       # Need to set the draft status to complete
       @current_draft_pick.overall_pick += 1
+
+      @position_counts = DraftPick.get_position_count
+      @current_round_draft_picks = DraftPick.where(:round => @current_draft_pick.round)
+      @last_player_drafted = DraftPick.where("ncaa_player_id > 0").last
 		end
-		
-    @position_counts = DraftPick.get_position_count
-    @current_round_draft_picks = DraftPick.where(:round => @current_draft_pick.round)
-    @last_player_drafted = DraftPick.where("ncaa_player_id > 0").last
   end
 
 	def draft_player player_id
@@ -81,7 +80,11 @@ class Draft < ActiveRecord::Base
 		end
 		
 		return overall_pick
-	end
+  end
+
+  def self.configured?
+    Draft.exists?(1) && DraftPick.find(:all).count
+  end
 	
 	private
 	

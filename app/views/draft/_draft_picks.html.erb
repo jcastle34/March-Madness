@@ -17,9 +17,11 @@
       <td class="pick"><%= pick.overall_pick %></td>
       <td class="mm_team">
         <%= pick.mm_team.name %>
-        ( <% pick.mm_team.get_players.each do |player| %>
-          <span class='<%= get_position_css_class player.position %>'><%= player.position.first %></span>
-        <% end %> )
+        <% if(pick.mm_team.get_players.length > 0) %>
+            ( <% pick.mm_team.get_players.each do |player| %>
+              <span class='<%= get_position_css_class player.position %>'><%= player.position.first %></span>
+            <% end %> )
+        <% end %>
       </td>
       <td class="player"><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.first_name + " " + pick.ncaa_player.last_name %></td>
       <td><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.position %></td>

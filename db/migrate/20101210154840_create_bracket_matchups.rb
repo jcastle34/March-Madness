@@ -1,6 +1,6 @@
 class CreateBracketMatchups < ActiveRecord::Migration
   def self.up
-    create_table :bracket_matchups do |t|
+    create_table :bracket_entries do |t|
       t.integer :ncaa_team_id
       t.integer :seed
       t.integer :region_id
@@ -11,6 +11,6 @@ class CreateBracketMatchups < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :bracket_matchups
+    drop_table :bracket_entries
   end
 end
