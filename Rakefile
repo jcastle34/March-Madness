@@ -5,3 +5,7 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 MarchMadness::Application.load_tasks
+
+task :mysql_start do
+  system '/usr/local/bin/mysqld_safe'
+end
