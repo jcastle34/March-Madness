@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 # Create the Draft
-#Draft.create(:total_rounds => 6, :total_teams => 20)
+Draft.create(:total_rounds => 6, :total_teams => 20)
 
 # Create MM Teams
 MmTeam.create(:name => 'Team 1', :year => Time.new.year)
@@ -32,8 +32,8 @@ MmTeam.create(:name => 'Team 19', :year => Time.new.year)
 MmTeam.create(:name => 'Team 20', :year => Time.new.year)
 
 ## Create the Regions
-#Region.create(:location => 'East')
-#Region.create(:location => 'Midwest')
-#Region.create(:location => 'South')
-#Region.create(:location => 'West')
+Region.create(:location => 'East')
+Region.create(:location => 'Midwest')
+Region.create(:location => 'South')
+Region.create(:location => 'West')
 

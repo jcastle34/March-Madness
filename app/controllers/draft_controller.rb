@@ -22,12 +22,12 @@ class DraftController < ApplicationController
         redirect_to root_path
       end
     else
-      flash[:alert] = "The draft does not exist yet."
+      flash[:alert] = "The draft does is not setup yet."
       redirect_to root_path
     end
 	end
 
-	def get_current_draft_status 
+	def get_current_draft_status
 			@draft = Draft.find(1)
 			@draft.get_current
 			previous_pick = params[:previous_pick].to_i

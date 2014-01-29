@@ -24,7 +24,7 @@
         <% @my_draft_picks.each do |dp| %>
           <li>
             <div class="label">Rd <%= dp.round %>:
-              <span><%= @draft.total_teams - ((@draft.total_teams * dp.round) - dp.overall_pick) %> picks</span>
+              <span><%= (MmTeam.all.size - ((MmTeam.all.size * dp.round) - dp.overall_pick)).ordinalize %> pick</span>
             </div>
           </li>
         <% end %>

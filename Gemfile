@@ -8,6 +8,10 @@ gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'capistrano'
 gem 'jquery-rails'
+gem 'sqlite3'
+gem 'rspec-core'
+gem 'rspec-rails'
+gem 'mocha', :require => false
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

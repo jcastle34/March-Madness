@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303042709) do
+ActiveRecord::Schema.define(:version => 20140128141904) do
 
   create_table "bracket_entries", :force => true do |t|
     t.integer  "ncaa_team_id"
@@ -63,10 +63,11 @@ ActiveRecord::Schema.define(:version => 20120303042709) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "ncaa_team_id"
-    t.decimal  "ppg_avg",      :precision => 10, :scale => 1
+    t.decimal  "ppg_avg",       :precision => 10, :scale => 1
     t.string   "position"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "jersey_number"
   end
 
   create_table "ncaa_teams", :force => true do |t|
