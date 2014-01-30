@@ -9,6 +9,7 @@ MarchMadness::Application.routes.draw do
   get "draft/get_preferred_players_by_round"
   get "home/player_scoring_details"
   get "mm_teams/get_roster"
+  get "mm_teams/rosters"
   get "draft/start"
   get "draft/stop"
   post "bracket/update_region"

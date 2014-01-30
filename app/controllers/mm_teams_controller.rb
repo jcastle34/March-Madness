@@ -135,6 +135,10 @@ class MmTeamsController < ApplicationController
     flash[:alert] = "There was a problem removing the player."
   end
 
+  def rosters
+    @players = MmTeam.get_rosters
+  end
+
   private
 
   def verify_owner?

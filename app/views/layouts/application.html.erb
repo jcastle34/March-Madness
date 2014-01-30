@@ -50,6 +50,12 @@
                   <span class="current_main_nav_tip"></span>
                 <% end %>
               </li>
+              <li>
+                <%= link_to_unless_current('MM Rosters', mm_teams_rosters_path) do |link| %>
+                    <span class="current_main_nav"><%= link %></span>
+                    <span class="current_main_nav_tip"></span>
+                <% end %>
+              </li>
               <% if current_user.is_admin? %>
                 <li>
                   <%= link_to_unless_current('Admin', admin_index_path) do |link| %>

@@ -22,7 +22,7 @@ class DraftController < ApplicationController
         redirect_to root_path
       end
     else
-      flash[:alert] = "The draft does is not setup yet."
+      flash[:alert] = "The draft is not setup yet."
       redirect_to root_path
     end
 	end

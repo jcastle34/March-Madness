@@ -9,4 +9,10 @@ class MmTeam < ActiveRecord::Base
 left outer join player_scorings ps on ps.ncaa_player_id = ncaa_players.id').where('dp.mm_team_id = ?', self.id).group('ncaa_players.id')
   end
 
+  def self.get_rosters
+    @ncaa_players = NcaaPlayer.joins('inner join draft_picks dp on dp.ncaa_player_id = ncaa_players.id
+left outer join player_scorings ps on ps.ncaa_player_id = ncaa_players.id
+inner join mm_teams mt on mt.id = dp.mm_team_id').order('dp.mm_team_id')
+  end
+
 end
