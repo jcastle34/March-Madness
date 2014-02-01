@@ -12,7 +12,7 @@ class SessionsController < Devise::SessionsController
     if !mm_team.nil?
       session['mm_team_id'] = mm_team.id
     else
-      flash[:alert] = "No Team is associated with the current user."
+      flash[:alert] = t(:no_team_for_user)
     end
   end
 

@@ -32,14 +32,14 @@ class Draft < ActiveRecord::Base
 						pick.ncaa_player_id = player_id
 						pick.save
 					rescue ActiveRecord::RecordNotUnique
-						errors[:base] << "This Player has already been drafted."
+						errors[:base] << I18n.t(:player_already_drafted)
 					end
 				else
-					errors[:base] << "This would cause an invalid roster."
+					errors[:base] << I18n.t(:invalid_roster)
 					false
 				end
 			else
-				errors[:base] << "This player is not eligible to be drafted in this round."
+				errors[:base] << I18n.t(:ineligible_player_draftpick)
 				false
 			end
 	end
@@ -80,8 +80,16 @@ class Draft < ActiveRecord::Base
 		return overall_pick
   end
 
-  def self.configured?
+  def self.is_configured?
     Draft.exists?(1) && DraftPick.find(:all).count > 0
+  end
+
+  def self.is_completed?
+    if(DraftPick.get_current_draft_pick.nil?)
+      true
+    else
+      false
+    end
   end
 	
 	private

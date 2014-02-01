@@ -112,12 +112,12 @@ class MmTeamsController < ApplicationController
 		@ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
     @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
     flash[:alert] = ""
-    flash[:notice] = "Player was successfully added to your list of preferred players."
+    flash[:notice] = t(:preferred_player_added)
   rescue ActiveRecord::RecordNotUnique
     seed_range = get_seed_ranges_by_round @selected_round
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
     @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
-    flash[:alert] = "This player has already been added to your preferred list."
+    flash[:alert] = t(:preferred_player_already_added)
   end
 
   def remove_preferred_player

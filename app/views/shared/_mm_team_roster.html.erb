@@ -7,8 +7,8 @@
     <table class="my_team_table">
       <thead>
         <tr>
-          <th rowspan="2" class="ppg">#</th>
           <th rowspan="2" class="name">Name</th>
+          <th rowspan="2" class="ppg">#</th>
           <th rowspan="2" class="position">Position</th>
           <th rowspan="2" class="ppg">PPG.</th>
           <th rowspan="2" class="school">School</th>
@@ -26,8 +26,8 @@
       <tbody>
         <% @roster.each_with_index do |ncaa_player, index| %>
           <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
-            <td class="ppg"><%= ncaa_player.jersey_number %></td>
             <td class="name"><%= ncaa_player.full_name %></td>
+            <td class="ppg"><%= ncaa_player.jersey_number %></td>
             <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
             <td class="ppg"><%= ncaa_player.ppg_avg %></td>
             <td class="school"><%= ncaa_player.ncaa_team.school %></td>

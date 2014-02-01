@@ -2,4 +2,13 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  draft_completed: "The draft has been completed.  You can view the draft result rosters from the MM Rosters menu item."
+  draft_not_setup: "The draft is not setup yet."
+  no_team_for_user: "The current user is not associated with a March Madness Team."
+  player_drafted: "Player was successfully drafted."
+  out_of_turn_draft_pick: "It is not your turn to draft a player."
+  preferred_player_added: "Player was successfully added to your list of preferred players."
+  preferred_player_already_added: "This player has already been added to your preferred list."
+  invalid_roster: "This would cause an invalid roster."
+  player_already_drafted: "This Player has already been drafted."
+  ineligible_player_draftpick: "This player is not eligible to be drafted in this round."
