@@ -39,7 +39,7 @@ class Draft < ActiveRecord::Base
 					false
 				end
 			else
-				errors[:base] << I18n.t(:ineligible_player_draftpick)
+				errors[:base] << I18n.t(:ineligible_player_draft_pick)
 				false
 			end
 	end

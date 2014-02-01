@@ -11,4 +11,4 @@ en:
   preferred_player_already_added: "This player has already been added to your preferred list."
   invalid_roster: "This would cause an invalid roster."
   player_already_drafted: "This Player has already been drafted."
-  ineligible_player_draftpick: "This player is not eligible to be drafted in this round."
+  ineligible_player_draft_pick: "This player is not eligible to be drafted in this round."
