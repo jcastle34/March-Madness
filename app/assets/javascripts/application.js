@@ -36,6 +36,13 @@ $(document).ready(function() {
         }
     });
 
+    $('.standings_mm_team').colorbox({
+        href: function(){
+            var id = $(this).data('team');
+            return "/mm_teams/get_roster.js?mm_team_id=" + id;
+        }
+    });
+
     $('#flash').fadeIn('slow');
     setTimeout(function(){
         $('#flash').fadeOut('slow');
@@ -52,10 +59,6 @@ function updateDraftStatus() {
     var current_pick = $("#current_pick").html();
     $.getScript("/draft/get_current_draft_status.js?previous_pick=" + current_pick);
     setTimeout(updateDraftStatus, 30000);
-}
-
-function getRoster(mm_team_id) {
-    $.getScript("/mm_teams/get_roster.js?mm_team_id=" + mm_team_id);
 }
 
 function getEligiblePlayersByRound(mm_team_id) {

@@ -70,7 +70,7 @@ class DraftController < ApplicationController
 						flash[:alert] = draft.errors.full_messages.to_sentence
 					end
 			else
-					flash[:alert] = t(out_of_turn_draft_pick)
+					flash[:alert] = t(:out_of_turn_draft_pick)
 			end
 			
 			redirect_to draft_index_path

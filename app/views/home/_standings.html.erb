@@ -13,7 +13,8 @@
   <% @standings.each_with_index do |team, index| %>
     <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
       <td class="position"><%= index += 1 %></td>
-      <td class="team_name"><%= link_to team.name, "#", :onclick => "getRoster('#{team.id}');" %></td>
+      <td class="team_name"><%= link_to team.name, "#", :data => { :team => team.id }, :class => "standings_mm_team" %></td>
+
       <td class="points"><%= team.total_points.nil? ? '0' : sprintf("%.0f",team.total_points) %></td>
       <td class="games"><%= team.total_games.nil? ? '0' : sprintf("%.0f", team.total_games) %></td>
       <td class="games">TBD</td>

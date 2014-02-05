@@ -132,7 +132,7 @@ class MmTeamsController < ApplicationController
     seed_range = get_seed_ranges_by_round @selected_round
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
     @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
-    flash[:alert] = "There was a problem removing the player."
+    flash[:alert] = t(:preferred_player_removal_problem)
   end
 
   def rosters
@@ -144,7 +144,7 @@ class MmTeamsController < ApplicationController
   def verify_owner?
     owner = MmTeam.find_by_id_and_user_id(params[:id], get_team_for_current_user.id)
     if(owner.nil?)
-      flash[:alert] = "Invalid Access!"
+      flash[:alert] = t(:invalid_access)
       redirect_to(root_path)
     end
   end
