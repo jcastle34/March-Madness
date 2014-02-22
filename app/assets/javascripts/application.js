@@ -7,9 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require plugins
+//= require colorbox
+//= require bootstrap
+//= require backtop
+//= require chosen
 //= require_self
 
 $(document).ready(function() {
+    initChosen();
+
     var heightFix = $(document).outerHeight();
     $('#nav_container').css({
         height: heightFix+"px"
@@ -48,9 +54,19 @@ $(document).ready(function() {
         $('#flash').fadeOut('slow');
     }, 5000);
 
-    $('.icon_close').live('click', function(){
+    $('.icon_close').on('click', function(){
         $(this).parent().fadeOut();
         return false;
+    });
+
+    $('#sidebar-toggle').on('click', function() {
+        menu = $('#main_nav').html();
+        if($('#mobile_nav').length) {
+            $('#mobile_nav').remove();
+        } else {
+            $('#top_nav').after("<ul id=\"mobile_nav\">" + menu +"</ul>");
+
+        }
     });
 
 });
@@ -107,7 +123,7 @@ function showPreferredPlayers() {
     $.getScript("/draft/get_preferred_players_by_round.js?selected_round=" + id);
     $('#draft_players_container').hide();
     $('#preferred_players_container').show();
-    $('#show_preferred_players').addClass('on').next().removeClass('on');
+    $('#show_preferred_players').addClass('on').siblings().removeClass('on');
 }
 
 function showEligiblePlayers() {
@@ -115,7 +131,11 @@ function showEligiblePlayers() {
     $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
     $('#preferred_players_container').hide();
     $('#draft_players_container').show();
-    $('#show_all_players').addClass('on').prev().removeClass('on');
+    $('#show_all_players').addClass('on').siblings().removeClass('on');
+}
+
+function initChosen() {
+    $('select').chosen();
 }
 
 

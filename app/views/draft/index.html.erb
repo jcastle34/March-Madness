@@ -1,31 +1,34 @@
 <div id="draft_page_container">
 
-  <div class="draft_menu">
+  <div class="draft_menu padding-sm">
     <% if !session[:mm_team_id].nil? %>
-      <%= link_to 'Manage Draft', draft_index_path, :class=> "btn left float-left on" %>
-      <%= link_to 'Manage Preferred Players', preferred_players_mm_team_url(get_team_for_current_user), :class=> "btn right float-left" %>
+      <div class="btn-group">
+        <%= link_to 'Manage Draft', draft_index_path, :class=> "btn btn-default btn-sm on" %>
+        <%= link_to 'Manage Preferred Players', preferred_players_mm_team_url(get_team_for_current_user), :class=> "btn btn-default btn-sm" %>
+      </div>
     <% end %>
 
     <%= link_to 'My Team', "#", :data => { :team => get_team_for_current_user.id }, :id => "my_team", :class => "btn float-left blue" %>
 
-    <%= link_to 'Show Preferred Players', '#', :onclick => "showPreferredPlayers()", :id => "show_preferred_players", :class => "btn right float-right" %>
-    <%= link_to 'Show All Players', '#', :onclick => "showEligiblePlayers()", :id => "show_all_players", :class => "btn left float-right on" %>
+    <div class="btn-group pull-right">
+      <%= link_to 'Show All Players', '#', :onclick => "showEligiblePlayers()", :id => "show_all_players", :class => "btn btn-default btn-sm on" %>
+      <%= link_to 'Show Preferred Players', '#', :onclick => "showPreferredPlayers()", :id => "show_preferred_players", :class => "btn btn-default btn-sm" %>
+    </div>
 
     <div class="clear"></div>
   </div>
 
   <div class="sub_draft_menu clearfix">
-    <div id="draft_status_container">
+    <div id="draft_status_container" class="col-md-6 p-left-none p-right-none">
       <%= render "draft_status" %>
     </div>
-    <div id="mm_team_draft_picks">
-      <div class="label">My Draft Picks:</div>
+    <div id="mm_team_draft_picks" class="col-md-6 p-left-none p-right-none">
+      <p>My Draft Picks:</p>
       <ul>
         <% @my_draft_picks.each do |dp| %>
           <li>
-            <div class="label">Rd <%= dp.round %>:
-              <span><%= (MmTeam.all.size - ((MmTeam.all.size * dp.round) - dp.overall_pick)).ordinalize %> pick</span>
-            </div>
+            Rd <%= dp.round %>: 
+            <strong><%= (MmTeam.all.size - ((MmTeam.all.size * dp.round) - dp.overall_pick)).ordinalize %> pick</strong>
           </li>
         <% end %>
       </ul>
@@ -33,7 +36,7 @@
   </div>
   <div class="clear"></div>
 
-  <div class="left_container">
+  <div class="left_container col-md-6">
     <div id="draft_board_container">
       <%= render "draft_picks" %>
     </div>
@@ -43,7 +46,7 @@
 
   </div>
 
-  <div class="right_container">
+  <div class="right_container col-md-6">
     <div id="draft_players_container">
       <%= render "shared/draft_player_list" %>
     </div>

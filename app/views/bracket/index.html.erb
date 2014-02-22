@@ -5,7 +5,7 @@
             <% if entry.region.id == 4 %>
                 <% if entry.seed == 1 %>
                     <div class="bracket_list">
-                    <div><%= entry.region.location %></div>
+                    <h2><%= entry.region.location %></h2>
                         <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
                 <% elsif entry.seed == 16 %>
                       <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
@@ -15,7 +15,9 @@
                 <% end %>
             <% end %>
         <% end %>
-        <%= submit_tag 'Save' %>
+        <div class="clear padding-md text-center">
+            <%= submit_tag 'Save', class: 'btn btn-success' %>
+        </div>
         <% end %>
     <% else %>
         <%= image_tag "2011_bracket.jpg", :alt => "" %>

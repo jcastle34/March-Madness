@@ -1,2 +1,3 @@
-
-$("#player_scoring_container").hide().html("<%=raw escape_javascript(render('shared/player_scoring')) %>").fadeIn(1000);
+$.colorbox({
+  html: "<%=raw escape_javascript(render('shared/player_scoring')) %>"
+});
