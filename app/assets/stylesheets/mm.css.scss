@@ -20,6 +20,10 @@ a {
     }
 }
 
+button {
+    border: none;
+}
+
 h1 {
     font-size: 26px;
     font-weight: bold;
@@ -44,14 +48,12 @@ strong {
 
 input {
     &[type=text], &[type=password] {
-        background: white asset-url("bg_field.png", image) 0 0 repeat-x;
         color: #242424;
-        font-weight: bold;
+        font-weight: normal;
         font-size: 16px;
         border: 1px solid #CCC;
         padding: 7px 10px;
         font-family: Arial, Helvetica, sans-serif;
-        width: 90%;
     }
     &[type=submit] {
         cursor: pointer;
@@ -69,6 +71,14 @@ textarea {
     width: 90%;
 }
 
+.no-padding { padding: 0 !important; }
+
+.p-left-none  { padding-left: 0 !important; }
+.p-right-none { padding-right: 0 !important; }
+
+.padding-sm { padding: 10px; }
+.padding-md { padding: 20px; }
+.padding-lg { padding: 40px; }
 
 .clear {
     clear: both;
@@ -82,8 +92,6 @@ textarea {
 
 #login_wrapper {
     padding: 20px;
-    margin: 0 auto;
-    width: 500px;
     background: #e8e9e6;
     border: 1px solid #e0e0dd;
     color: rgba(0, 0, 0, 0.5);
@@ -105,79 +113,22 @@ textarea {
     }
 }
 
-.btn {
-    margin: 10px 0;
-    cursor: pointer;
-    display: inline-block;
-    background-color: #e6e6e6;
-    background-repeat: no-repeat;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
-    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
-    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-    padding: 5px 14px 6px;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+.btn-default.on {
     color: #333;
-    font-size: 13px;
-    line-height: normal;
-    border: 1px solid #ccc;
-    border-bottom-color: #bbb;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    -webkit-transition: 0.1s linear all;
-    -moz-transition: 0.1s linear all;
-    -ms-transition: 0.1s linear all;
-    -o-transition: 0.1s linear all;
-    transition: 0.1s linear all;
-
-    &:hover {
-        background-position: 0 -15px;
-        color: #333;
-        text-decoration: none;
-    }
-    &:focus {
-        outline: 1px dotted #666;
-    }
-    &.left {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-        margin-right: 0;
-    }
-    &.middle{
-        border-left-color: #F4F4F4;
-        border-radius: 0 0 0 0;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    &.right {
-        border-bottom-left-radius: 0;
-        border-left-color: #F4F4F4;
-        border-top-left-radius: 0;
-        margin-left: 0;
-    }
-    &.on{
-        border-color: #BBBBBB;
-        box-shadow: 0 0 10px #D4D4D4 inset;
-        background: #EEE;
-        color: #999;
-    }
+    background-color: #EBEBEB;
+    border-color: #ADADAD;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 /* Navigation Styles*/
 
 #nav_container {
     display: block;
-    width: 15%;
     background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
-    float: left;
     height: 100%;
+    max-width: 250px;
+    padding: 0;
 }
 
 #logo {
@@ -190,10 +141,47 @@ textarea {
 
 #logo_big {
     display: block;
-    width: 215px;
     height: 61px;
-    background: asset-url("logo_big.png", image) 0 0 no-repeat;
-    margin: 5% 0 3% 30%;
+    background: asset-url("logo_big.png", image) center center no-repeat;
+    margin: 5% 0 3%;
+}
+
+#top_nav {
+    display: none;
+    #logo {
+        margin: 10px 0 10px 40px;
+    }
+
+    #sidebar-toggle {
+        background: #E7772D;;
+        margin: 25px 30px 0 0;
+    }
+}
+
+#mobile_nav {
+    li {
+        font-size: 12px;
+        text-transform: uppercase;
+
+        .current_main_nav {
+            padding: 10px 20px;
+            background: #4F3F3A;
+            display: block;
+            color: #FFF;
+        }
+
+        a {
+            display: block;
+            padding: 10px 20px;
+            background: #F7F7F7;
+
+            &:hover {
+                text-decoration: none;
+                background: #E7772D;
+                color: #FFF;
+            }
+        }
+    }
 }
 
 #main_nav {
@@ -224,6 +212,7 @@ textarea {
         border-top: 1px solid #5d5d5d;
         border-bottom: 1px solid #5d5d5d;
         color: #FFF;
+        text-decoration: none;
     }
     span.current_main_nav {
         background: #000;
@@ -266,32 +255,19 @@ textarea {
 }
 
 #admin_nav {
-    float: right;
-    margin: 5px 0px 0px 0px;
     padding: 0px;
-    font-size: 10px;
     color: #fff;
-    /*	background-color: #000;*/
-    -moz-border-radius: 8px 8px 8px 8px;
-    border-radius: 8px 8px 8px 8px;
-    -webkit-border-top-right-radius: 8px;
-    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-top-left-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
+    background-color: #61100C;
     span {
-        padding: 0px 2px 0px 2px;
         a {
-            padding: 2px 8px 2px 8px;
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+            padding: 10px 20px;
             margin: 0px 5px 0px 5px;
-            background-color: #2A4D75;
             color: #fff;
             text-decoration: none;
-            -moz-border-radius: 8px 8px 8px 8px;
-            border-radius: 8px 8px 8px 8px;
-            -webkit-border-top-right-radius: 8px;
-            -webkit-border-top-left-radius: 8px;
-            -webkit-border-bottom-right-radius: 8px;
-            -webkit-border-bottom-left-radius: 8px;
+            text-transform: uppercase;
             &:link, &:visited {
                 color: #fff;
                 text-decoration: none;
@@ -318,17 +294,14 @@ textarea {
 #main_container {
     position: relative;
     display: block;
-    width: 85%;
-    float: left;
     height: 855px;
+    padding: 0;
 }
 
 .left_container, .right_container {
-    float: left;
-    margin: 0px;
-    padding: 1% 3%;
-    width: 44%;
-    height: 100%;
+    margin: 0;
+    padding: 20px 40px;
+    min-height: 100%;
 }
 
 .left_container {
@@ -357,7 +330,7 @@ textarea {
 
 .module{
     display: block;
-    width: 700px;
+    width: 100%;
 }
 .module_container {
     padding: 5px 5px 15px;
@@ -455,60 +428,112 @@ div {
     padding: 10px;
 }
 
+/* Flash */
+
 #flash {
     display: block;
     position: fixed;
     right: 20px;
     top: 20px;
-    z-index: 9999;
+    z-index: 10000;
+    max-width: 400px;
+    .message {
+        margin: 10px 0;
+    }
 }
 
-.flash_notice, .flash_error, .flash_alert {
+.flash_notice, .flash_error, .flash_alert, .flash_warning, .flash_info {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     position: relative;
     .icon_close {
         position: absolute;
-        z-index: 10000;
+        z-index: 11000;
         display: block;
         width: 30px;
         height: 30px;
         top: -10px;
         right: -10px;
-        background: asset-url("icon_close.png", image) no-repeat 0 0;
+        background: asset-url("icon_close.png") no-repeat 0 0;
     }
 }
 
 .flash_notice {
-    background: asset-url("flashmessage_notice.png", image) no-repeat right bottom;
-    height: 59px;
-    padding-right: 30px;
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
+    background: #ABBB30;
+    border: 1px solid #6f7b13;
 }
 
 .flash_alert, .flash_error {
-    background: asset-url("flashmessage_error_alert.png", image) no-repeat scroll right bottom transparent;
-    display: inline-block;
-    height: 59px;
-    padding-right: 30px;
+    background: #f45858;
+    background: -moz-linear-gradient(top,  #f45858 0%, #f24a4a 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f45858), color-stop(100%,#f24a4a));
+    background: -webkit-linear-gradient(top,  #f45858 0%,#f24a4a 100%);
+    background: -o-linear-gradient(top,  #f45858 0%,#f24a4a 100%);
+    background: -ms-linear-gradient(top,  #f45858 0%,#f24a4a 100%);
+    background: linear-gradient(to bottom,  #f45858 0%,#f24a4a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f45858', endColorstr='#f24a4a',GradientType=0 );
+    border: 1px solid #A90A2C;
 }
 
-.flash_notice span, .flash_alert span, .flash_error span {
+.flash_warning {
+    background: #ffaa0b;
+    background: -moz-linear-gradient(top,  #ffaa0b 0%, #f89406 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffaa0b), color-stop(100%,#f89406));
+    background: -webkit-linear-gradient(top,  #ffaa0b 0%,#f89406 100%);
+    background: -o-linear-gradient(top,  #ffaa0b 0%,#f89406 100%);
+    background: -ms-linear-gradient(top,  #ffaa0b 0%,#f89406 100%);
+    background: linear-gradient(to bottom,  #ffaa0b 0%,#f89406 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaa0b', endColorstr='#f89406',GradientType=0 );
+    border: 1px solid #754500;
+}
+
+.flash_info {
+    background: #1f95b8;
+    background: -moz-linear-gradient(top,  #1f95b8 0%, #2f96b4 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1f95b8), color-stop(100%,#2f96b4));
+    background: -webkit-linear-gradient(top,  #1f95b8 0%,#2f96b4 100%);
+    background: -o-linear-gradient(top,  #1f95b8 0%,#2f96b4 100%);
+    background: -ms-linear-gradient(top,  #1f95b8 0%,#2f96b4 100%);
+    background: linear-gradient(to bottom,  #1f95b8 0%,#2f96b4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f95b8', endColorstr='#2f96b4',GradientType=0 );
+    border: 1px solid #0F5C72;
+}
+
+.flash_notice span, .flash_alert span, .flash_error span,
+.flash_warning span, .flash_info span {
     color: #FFFFFF;
     display: block;
     font-size: 12px;
     font-weight: bold;
-    line-height: 59px;
-    padding: 0 10px 0 70px;
+    padding: 20px 30px 20px 70px;
     text-shadow: 0 1px 0 #636E10;
+    line-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
-.flash_notice span {
-    background: asset-url("flashmessage_notice.png", image) no-repeat 0 0;
+.flash_notice span, .flash_notice_billing span {
+    border-top: 1px solid #D0D98B;
+    background-image: asset-url("icon_flash_notice.png");
 }
 
 .flash_alert span, .flash_error span {
-    background: asset-url("flashmessage_error_alert.png", image) no-repeat 0 0;
+    border-top: 1px solid #F9A4A4;
+    background-image: asset-url("icon_flash_alert.png");
+}
+
+.flash_warning span {
+    border-top: 1px solid #ffcb80;
+    background-image: asset-url("icon_flash_warning.png", image);
+}
+
+.flash_info span {
+    border-top: 1px solid #52ABC5;
+    background-image: asset-url("icon_flash_info.png", image);
 }
 
 .hideText {
@@ -548,4 +573,58 @@ html[xmlns] .clearfix {
 
 * html .clearfix {
     height: 1%;
+}
+
+.navbar-toggle {
+    margin: 3px 0 0;
+    .icon-bar {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin-bottom: 3px;
+      background-color: #FFF;
+      border-radius: 1px;
+      -moz-border-radius: 1px;
+      -webkit-border-radius: 1px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+}
+
+#draft_order {
+    padding: 20px 40px;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+#colorbox, #colorbox * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+:focus {
+    outline: none !important;
+}
+
+a.btn-danger {
+    color: #FFF;
+}
+
+@media (max-width: 991px) {
+    #nav_container {
+        display: none;
+    }
+    #top_nav {
+        display: block;
+    }
+}
+
+@media (min-width: 991px) {
+    #mobile_nav {
+        display: none;
+    }
 }

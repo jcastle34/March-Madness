@@ -1,6 +1,6 @@
 #standings_container_header {
     padding: 2px 0px 2px 0px;
-    margin: 0 0 20px;
+    margin: 0;
     font-size: 26px;
     font-weight: bold;
     text-align: left;
@@ -75,11 +75,32 @@
 }
 
 #mm_team_roster_container, #player_scoring_container {
+    display: none;
     position: absolute;
     top: 100px;
-    left: 220px;
+    left: 50%;
     z-index: 9999;
-    padding: 0px;
+    width: 60%;
+    background-color: #FFF;
+    margin-left: -40%;
+    border: 10px solid rgba(0, 0, 0, 0.5);
+
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: content;     /* Firefox 3.6 */
+    -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+    background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    table {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 #top_perf_container_header {
@@ -97,7 +118,7 @@
     border-bottom: 1px solid #E5E5E5;
     background: #F9F9F9;
     th {
-        padding: 10px 0;
+        padding: 10px;
         text-transform: uppercase;
         font-weight: normal;
         font-size: 10px;
@@ -143,15 +164,12 @@
 /* Player Scoring */
 
 div.player_scoring_list {
-    width: 450px;
-    height: 140px;
+    width: 100%;
+    min-height: 140px;
     overflow: auto;
 }
 
 .player_scoring_table_headers {
-    border: 0px solid #000;
-    color: #fff;
-    background-color: #2E4764;
     th {
         &.name {
             width: 120px;

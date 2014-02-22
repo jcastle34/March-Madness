@@ -1,3 +1,3 @@
-<%= form_tag(admin_generate_draft_picks_path, :method => "post") do %>
-  <%= submit_tag("Generate Draft Picks", :confirm => 'This will Delete all current draft picks.  Are you sure?') %>
+<%= form_tag(admin_generate_draft_picks_path, method: "post") do %>
+  <%= submit_tag("Generate Draft Picks", class: 'btn btn-success', confirm: 'This will Delete all current draft picks. Are you sure?') %>
 <% end %>

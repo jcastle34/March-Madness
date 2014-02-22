@@ -1,21 +1,19 @@
-<div id="admin_nav">
-  <span><%= link_to 'MM Teams', mm_teams_path  %></span>
-  <span><%= link_to 'NCAA Teams', ncaa_teams_path  %></span>
-  <span><%= link_to 'NCAA Players', ncaa_players_path  %></span>
-  <span><%= link_to 'Bracket', bracket_index_path  %></span>
+<div id="admin_nav" class="col-md-12">
+  <span><%= link_to 'MM Teams', mm_teams_path %></span>
+  <span><%= link_to 'NCAA Teams', ncaa_teams_path %></span>
+  <span><%= link_to 'NCAA Players', ncaa_players_path %></span>
+  <span><%= link_to 'Bracket', bracket_index_path %></span>
 </div>
-<div class="clear"></div>
-<div class="left_container">
-  <%= render :partial => "draft_order" %>
+<div id="draft_order" class="col-md-12">
+  <%= render "draft_order" %>
 </div>
-<div class="clear"></div>
 
-<div class="left_container">
+<div class="left_container col-md-6">
   <div id="ncaa_teams_container">
-    <%= render :partial => "shared/ncaa_teams" %>
+    <%= render "shared/ncaa_teams" %>
   </div>
 </div>
-<div class="right_container">
+<div class="right_container col-md-6">
   <div id="ncaa_players_container">
     <%= render "shared/ncaa_players" %>
   </div>

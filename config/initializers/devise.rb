@@ -75,7 +75,7 @@ Devise.setup do |config|
   config.password_length = 6..20
 
   # Regex to use to validate the email address
-  config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+  config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -144,7 +144,10 @@ Devise.setup do |config|
   # end
 
   # Devise upgrade to 2.0 settings
-  Devise.reset_password_within = 6.hours
-  Devise.use_salt_as_remember_token = true
+  config.reset_password_within = 6.hours
+  # config.use_salt_as_remember_token = true
+
+  # Devise secret key
+  config.secret_key = 'abe921a392e0706f87efbafcf17608f35e2ebdeae6147210abb4c19b4846e5850d95da312a9c8cfedf8e3bc9dede3a6c138f509219be6fe1f1c12e76d509eab4'
 
 end

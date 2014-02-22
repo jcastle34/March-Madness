@@ -1,23 +1,17 @@
-<div>
-  <div class="label">Current Round: <span id="current_round"><%= @draft.current_draft_pick.round %></span></div>
-  <div class="label">Current Overall Pick: <span id="current_pick"><%= @draft.current_draft_pick.overall_pick <= 120 ? @draft.current_draft_pick.overall_pick : 'NONE' %></span></div>
+<div class="col-md-4">
+  <p>Current Round: <strong id="current_round"><%= @draft.current_draft_pick.round %></strong></p>
+  <p>Current Overall Pick: <strong id="current_pick"><%= @draft.current_draft_pick.overall_pick <= 120 ? @draft.current_draft_pick.overall_pick : 'NONE' %></strong></p>
 </div>
-<div>
-  <span style="display: none;" id="last_player_drafted_id"><%= @draft.last_player_drafted.nil? ? '' : @draft.last_player_drafted.ncaa_player.id %></span>
-  <div class="label">Last Player Drafted:
-    <span id="player_drafted"><%= @draft.last_player_drafted.nil? ? 'TBD' : @draft.last_player_drafted.ncaa_player.full_name +
-        ', ' + @draft.last_player_drafted.ncaa_player.position + ', ' + @draft.last_player_drafted.ncaa_player.ncaa_team.school %></span>
-  </div>
-</div>
-<div>
-  <div class="label">Drafted Position Totals:
+<div class="col-md-8">
+  <p style="display: none;" id="last_player_drafted_id"><%= @draft.last_player_drafted.nil? ? '' : @draft.last_player_drafted.ncaa_player.id %></p>
+  <p>Last Player Drafted:
+    <strong id="player_drafted">
+      <%= @draft.last_player_drafted.nil? ? 'TBD' : @draft.last_player_drafted.ncaa_player.full_name + ', ' + @draft.last_player_drafted.ncaa_player.position + ', ' + @draft.last_player_drafted.ncaa_player.ncaa_team.school %>
+    </strong>
+  </p>
+  <p>Drafted Position Totals:
     <% @draft.position_counts.each_with_index do |pick, index| %>
-      <span class="<%= get_position_css_class pick.position %>"><%= pick.position %></span> - <%= pick.total %>
+      <strong class="<%= get_position_css_class pick.position %>"><%= pick.position %></strong> - <%= pick.total %>
     <% end %>
-  </div>
+  </p>
 </div>
-
-
-
-
-

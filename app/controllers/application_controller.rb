@@ -5,16 +5,15 @@ class ApplicationController < ActionController::Base
     helper_method :get_team_for_current_user
 
     def layout_by_resource
-      is_a?(Devise::SessionsController) || is_a?(Devise::PasswordsController) ? "login" : "application"
+        user_signed_in? ? 'application' : 'login'
     end
 
-
-		def user_is_admin?
-			unless current_user.is_admin?
-			    flash[:alert] = "Unauthorized Access"
-			    redirect_to root_path
-			    false
-			  end
+	def user_is_admin?
+		unless current_user.is_admin?
+            flash[:alert] = "Unauthorized Access"
+            redirect_to root_path
+            false
+        end
     end
 
     def get_team_for_current_user
