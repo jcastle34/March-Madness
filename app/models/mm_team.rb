@@ -15,4 +15,9 @@ left outer join player_scorings ps on ps.ncaa_player_id = ncaa_players.id
 inner join mm_teams mt on mt.id = dp.mm_team_id').order('dp.mm_team_id')
   end
 
+  def self.active_players_count_for_team(mm_team_id)
+    NcaaPlayer.joins('left outer join draft_picks dp on dp.ncaa_player_id = ncaa_players.id
+left outer join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id').where('dp.mm_team_id = ? and nt.is_active = ?', mm_team_id, 1).count()
+  end
+
 end

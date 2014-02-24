@@ -2,7 +2,7 @@ class PlayerScoring < ActiveRecord::Base
 	belongs_to :ncaa_player
   
   def self.point_and_game_total_for_all_teams
-      self.find_by_sql("select mt.id, mt.name, sum(ps.points) as total_points, count(ps.round) as total_games, round(sum(nt.is_active) / 2) as players_lost from player_scorings ps
+      self.find_by_sql("select mt.id, mt.name, sum(ps.points) as total_points, count(ps.round) as total_games from player_scorings ps
             join ncaa_players np on np.id = ps.ncaa_player_id 
             join draft_picks dp on dp.ncaa_player_id = np.id 
             join ncaa_teams nt on nt.id = np.ncaa_team_id

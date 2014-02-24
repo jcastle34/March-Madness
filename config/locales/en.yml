@@ -14,3 +14,4 @@ en:
   ineligible_player_draft_pick: "This player is not eligible to be drafted in this round."
   preferred_player_removal_problem: "There was a problem removing the preferred player."
   invalid_access: "Invalid Access!"
+  bracket_updated: "The bracket has been updated."

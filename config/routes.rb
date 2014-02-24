@@ -12,7 +12,7 @@ MarchMadness::Application.routes.draw do
   get "mm_teams/rosters"
   get "draft/start"
   get "draft/stop"
-  post "bracket/update_region"
+  post "bracket/update_regions"
   get "home/index"
   get "admin/index"
 	post "admin/generate_draft_picks"
