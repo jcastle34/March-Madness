@@ -1,5 +1,6 @@
 #bracket_container {
     padding: 5%;
+    overflow: auto;
     img {
         border: 10px solid #DEDEDE;
     }
@@ -8,7 +9,7 @@
 div.bracket_list {
     float: left;
     height: auto;
-    width: 220px;
+    width: 50%;
     margin: 5px;
 }
 

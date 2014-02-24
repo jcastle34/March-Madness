@@ -529,11 +529,11 @@ float: left; width: 570px;
 
 #cboxClose {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     right: 10px;
     background: asset-url("colorbox/controls-ui.png", image) no-repeat 0 0;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     text-indent: -9999px;
     &.hover {
         background-position: 0 bottom;

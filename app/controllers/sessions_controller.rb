@@ -1,5 +1,4 @@
 class SessionsController < Devise::SessionsController
-  layout "login"
   
   def new
     super
@@ -7,7 +6,6 @@ class SessionsController < Devise::SessionsController
 
   def create
     super
-#      reset_session
     mm_team = MmTeam.find_by_user_id(current_user.id)
     if !mm_team.nil?
       session['mm_team_id'] = mm_team.id

@@ -1,4 +1,7 @@
 
-<span><%= entry.seed %></span> -
-<span><%= entry.ncaa_team.school %></span><br/>
-<span><%= collection_select('bracket_entry_' + entry.region.id.to_s + '_' + entry.seed.to_s, :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school, {:selected => entry.ncaa_team.id}) %></span><br/>
+<div class="padding-sm">
+  <span><%= entry.seed %></span> -
+  <span><%= entry.ncaa_team.school %></span><br/>
+  <span><%= collection_select('bracket_entry_' + entry.region.id.to_s + '_' + entry.seed.to_s, :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school, {:selected => entry.ncaa_team.id}) %></span>
+</div>
+

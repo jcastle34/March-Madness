@@ -1,0 +1,10 @@
+<div id="flash">
+  <% [:notice, :warning, :error, :alert].each do |type| %>
+    <% if flash[type] %>
+      <div class="flash_<%= type %> message">
+        <%= link_to "Close", "javascript:void(0);", :class => "hideText icon_close" %>
+        <span><%= flash[type] %></span>
+      </div>
+    <% end %>
+  <% end %>
+</div>

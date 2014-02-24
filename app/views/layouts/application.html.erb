@@ -1,75 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>March Madness Player Challenge</title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div id="flash">
-      <% [:notice, :warning, :error, :alert].each do |type| %>
-        <% if flash[type] %>
-          <div class="flash_<%= type %> message">
-            <%= link_to "Close", "javascript:void(0);", :class => "hideText icon_close" %>
-            <span><%= flash[type] %></span>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'layouts/notifications' %>
 
-    <div id="wrapper">
-      <div id="nav_container">
-        <div id="nav_wrapper">
-          <div id="logo"></div>
-          <% if user_signed_in?  %>
-            <div id="avatar">
-              <%= image_tag avatar_url(current_user) %>
-            </div>
-            <div class="current_user">
-              <p><%= current_user.full_name %></p>
-              <%= link_to "Edit Info", edit_user_registration_path, :id => "edit_user" %> |
-              <%= link_to 'Logout', destroy_user_session_path %>
-            </div>
-            <ul id="main_nav" class="clear">
-              <li>
-                <%= link_to_unless_current('Home', root_path) do |link| %>
-                  <span class="current_main_nav"><%= link %></span>
-                  <span class="current_main_nav_tip"></span>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to_unless_current('Bracket', bracket_index_path) do |link| %>
-                  <span class="current_main_nav"><%= link %></span>
-                  <span class="current_main_nav_tip"></span>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to_unless_current('Draft', draft_index_path) do |link| %>
-                  <span class="current_main_nav"><%= link %></span>
-                  <span class="current_main_nav_tip"></span>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to_unless_current('MM Rosters', mm_teams_rosters_path) do |link| %>
-                    <span class="current_main_nav"><%= link %></span>
-                    <span class="current_main_nav_tip"></span>
-                <% end %>
-              </li>
-              <% if current_user.is_admin? %>
-                <li>
-                  <%= link_to_unless_current('Admin', admin_index_path) do |link| %>
-                    <span class="current_main_nav"><%= link %></span>
-                    <span class="current_main_nav_tip"></span>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-          <div class="clear"></div>
-        </div>
+    <div id="wrapper" class="row">
+      <div id="nav_container" class="col-md-2">
+        <%= render 'layouts/sidebar' %>
       </div>
-      <div id="main_container">
+      <div id="main_container" class="col-md-10">
+        <div id="top_nav" class="row">
+          <div id="logo" class="pull-left"></div>
+
+          <button type="button" class="navbar-toggle pull-right" id="sidebar-toggle">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
         <%= yield %>
       </div>
       <div class="clear"></div>
