@@ -11,8 +11,8 @@ class Region < ActiveRecord::Base
 
       case region_id
         when 1 then return 'E'
-        when 2 then return 'SE'
-        when 3 then return 'SW'
+        when 2 then return 'MW'
+        when 3 then return 'S'
         when 4 then return 'W'
       end
 
