@@ -12,7 +12,7 @@ left outer join player_scorings ps on ps.ncaa_player_id = ncaa_players.id').wher
   def self.get_rosters
     @ncaa_players = NcaaPlayer.joins('inner join draft_picks dp on dp.ncaa_player_id = ncaa_players.id
 left outer join player_scorings ps on ps.ncaa_player_id = ncaa_players.id
-inner join mm_teams mt on mt.id = dp.mm_team_id').order('dp.mm_team_id')
+inner join mm_teams mt on mt.id = dp.mm_team_id').order('mt.name')
   end
 
   def self.active_players_count_for_team(mm_team_id)
