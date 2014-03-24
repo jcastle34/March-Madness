@@ -15,6 +15,7 @@ MarchMadness::Application.routes.draw do
   post "bracket/update_regions"
   get "home/index"
   get "admin/index"
+  get "admin/bracket"
 	post "admin/generate_draft_picks"
   get "draft/get_draft_picks"
 

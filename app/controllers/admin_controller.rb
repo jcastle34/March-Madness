@@ -13,4 +13,11 @@ class AdminController < ApplicationController
 			redirect_to admin_index_url
 	end
 
+  def bracket
+    @east_region_bracket_entries = BracketEntry.where(:region_id => 1).order(:seed)
+    @midwest_region_bracket_entries = BracketEntry.where(:region_id => 2).order(:seed)
+    @south_region_bracket_entries = BracketEntry.where(:region_id => 3).order(:seed)
+    @west_region_bracket_entries = BracketEntry.where(:region_id => 4).order(:seed)
+  end
+
 end
