@@ -2,6 +2,8 @@ class MmTeam < ActiveRecord::Base
   belongs_to :user
   has_many :draft_picks
   has_many :ncaa_players
+
+  attr_accessible :name
   
   def get_players
       # @ncaa_players = NcaaPlayer.joins('left outer join draft_picks dp on dp.ncaa_player_id = ncaa_players.id').where('dp.ncaa_player_id is NULL')

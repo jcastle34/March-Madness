@@ -45,7 +45,8 @@ class MmTeamsController < ApplicationController
   # POST /mm_teams
   # POST /mm_teams.xml
   def create
-    @mm_team = MmTeam.new(params[:mm_team])
+    @mm_team = MmTeam.new(params[:mm_team].permit(:name, :user_id))
+    @mm_team.user = User.find_by(params[:user_id])
 
     respond_to do |format|
       if @mm_team.save
