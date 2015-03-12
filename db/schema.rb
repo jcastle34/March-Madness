@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309160456) do
+ActiveRecord::Schema.define(version: 20150312021128) do
 
   create_table "bracket_entries", force: true do |t|
     t.integer  "ncaa_team_id"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20150309160456) do
     t.integer  "region_id"
     t.integer  "year"
     t.integer  "round"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "is_play_in",   default: false
   end
 
   create_table "draft_picks", force: true do |t|
