@@ -14,6 +14,9 @@ class BracketController < ApplicationController
         bracket_entry = BracketEntry.find_by_seed_and_region_id_and_is_play_in(key_values[key_values.size - 2], key_values[key_values.size - 3], key_values[key_values.size - 1])
         bracket_entry.update_attribute(:ncaa_team_id, value['ncaa_team_id'])
 
+        ncaa_team = NcaaTeam.find_by_id(value['ncaa_team_id'])
+        ncaa_team.update_attribute(:is_active, 1)
+
         flash[:notice] = t(:bracket_updated)
       end
     end
