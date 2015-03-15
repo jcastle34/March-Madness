@@ -8,19 +8,16 @@ class BracketController < ApplicationController
   end
 
   def update_regions
-    x = 0
     params.each do |key,value|
       if(key.include? "bracket_entry")
         key_values = key.split("_")
-        bracket_entry = BracketEntry.find_by_seed_and_region_id(key_values[key_values.size - 1], key_values[key_values.size - 2])
+        bracket_entry = BracketEntry.find_by_seed_and_region_id_and_is_play_in(key_values[key_values.size - 2], key_values[key_values.size - 3], key_values[key_values.size - 1])
         bracket_entry.update_attribute(:ncaa_team_id, value['ncaa_team_id'])
+
         flash[:notice] = t(:bracket_updated)
-        #Rails.logger.warn "Seed: #{key_values[key_values.size - 1]} Region: #{key_values[key_values.size - 2]}"
-        #Rails.logger.warn "#{value['ncaa_team_id']}"
       end
     end
-
-    redirect_to bracket_index_url
+    redirect_to admin_bracket_url
   end
 
 end
