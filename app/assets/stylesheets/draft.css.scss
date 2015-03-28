@@ -147,32 +147,39 @@ div.my_team_list {
         border-bottom: 1px solid #E5E5E5;
         background-color: #EEE;
         display: table;
-        width: 100%;
+        width: 800px;
         th {
             text-transform: uppercase;
             font-size: 11px;
             font-weight: normal;
             padding: 0 5px;
             &.name {
-                width: 15%;
+                width: 150px;
+            }
+            &.jersey_number {
+              width: 20px;
+              text-align: left;
             }
             &.position {
-                width: 10%;
+                width: 55px;
             }
             &.ppg {
-                width: 8%;
+                width: 20px;
             }
             &.school {
-                width: 15%;
+                width: 150px;
             }
             &.seed {
-                width: 8%;
+                width: 0%;
             }
             &.region {
-                width: 10%;
+                width: 75px;
+            }
+            &.scoring {
+              width: 100px;
             }
             &.status {
-                width: 10%;
+                width: 0%;
             }
         }
     }
@@ -185,26 +192,34 @@ div.my_team_list {
         padding: 10px 5px;
         text-align: center;
         &.name {
-            width: 15%;
+            width: 150px;
             text-align: left;
         }
+        &.jersey_number {
+          width: 20px;
+          text-align: left;
+        }
         &.position {
-            width: 10%;
+            width: 55px;
         }
         &.ppg {
-            width: 8%;
+            width: 30px;
         }
         &.school {
-            width: 15%;
+            width: 150px;
+            text-align: left;
         }
         &.seed {
-            width: 8%;
+            width: 25px;
         }
         &.region {
-            width: 10%;
+            width: 75px;
+        }
+        &.points {
+          width: 14px;
         }
         &.status {
-            width: 10%;
+            width: 0%;
         }
     }
 }
