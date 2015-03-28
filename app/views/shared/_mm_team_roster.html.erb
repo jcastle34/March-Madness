@@ -8,26 +8,21 @@
       <thead>
         <tr>
           <th rowspan="2" class="name">Name</th>
-          <th rowspan="2" class="ppg">#</th>
+          <th rowspan="2" class="jersey_number">#</th>
           <th rowspan="2" class="position">Position</th>
           <th rowspan="2" class="ppg">PPG.</th>
           <th rowspan="2" class="school">School</th>
           <th rowspan="2" class="seed">Seed</th>
           <th rowspan="2" class="region">Region</th>
-          <th colspan="6" class="no_border">Round</th>
+          <th colspan="6" class="scoring">Scoring by Round</th>
           <th rowspan="2" class="status">Status</th>
-        </tr>
-        <tr>
-          <% (1..6).each do |index| %>
-            <th class="points"><%= index %></th>
-          <% end %>
         </tr>
       </thead>
       <tbody>
         <% @roster.each_with_index do |ncaa_player, index| %>
           <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
             <td class="name"><%= ncaa_player.full_name %></td>
-            <td class="ppg"><%= ncaa_player.jersey_number %></td>
+            <td class="jersey_number"><%= ncaa_player.jersey_number %></td>
             <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
             <td class="ppg"><%= ncaa_player.ppg_avg %></td>
             <td class="school"><%= ncaa_player.ncaa_team.school %></td>
@@ -35,12 +30,12 @@
             <td class="region">
               <span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location %></span>
             </td>
-            <td class="points"><%= !ncaa_player.player_scorings[0].nil? ? ncaa_player.player_scorings[0].points : '' %></td>
-            <td class="points"><%= !ncaa_player.player_scorings[1].nil? ? ncaa_player.player_scorings[1].points : '' %></td>
-            <td class="points"><%= !ncaa_player.player_scorings[2].nil? ? ncaa_player.player_scorings[2].points : '' %></td>
-            <td class="points"><%= !ncaa_player.player_scorings[3].nil? ? ncaa_player.player_scorings[3].points : '' %></td>
-            <td class="points"><%= !ncaa_player.player_scorings[4].nil? ? ncaa_player.player_scorings[4].points : '' %></td>
-            <td class="points"><%= !ncaa_player.player_scorings[5].nil? ? ncaa_player.player_scorings[5].points : '' %></td>
+            <td class="points"><%= !ncaa_player.player_scorings[0].nil? ? ncaa_player.player_scorings[0].points : '--' %></td>
+            <td class="points"><%= !ncaa_player.player_scorings[1].nil? ? ncaa_player.player_scorings[1].points : '--' %></td>
+            <td class="points"><%= !ncaa_player.player_scorings[2].nil? ? ncaa_player.player_scorings[2].points : '--' %></td>
+            <td class="points"><%= !ncaa_player.player_scorings[3].nil? ? ncaa_player.player_scorings[3].points : '--' %></td>
+            <td class="points"><%= !ncaa_player.player_scorings[4].nil? ? ncaa_player.player_scorings[4].points : '--' %></td>
+            <td class="points"><%= !ncaa_player.player_scorings[5].nil? ? ncaa_player.player_scorings[5].points : '--' %></td>
             <td>
               <% if ncaa_player.ncaa_team.is_active == 1 %>
                 <span>Active</span>
