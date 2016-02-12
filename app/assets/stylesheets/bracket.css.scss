@@ -34,15 +34,29 @@ div.bracket_list {
     }
 }
 
-div.west {
-  float: right;
+div.south {
+  float: left;
   height: auto;
   width: 300px;
   margin: 5px;
 }
 
 div.east {
+  float: right;
+  height: auto;
+  width: 300px;
+  margin: 5px;
+}
+
+div.west {
   float: left;
+  height: auto;
+  width: 300px;
+  margin: 5px;
+}
+
+div.midwest {
+  float: right;
   height: auto;
   width: 300px;
   margin: 5px;

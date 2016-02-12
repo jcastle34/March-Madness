@@ -1,6 +1,20 @@
 <div id="bracket_container">
 
       <%= form_tag(bracket_update_regions_path, :method => "post") do %>
+
+          <% @south_region_bracket_entries.each do |entry|  %>
+              <% if entry.seed == 1 %>
+                  <div class="south">
+                    <div><%= entry.region.location %></div>
+                    <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+              <% elsif entry == @south_region_bracket_entries.last %>
+                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+                  </div>
+              <% else %>
+                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+              <% end %>
+          <% end %>
+
           <% @east_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
                   <div class="east">
@@ -13,6 +27,8 @@
                   <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
               <% end %>
           <% end %>
+
+          <div class="clear"></div>
 
           <% @west_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
@@ -27,27 +43,12 @@
               <% end %>
           <% end %>
 
-          <div class="clear"></div>
-
           <% @midwest_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
-                  <div class="east">
+                  <div class="midwest">
                     <div><%= entry.region.location %></div>
                     <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
               <% elsif entry == @midwest_region_bracket_entries.last %>
-                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-                  </div>
-              <% else %>
-                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-              <% end %>
-          <% end %>
-
-          <% @south_region_bracket_entries.each do |entry|  %>
-              <% if entry.seed == 1 %>
-                  <div class="west">
-                    <div><%= entry.region.location %></div>
-                    <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-              <% elsif entry == @south_region_bracket_entries.last %>
                   <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
                   </div>
               <% else %>
