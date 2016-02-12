@@ -8,7 +8,6 @@ gem 'test-unit'
 gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'capistrano'
-gem 'sqlite3'
 gem 'rspec-core'
 gem 'rspec-rails'
 gem 'mocha', require: false
@@ -28,4 +27,9 @@ gem 'font-awesome-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+
+group :development, :test do
+  gem 'sqlite3'
 end
