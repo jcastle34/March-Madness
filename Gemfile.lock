@@ -196,6 +196,3 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   yui-compressor
-
-BUNDLED WITH
-   1.11.2
