@@ -1,14 +1,6 @@
 <div id="nav_wrapper">
-  <div id="logo"></div>
   <% if user_signed_in?  %>
-    <div id="avatar">
-      <%= image_tag avatar_url(current_user) %>
-    </div>
-    <div class="current_user">
-      <p><%= current_user.full_name %></p>
-      <%= link_to "Edit Info", edit_user_registration_path, :id => "edit_user" %> |
-      <%= link_to 'Logout', destroy_user_session_path %>
-    </div>
+    <div id="logo"></div>
     <ul id="main_nav" class="clear">
       <li>
         <%= link_to_unless_current('Home', root_path) do |link| %>
@@ -42,6 +34,12 @@
           <% end %>
         </li>
       <% end %>
+      <li>
+        <%= link_to_unless_current('My Profile', edit_user_registration_path) do |link| %>
+            <span class="current_main_nav"><%= link %></span>
+            <span class="current_main_nav_tip"></span>
+        <% end %>
+      </li>
     </ul>
   <% end %>
   <div class="clear"></div>

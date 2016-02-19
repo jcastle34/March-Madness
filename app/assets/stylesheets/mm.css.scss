@@ -121,21 +121,11 @@ textarea {
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
-/* Navigation Styles*/
-
-#nav_container {
-    display: block;
-    background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
-    height: 100%;
-    max-width: 250px;
-    padding: 0;
-}
-
 #logo {
     display: block;
-    width: 180px;
-    height: 61px;
-    background: asset-url("logo.png", image) 0 0 no-repeat;
+    width: 230px;
+    height: 100px;
+    background: asset-url("march_madness_logo.png", image) 0 0 no-repeat;
     margin: 10px auto;
 }
 
@@ -145,6 +135,8 @@ textarea {
     background: asset-url("logo_big.png", image) center center no-repeat;
     margin: 5% 0 3%;
 }
+
+/* Navigation Styles*/
 
 #top_nav {
     display: none;
@@ -184,10 +176,26 @@ textarea {
     }
 }
 
+#nav_container {
+    display: block;
+    /*background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;*/
+    background-color: #000;
+    height: 100%;
+    max-width: 250px;
+    padding: 0;
+}
+
+#nav_wrapper {
+    display: block;
+    height: 100%;
+    max-width: 250px;
+    padding: 0;
+}
+
 #main_nav {
     display: block;
-    border-top: 1px solid #bc3218;
-    border-bottom: 1px solid #ff755b;
+/*    border-top: 1px solid #bc3218;
+    border-bottom: 1px solid #ff755b;*/
     li {
         list-style-type: none;
         position: relative;
@@ -196,67 +204,48 @@ textarea {
         padding: 16px;
         font-size: 14px;
         font-weight: bold;
-        text-shadow: 1px 1px #000;
+        /*text-shadow: 1px 1px #fff;*/
         display: block;
     }
     a {
-        background: asset-url("bball_texture.jpg", image) 0 0 repeat;
-        border-top: 1px solid #ff755b;
-        border-bottom: 1px solid #bc3218;
+        background: asset-url("bg_menu_wood.png", image) right 0 no-repeat;
+        /*background: asset-url("bball_texture.jpg", image) 0 0 repeat;*/
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
         display: block;
-        color: #FFF;
+        color: #fff;
     }
     a:hover {
-        background: asset-url("bball_texture_dark.jpg", image) 0 0 repeat;
-        /*opacity: 0.8;*/
-        border-top: 1px solid #5d5d5d;
-        border-bottom: 1px solid #5d5d5d;
-        color: #FFF;
+        background: asset-url("bball_texture.jpg", image) 0 0 repeat;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        color: #000;
         text-decoration: none;
     }
     span.current_main_nav {
-        background: #000;
-        border-top: 1px solid #5d5d5d;
-        border-bottom: 1px solid #5d5d5d;
-        color: #FFF;
+        background: #7AADD7;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        color: #000;
     }
 
     span.current_main_nav_tip {
-        background: asset-url("menu_active.png", image) 0 0 no-repeat;
+        background: asset-url("menu_active_blue.png", image) 0 0 no-repeat;
         position: absolute;
         z-index: 10;
         right: -26px;
         top: 0;
         display: block;
-        width: 26px;
-        height: 52px;
-    }
-}
-
-.current_user {
-    float: right;
-    display: block;
-    width: 50%;
-    margin-top: 6px;
-    padding: 2px 10px 3px 10px;
-    p {
-        font-size: 14px;
-        color: #3055e1;
-    }
-    a {
-        font-size: 11px;
-        color: #56453F;
-        text-decoration: underline;
-        &:hover {
-            text-decoration: none;
-        }
+        width: 29px;
+        height: 55px;
     }
 }
 
 #admin_nav {
     padding: 0px;
     color: #fff;
-    background-color: #61100C;
+    background-color: #000;
+    float: left;
     span {
         a {
             display: inline-block;
@@ -273,9 +262,27 @@ textarea {
             }
             &:hover {
                 color: #fff;
-                background-color: #E06E39;
+                background-color: #7AADD7;
                 text-decoration: none;
             }
+        }
+    }
+}
+
+.current_user {
+    display: block;
+    margin-top: 6px;
+    padding: 2px 10px 15px 10px;
+
+    p {
+        font-size: 14px;
+        color: #000;
+    }
+    a {
+        font-size: 11px;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
         }
     }
 }
