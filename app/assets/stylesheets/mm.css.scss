@@ -124,15 +124,15 @@ textarea {
 #logo {
     display: block;
     width: 230px;
-    height: 100px;
+    height: 90px;
     background: asset-url("march_madness_logo.png", image) 0 0 no-repeat;
-    margin: 10px auto;
+    margin: 30px auto;
 }
 
 #logo_big {
     display: block;
-    height: 61px;
-    background: asset-url("logo_big.png", image) center center no-repeat;
+    height: 126px;
+    background: asset-url("march_madness_logo_big.png", image) center center no-repeat;
     margin: 5% 0 3%;
 }
 
@@ -194,8 +194,8 @@ textarea {
 
 #main_nav {
     display: block;
-/*    border-top: 1px solid #bc3218;
-    border-bottom: 1px solid #ff755b;*/
+    /*border-top: 1px solid #bc3218;*/
+    /*border-bottom: 1px solid #ff755b;*/
     li {
         list-style-type: none;
         position: relative;
@@ -204,40 +204,40 @@ textarea {
         padding: 16px;
         font-size: 14px;
         font-weight: bold;
-        /*text-shadow: 1px 1px #fff;*/
         display: block;
     }
     a {
         background: asset-url("bg_menu_wood.png", image) right 0 no-repeat;
-        /*background: asset-url("bball_texture.jpg", image) 0 0 repeat;*/
         border-top: 1px solid #000;
         border-bottom: 1px solid #000;
         display: block;
-        color: #fff;
+        color: #000;
     }
     a:hover {
-        background: asset-url("bball_texture.jpg", image) 0 0 repeat;
+        background: #A3C2DC;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #fff;
         color: #000;
         text-decoration: none;
     }
     span.current_main_nav {
-        background: #7AADD7;
+        background: asset-url("bball_texture.png", image) 0 0 repeat;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #fff;
         color: #000;
     }
 
     span.current_main_nav_tip {
-        background: asset-url("menu_active_blue.png", image) 0 0 no-repeat;
+        background: asset-url("menu_active_orange_bball.png", image) 0 0 no-repeat;
         position: absolute;
         z-index: 10;
+        margin-top: 1px;
+        margin-bottom: 1px;
         right: -26px;
         top: 0;
         display: block;
-        width: 29px;
-        height: 55px;
+        width: 30px;
+        height: 52px;
     }
 }
 
@@ -273,7 +273,7 @@ textarea {
     display: block;
     margin-top: 6px;
     padding: 2px 10px 15px 10px;
-
+    text-align: right;
     p {
         font-size: 14px;
         color: #000;
@@ -434,7 +434,7 @@ div {
     padding: 10px;
 }
 
-/* Flash */
+/*Flash*/
 
 #flash {
     display: block;
