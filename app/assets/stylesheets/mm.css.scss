@@ -178,8 +178,8 @@ textarea {
 
 #nav_container {
     display: block;
-    /*background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;*/
-    background-color: #000;
+    background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
+    /*background-color: #000;*/
     height: 100%;
     max-width: 250px;
     padding: 0;
@@ -207,18 +207,21 @@ textarea {
         display: block;
     }
     a {
-        background: asset-url("bg_menu_wood.png", image) right 0 no-repeat;
-        border-top: 1px solid #000;
-        border-bottom: 1px solid #000;
+        /*background: asset-url("bg_menu_wood_original.png", image) right 0 no-repeat;*/
+        border-top: 1px solid #fff;
+        /*border-bottom: 1px solid #fff;*/
+        background-color: #475B77;
         display: block;
-        color: #000;
+        color: #fff;
+        text-shadow: 1px 1px #000;
     }
     a:hover {
         background: #A3C2DC;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
         color: #000;
         text-decoration: none;
+        text-shadow: 1px 1px #fff;
     }
     span.current_main_nav {
         background: asset-url("bball_texture.png", image) 0 0 repeat;
@@ -243,17 +246,15 @@ textarea {
 
 #admin_nav {
     padding: 0px;
-    color: #fff;
-    background-color: #000;
     float: left;
     span {
         a {
             display: inline-block;
             *display: inline;
             zoom: 1;
-            padding: 10px 20px;
+            padding: 10px 10px;
             margin: 0px 5px 0px 5px;
-            color: #fff;
+            background-color: #475B77;
             text-decoration: none;
             text-transform: uppercase;
             &:link, &:visited {
@@ -261,8 +262,8 @@ textarea {
                 text-decoration: none;
             }
             &:hover {
-                color: #fff;
-                background-color: #7AADD7;
+                color: #000;
+                background-color: #A3C2DC;
                 text-decoration: none;
             }
         }
