@@ -236,11 +236,11 @@ textarea {
         z-index: 10;
         margin-top: 1px;
         margin-bottom: 1px;
-        right: -26px;
+        right: -28px;
         top: 0;
         display: block;
-        width: 30px;
-        height: 52px;
+        width: 32px;
+        height: 54px;
     }
 }
 
@@ -467,18 +467,18 @@ div {
 }
 
 .flash_notice {
-    background: #ABBB30;
+    background: #5BB95C;
     border: 1px solid #6f7b13;
 }
 
 .flash_alert, .flash_error {
-    background: #f45858;
-    background: -moz-linear-gradient(top,  #f45858 0%, #f24a4a 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f45858), color-stop(100%,#f24a4a));
-    background: -webkit-linear-gradient(top,  #f45858 0%,#f24a4a 100%);
-    background: -o-linear-gradient(top,  #f45858 0%,#f24a4a 100%);
-    background: -ms-linear-gradient(top,  #f45858 0%,#f24a4a 100%);
-    background: linear-gradient(to bottom,  #f45858 0%,#f24a4a 100%);
+    background: #D9534F;
+    background: -moz-linear-gradient(top,  #D9534F 0%, #f24a4a 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D9534F), color-stop(100%,#f24a4a));
+    background: -webkit-linear-gradient(top,  #D9534F 0%,#f24a4a 100%);
+    background: -o-linear-gradient(top,  #D9534F 0%,#f24a4a 100%);
+    background: -ms-linear-gradient(top,  #D9534F 0%,#f24a4a 100%);
+    background: linear-gradient(to bottom,  #D9534F 0%,#f24a4a 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f45858', endColorstr='#f24a4a',GradientType=0 );
     border: 1px solid #A90A2C;
 }
@@ -525,7 +525,7 @@ div {
 
 .flash_notice span, .flash_notice_billing span {
     border-top: 1px solid #D0D98B;
-    background-image: asset-url("icon_flash_notice.png");
+    background-image: asset-url("checkmark_green.png");
 }
 
 .flash_alert span, .flash_error span {
