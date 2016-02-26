@@ -126,7 +126,7 @@ textarea {
     width: 230px;
     height: 90px;
     background: asset-url("march_madness_logo.png", image) 0 0 no-repeat;
-    margin: 30px auto;
+    margin: 50px auto;
 }
 
 #logo_big {
@@ -201,47 +201,50 @@ textarea {
         position: relative;
     }
     a, span.current_main_nav {
-        padding: 16px;
+        padding: 10px;
         font-size: 14px;
         font-weight: bold;
         display: block;
     }
     a {
-        /*background: asset-url("bg_menu_wood_original.png", image) right 0 no-repeat;*/
-        border-top: 1px solid #fff;
-        /*border-bottom: 1px solid #fff;*/
-        background-color: #475B77;
+        background-color: #53729C;
         display: block;
         color: #fff;
         text-shadow: 1px 1px #000;
+        margin: 10px 20px 10px 20px;
+        text-align: center;
+        border-radius: 8px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
     }
     a:hover {
         background: #A3C2DC;
-        border-top: 1px solid #000;
-        border-bottom: 1px solid #000;
         color: #000;
         text-decoration: none;
         text-shadow: 1px 1px #fff;
     }
     span.current_main_nav {
         background: asset-url("bball_texture.png", image) 0 0 repeat;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
+        margin: 10px 20px 10px 20px;
         color: #000;
+        text-align: center;
+        border-radius: 8px;
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid #fff;
     }
 
-    span.current_main_nav_tip {
+    /*span.current_main_nav_tip {
         background: asset-url("menu_active_orange_bball.png", image) 0 0 no-repeat;
         position: absolute;
         z-index: 10;
         margin-top: 1px;
         margin-bottom: 1px;
-        right: -28px;
+        right: -22px;
         top: 0;
         display: block;
         width: 32px;
         height: 54px;
-    }
+    }*/
 }
 
 #admin_nav {
@@ -272,8 +275,8 @@ textarea {
 
 .current_user {
     display: block;
-    margin-top: 6px;
-    padding: 2px 10px 15px 10px;
+    margin-top: 0px;
+    padding: 5px 10px 5px 10px;
     text-align: right;
     p {
         font-size: 14px;
@@ -320,11 +323,12 @@ textarea {
 }
 
 .roster_container {
-  float: left;
-  margin: 0px;
-  padding: 1% 3%;
-  width: 100%;
-  height: 100%;
+    background: #f9f9f9;
+    float: left;
+    margin: 0px;
+    padding: 1% 3%;
+    width: 100%;
+    height: 100%;
 }
 
 .module_header {

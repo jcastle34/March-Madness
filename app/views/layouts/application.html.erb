@@ -19,10 +19,11 @@
         <% if user_signed_in?  %>
           <div class="current_user">
             <p>
-              <%= current_user.email %> is the current user.
+              <%= current_user.email %>
               <%= link_to 'Logout', destroy_user_session_path %>
             </p>
           </div>
+          <div class="clear"></div>
         <% end %>
         <div id="top_nav" class="row">
           <div id="logo" class="pull-left"></div>

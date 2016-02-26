@@ -21,14 +21,18 @@ padding: 5px; }
         text-transform: uppercase;
         font-size: 10px;
         background: #FFF;
+        text-align: center;
         &.pick {
             width: 10%;
         }
         &.mm_team {
-            width: 40%;
+            width: 50%;
         }
         &.player {
-            width: 35%;
+            width: 30%;
+        }
+        &.position {
+            width: 10%;
         }
     }
 }
@@ -50,10 +54,13 @@ width: 15%;
             width: 10%;
         }
         &.mm_team {
-            width: 40%;
+            width: 50%;
         }
         &.player {
-            width: 35%;
+            width: 30%;
+        }
+        &.position {
+            width: 10%;
         }
     }
 }
@@ -253,6 +260,7 @@ div.draft_players_list {
         font-size: 10px;
         font-weight: bold;
         text-transform: uppercase;
+        text-align: center;
         &.seed {
             width: 10%;
         }
@@ -289,7 +297,6 @@ div.draft_players_list {
         }
         &.name {
             width: 30%;
-            text-align: left;
         }
         &.position, &.ppg {
             width: 10%;

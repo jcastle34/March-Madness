@@ -6,7 +6,7 @@
     <th class="team_name">MM Team</th>
     <th class="points">Points</th>
     <th class="games">Games</th>
-    <th class="players_lost">Remaining Players</th>
+    <th class="players_remaining">Remaining Players</th>
   </tr>
 </table>
 <table class="standings_table">
@@ -17,7 +17,7 @@
 
       <td class="points"><%= team.total_points.nil? ? '0' : sprintf("%.0f",team.total_points) %></td>
       <td class="games"><%= team.total_games.nil? ? '0' : sprintf("%.0f", team.total_games) %></td>
-      <td class="games"><%= MmTeam.active_players_count_for_team(team.id) %></td>
+      <td class="players_remaining"><%= MmTeam.active_players_count_for_team(team.id) %></td>
     </tr>
   <% end %>
 </table>
