@@ -210,33 +210,21 @@ textarea {
         /*background: asset-url("bball_texture.png", image) 0 0 repeat;*/
         display: block;
         color: #fff;
-        /*text-shadow: 1px 1px #fff;*/
-        /*text-shadow:
-        -1px -1px 0 #fff,
-        1px -1px 0 #fff,
-        -1px 1px 0 #fff,
-        1px 1px 0 #fff;*/
         margin: 10px 20px 10px 20px;
         text-align: center;
         border-radius: 8px;
         background: asset-url("bball_texture.png", image) 0 0 repeat;
         border: outset 3px #CC2A0E;
         text-transform: uppercase;
-        /*border-top: 2px solid #293A4F;
-        border-right: 2px solid #293A4F;*/
     }
     a:hover {
-        /*background: #53729C;*/
         background: asset-url("bball_texture_faded.png", image) 0 0 repeat;
         border: outset 3px #AE5C38;
         color: #000;
         text-decoration: none;
-        /*text-shadow: 1px 1px #fff;*/
     }
     span.current_main_nav {
         background: asset-url("bball_texture_dark.png", image) 0 0 repeat;
-        /*background: #80BDE7;*/
-        /*border: outset 3px #293A4F;*/
         margin: 10px 20px 10px 20px;
         color: #fff;
         text-align: center;
