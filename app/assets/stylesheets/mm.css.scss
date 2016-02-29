@@ -207,30 +207,41 @@ textarea {
         display: block;
     }
     a {
-        background-color: #53729C;
+        /*background: asset-url("bball_texture.png", image) 0 0 repeat;*/
         display: block;
         color: #fff;
-        text-shadow: 1px 1px #000;
+        /*text-shadow: 1px 1px #fff;*/
+        /*text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;*/
         margin: 10px 20px 10px 20px;
         text-align: center;
         border-radius: 8px;
-        border-top: 1px solid #000;
-        border-right: 1px solid #000;
+        background: asset-url("bball_texture.png", image) 0 0 repeat;
+        border: outset 3px #CC2A0E;
+        text-transform: uppercase;
+        /*border-top: 2px solid #293A4F;
+        border-right: 2px solid #293A4F;*/
     }
     a:hover {
-        background: #A3C2DC;
+        /*background: #53729C;*/
+        background: asset-url("bball_texture_faded.png", image) 0 0 repeat;
+        border: outset 3px #AE5C38;
         color: #000;
         text-decoration: none;
-        text-shadow: 1px 1px #fff;
+        /*text-shadow: 1px 1px #fff;*/
     }
     span.current_main_nav {
-        background: asset-url("bball_texture.png", image) 0 0 repeat;
+        background: asset-url("bball_texture_dark.png", image) 0 0 repeat;
+        /*background: #80BDE7;*/
+        /*border: outset 3px #293A4F;*/
         margin: 10px 20px 10px 20px;
-        color: #000;
+        color: #fff;
         text-align: center;
         border-radius: 8px;
-        border-bottom: 1px solid #fff;
-        border-left: 1px solid #fff;
+        text-transform: uppercase;
     }
 
     /*span.current_main_nav_tip {
@@ -280,7 +291,7 @@ textarea {
     text-align: right;
     p {
         font-size: 14px;
-        color: #000;
+        color: #47678D;
     }
     a {
         font-size: 11px;
@@ -288,16 +299,6 @@ textarea {
         &:hover {
             text-decoration: none;
         }
-    }
-}
-
-#avatar {
-    padding: 10px;
-    display: block;
-    float: left;
-    img {
-        border: 1px solid #000;
-        width: 50px;
     }
 }
 

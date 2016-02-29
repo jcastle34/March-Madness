@@ -9,12 +9,6 @@
         <% end %>
       </li>
       <li>
-        <%= link_to_unless_current('Bracket', bracket_index_path) do |link| %>
-          <span class="current_main_nav"><%= link %></span>
-          <span class="current_main_nav_tip"></span>
-        <% end %>
-      </li>
-      <li>
         <%= link_to_unless_current('Draft', draft_index_path) do |link| %>
           <span class="current_main_nav"><%= link %></span>
           <span class="current_main_nav_tip"></span>
@@ -22,6 +16,18 @@
       </li>
       <li>
         <%= link_to_unless_current('MM Rosters', mm_teams_rosters_path) do |link| %>
+            <span class="current_main_nav"><%= link %></span>
+            <span class="current_main_nav_tip"></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to_unless_current('Bracket', bracket_index_path) do |link| %>
+          <span class="current_main_nav"><%= link %></span>
+          <span class="current_main_nav_tip"></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to_unless_current('My Profile', edit_user_registration_path) do |link| %>
             <span class="current_main_nav"><%= link %></span>
             <span class="current_main_nav_tip"></span>
         <% end %>
@@ -34,12 +40,6 @@
           <% end %>
         </li>
       <% end %>
-      <li>
-        <%= link_to_unless_current('My Profile', edit_user_registration_path) do |link| %>
-            <span class="current_main_nav"><%= link %></span>
-            <span class="current_main_nav_tip"></span>
-        <% end %>
-      </li>
     </ul>
   <% end %>
   <div class="clear"></div>
