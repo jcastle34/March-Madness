@@ -213,18 +213,18 @@ textarea {
         margin: 10px 20px 10px 20px;
         text-align: center;
         border-radius: 8px;
-        background: asset-url("bball_texture.png", image) 0 0 repeat;
+        background: image-url("bball_texture.png") 0 0 repeat;
         border: outset 3px #CC2A0E;
         text-transform: uppercase;
     }
     a:hover {
-        background: asset-url("bball_texture_faded.png", image) 0 0 repeat;
+        background: image-url("bball_texture_faded.png") 0 0 repeat;
         border: outset 3px #AE5C38;
         color: #000;
         text-decoration: none;
     }
     span.current_main_nav {
-        background: asset-url("bball_texture_dark.png", image) 0 0 repeat;
+        background: image-url("bball_texture_dark.png") 0 0 repeat;
         margin: 10px 20px 10px 20px;
         color: #fff;
         text-align: center;
