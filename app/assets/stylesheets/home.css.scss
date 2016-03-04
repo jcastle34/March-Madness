@@ -131,29 +131,40 @@
         text-transform: uppercase;
         font-weight: normal;
         font-size: 10px;
+        text-align: center;
         &.position {
-            width: 15%;
+            width: 16%;
         }
         &.player, &.team_name {
             width: 30%;
+        }
+        &.points, &.games {
+            width: 12%
         }
     }
 }
 
 .top_perf_table {
+    height: 720px;
+    overflow: auto;
+    display: block;
     width: 100%;
-    th.games {
-        width: 40px;
+    tbody {
+        width: 100%;
+        display: table;
     }
     td {
-        width: auto;
         padding: 10px 2px;
         text-align: center;
+        width: auto;
         &.position {
-            width: 15%;
+            width: 16%;
         }
         &.player, &.team_name {
             width: 30%;
+        }
+        &.points, &.games {
+            width: 12%
         }
     }
     tr {

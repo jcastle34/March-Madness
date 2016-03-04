@@ -11,8 +11,8 @@
   </tr>
 </table>
 
-<div class="top_perf_list">
-  <table class="top_perf_table">
+<table class="top_perf_table">
+  <tbody>
     <% @top_scorers.each_with_index do |player, index| %>
       <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
         <td class="position"><%= index += 1 %></td>
@@ -22,5 +22,5 @@
         <td class="games"><%= player.total_games.nil? ? '0' : sprintf("%.0f", player.total_games) %></td>
       </tr>
     <% end %>
-  </table>
-</div>
+  </tbody>
+</table>

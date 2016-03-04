@@ -4,7 +4,7 @@
     Filter players by:
     <%= collection_select(:ncaa_player, :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school, {:include_blank => 'All Teams', :selected => @selected_team_id}, html_options = {:onchange => "getNcaaPlayersByTeam()"})  %>
   </div>
-  <div style="float: right;">
+  <div class="float-right">
     <% if current_user.is_admin? %>
       <%= link_to 'New Player', new_ncaa_player_path %>
     <% end %>

@@ -274,7 +274,7 @@ div.my_team_list {
 
 #draft_players_table {
     background-color: #fff;
-    height: 685px;
+    height: 690px;
     overflow: auto;
     display: block;
     tbody {
@@ -345,6 +345,9 @@ div.my_team_list {
 #preferred_players_table {
     width: 100%;
     display: block;
+    background-color: #fff;
+    height: 690px;
+    overflow: auto;
     tbody {
         width: 100%;
         display: table;
