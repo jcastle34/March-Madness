@@ -1,21 +1,23 @@
-<div id="admin_nav" class="col-md-12">
-  <span><%= link_to 'MM Teams', mm_teams_path %></span>
-  <span><%= link_to 'NCAA Teams', ncaa_teams_path %></span>
-  <span><%= link_to 'NCAA Players', ncaa_players_path %></span>
-  <span><%= link_to 'Bracket', admin_bracket_path %></span>
-</div>
-<div id="draft_order" class="col-md-12">
-  <%= render "draft_order" %>
-</div>
+<div id="admin_container">
+  <div id="admin_nav" class="col-md-12">
+    <span><%= link_to 'MM Teams', mm_teams_path %></span>
+    <span><%= link_to 'NCAA Teams', ncaa_teams_path %></span>
+    <span><%= link_to 'NCAA Players', ncaa_players_path %></span>
+    <span><%= link_to 'Bracket', admin_bracket_path %></span>
+  </div>
+  <div id="draft_order" class="col-md-12">
+    <%= render "draft_order" %>
+  </div>
 
-<div class="left_container col-md-6">
-  <div id="ncaa_teams_container">
-    <%= render "shared/ncaa_teams" %>
+  <div class="left_container col-md-6">
+    <div id="ncaa_teams_container">
+      <%= render "shared/ncaa_teams" %>
+    </div>
   </div>
-</div>
-<div class="right_container col-md-6">
-  <div id="ncaa_players_container">
-    <%= render "shared/ncaa_players" %>
+  <div class="right_container col-md-6">
+    <div id="ncaa_players_container">
+      <%= render "shared/ncaa_players" %>
+    </div>
   </div>
+  <div class="clear"></div>
 </div>
-<div class="clear"></div>

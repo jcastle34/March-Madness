@@ -86,8 +86,9 @@ textarea {
 
 #wrapper {
     margin: 0px auto;
-    height: 100%;
+    height: 1000px;
     display: block;
+    background: #6A97C6;
 }
 
 #login_wrapper {
@@ -123,10 +124,10 @@ textarea {
 
 #logo {
     display: block;
-    width: 230px;
+    width: 210px;
     height: 90px;
     background: asset-url("march_madness_logo.png", image) 0 0 no-repeat;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 #logo_big {
@@ -180,14 +181,13 @@ textarea {
     display: block;
     background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
     /*background-color: #000;*/
-    height: 100%;
+    height: 980px;
     max-width: 250px;
     padding: 0;
 }
 
 #nav_wrapper {
     display: block;
-    height: 100%;
     max-width: 250px;
     padding: 0;
 }
@@ -279,7 +279,7 @@ textarea {
     text-align: right;
     p {
         font-size: 14px;
-        color: #47678D;
+        color: #fff;
     }
     a {
         font-size: 11px;
@@ -317,7 +317,15 @@ textarea {
     margin: 0px;
     padding: 1% 3%;
     width: 100%;
-    height: 100%;
+    height: 930px;
+    overflow: auto;
+}
+
+#admin_container {
+    margin: 0px;
+    width: 100%;
+    height: 930px;
+    overflow: auto;
 }
 
 .module_header {

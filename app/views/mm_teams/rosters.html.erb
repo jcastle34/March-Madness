@@ -4,7 +4,7 @@
         <div class="clear"></div>
       </div>
       <div class="module_container">
-        <table class="table table-striped">
+        <table class="table">
           <thead>
           <tr>
             <th rowspan="2" class="name">Team Name</th>
@@ -21,11 +21,11 @@
           <tbody>
           <% @previous_mm_team_id = -1 %>
           <% @players.each_with_index do |ncaa_player, index| %>
-              <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
+              <tr class="<%= ncaa_player.draft_pick.mm_team_id == @previous_mm_team_id ? 'odd' : 'even'%>">
                 <% if ncaa_player.draft_pick.mm_team_id != @previous_mm_team_id %>
                     <td class="name"><strong><%= ncaa_player.draft_pick.mm_team.name %></strong></td>
                 <% else %>
-                    <td>-----------</td>
+                    <td></td>
                 <% end %>
                 <td class="name"><%= ncaa_player.full_name %></td>
                 <td class="ppg"><%= ncaa_player.jersey_number %></td>

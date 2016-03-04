@@ -45,7 +45,6 @@ width: 15%;
     width: 100%;
     background-color: #fff;
     border: 0px solid;
-    height: 500px;
     overflow: auto;
     td {
         padding: 10px 2px;
@@ -244,12 +243,6 @@ div.my_team_list {
     color: #000;
 }
 
-div.draft_players_list {
-    height: 500px;
-    overflow: auto;
-    width: 100%;
-}
-
 .draft_players_table_headers {
     width: 100%;
     border-top: 2px solid #a3a3a3;
@@ -281,7 +274,7 @@ div.draft_players_list {
 
 #draft_players_table {
     background-color: #fff;
-    height: 722px;
+    height: 685px;
     overflow: auto;
     display: block;
     tbody {
@@ -381,6 +374,7 @@ div.draft_players_list {
 
 div.regions_container {
     padding: 5px;
+    margin: 5px;
 }
 
 .east_region {
