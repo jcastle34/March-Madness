@@ -86,7 +86,7 @@ textarea {
 
 #wrapper {
     margin: 0px auto;
-    height: 1000px;
+    height: 900;
     display: block;
     background: #1C3767;
 }
@@ -181,7 +181,7 @@ textarea {
     display: block;
     background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
     /*background-color: #000;*/
-    height: 980px;
+    height: 900px;
     max-width: 250px;
     padding: 0;
 }
@@ -249,7 +249,7 @@ textarea {
 #admin_container {
     margin: 0px;
     width: 100%;
-    height: 850px;
+    height: 100%;
 }
 
 #admin_nav {
@@ -294,13 +294,13 @@ textarea {
 #main_container {
     position: relative;
     display: block;
-    height: 855px;
+    min-height: 100%;
     padding: 0;
 }
 
 .left_container, .right_container {
     margin: 0;
-    padding: 20px 40px;
+    padding: 20px 20px;
     min-height: 100%;
 }
 
@@ -310,16 +310,6 @@ textarea {
 
 .right_container {
     background: #fff;
-}
-
-.roster_container {
-    background: #f9f9f9;
-    float: left;
-    margin: 0px;
-    padding: 1% 3%;
-    width: 100%;
-    height: 850px;
-    overflow: auto;
 }
 
 .module_header {

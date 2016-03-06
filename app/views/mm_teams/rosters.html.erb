@@ -1,15 +1,14 @@
-<div class="roster_container">
+<div id="mm_rosters_container">
     <div class="module">
       <div class="module_header">March Madness Team Rosters
         <div class="clear"></div>
       </div>
       <div class="module_container">
-        <table class="table">
-          <thead>
+        <table class="mm_rosters_table_headers">
           <tr>
-            <th rowspan="2" class="name">Team Name</th>
-            <th rowspan="2" class="name">Name</th>
-            <th rowspan="2" class="ppg">Jersey #</th>
+            <th rowspan="2" class="team_name">Team Name</th>
+            <th rowspan="2" class="name">Player Name</th>
+            <th rowspan="2" class="jersey">Jersey #</th>
             <th rowspan="2" class="position">Position</th>
             <th rowspan="2" class="ppg">PPG.</th>
             <th rowspan="2" class="school">School</th>
@@ -17,18 +16,19 @@
             <th rowspan="2" class="region">Region</th>
             <th rowspan="2" class="status">Status</th>
           </tr>
-          </thead>
+        </table>
+        <table id="mm_rosters_table">
           <tbody>
           <% @previous_mm_team_id = -1 %>
           <% @players.each_with_index do |ncaa_player, index| %>
               <tr class="<%= ncaa_player.draft_pick.mm_team_id == @previous_mm_team_id ? 'odd' : 'even'%>">
                 <% if ncaa_player.draft_pick.mm_team_id != @previous_mm_team_id %>
-                    <td class="name"><strong><%= ncaa_player.draft_pick.mm_team.name %></strong></td>
+                    <td class="team_name"><strong><%= ncaa_player.draft_pick.mm_team.name %></strong></td>
                 <% else %>
-                    <td></td>
+                    <td class="team_name"></td>
                 <% end %>
                 <td class="name"><%= ncaa_player.full_name %></td>
-                <td class="ppg"><%= ncaa_player.jersey_number %></td>
+                <td class="jersey"><%= ncaa_player.jersey_number %></td>
                 <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
                 <td class="ppg"><%= ncaa_player.ppg_avg %></td>
                 <td class="school"><%= ncaa_player.ncaa_team.school %></td>
@@ -36,7 +36,7 @@
                 <td class="region">
                   <span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location %></span>
                 </td>
-                <td>
+                <td class="status">
                   <% if ncaa_player.ncaa_team.is_active == 1 %>
                       <span>Active</span>
                   <% else %>

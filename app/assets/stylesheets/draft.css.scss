@@ -300,6 +300,9 @@ div.my_team_list {
         &.region {
             width: 10%;
         }
+        &.action {
+            width: 10%;
+        }
     }
 }
 
@@ -318,12 +321,13 @@ div.my_team_list {
 }
 
 .preferred_players_table_headers {
-    display: block;
     width: 100%;
-    border-top: 1px solid #E5E5E5;
-    border-bottom: 1px solid #E5E5E5;
+    border-top: 2px solid #a3a3a3;
+    border-bottom: 2px solid #a3a3a3;
+    background: #F9F9F9;
     th {
         padding: 10px 5px;
+        text-align: center;
         &.seed {
             width: 10%;
         }
@@ -337,6 +341,9 @@ div.my_team_list {
             width: 20%;
         }
         &.region {
+            width: 10%;
+        }
+        &.action {
             width: 10%;
         }
     }
@@ -361,7 +368,6 @@ div.my_team_list {
         }
         &.name {
             width: 30%;
-            text-align: left;
         }
         &.position, &.ppg {
             width: 10%;
@@ -370,6 +376,9 @@ div.my_team_list {
             width: 20%;
         }
         &.region {
+            width: 10%;
+        }
+        &.action {
             width: 10%;
         }
     }
