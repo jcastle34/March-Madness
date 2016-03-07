@@ -1,8 +1,14 @@
 #bracket_container {
-    padding-left: 2%;
+    height: 850px;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 20px;
     img {
         border: 10px solid #DEDEDE;
     }
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
 }
 
 #admin_bracket_container {
