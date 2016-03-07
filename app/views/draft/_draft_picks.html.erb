@@ -12,6 +12,7 @@
 </table>
 
 <table class="draftpicks_table">
+  <tbody>
   <% @draft.current_round_draft_picks.each_with_index do |pick, index| %>
     <tr class="<%= pick.overall_pick == @draft.current_draft_pick.overall_pick ? 'current_pick_selection' : pick.mm_team.id == session[:mm_team_id] ? 'current_user_team_selection' : (index + 1) %2 == 0 ? 'even' : 'odd' %>">
       <td class="pick"><%= pick.overall_pick %></td>
@@ -27,4 +28,5 @@
       <td><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.position %></td>
     </tr>
   <% end %>
+  </tbody>
 </table>

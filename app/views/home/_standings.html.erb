@@ -10,6 +10,7 @@
   </tr>
 </table>
 <table class="standings_table">
+  <tbody>
   <% @standings.each_with_index do |team, index| %>
     <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
       <td class="position"><%= index += 1 %></td>
@@ -20,5 +21,6 @@
       <td class="players_remaining"><%= MmTeam.active_players_count_for_team(team.id) %></td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 
