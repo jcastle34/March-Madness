@@ -93,3 +93,48 @@
         }
     }
 }
+
+.mm_teams_table {
+    display: block;
+    width: 100%;
+    thead{
+        display: table;
+        width: 100%;
+        border-top: 1px solid #E5E5E5;
+        border-bottom: 1px solid #E5E5E5;
+        background-color: #FFF;
+        th {
+            padding: 10px 0;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: normal;
+            text-align: center;
+            &.name {
+                width: 30%;
+            }
+            &.user {
+                width: 30%;
+            }
+            &.action {
+                width: 40%;
+            }
+        }
+    }
+    tbody {
+        display: table;
+        width: 100%;
+    }
+    td {
+        padding: 10px 5px;
+        text-align: center;
+        &.name {
+            width: 30%;
+        }
+        &.user {
+            width: 30%;
+        }
+        &.action {
+            width: 40%;
+        }
+    }
+}
