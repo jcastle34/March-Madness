@@ -3,7 +3,7 @@ class MmTeamsController < ApplicationController
   before_filter :verify_owner?, :only => [:preferred_players, :add_preferred_player, :remove_preferred_player]
 	include DraftHelper
   include DraftExtension
-  
+
   # GET /mm_teams
   # GET /mm_teams.xml
   def index
@@ -86,7 +86,7 @@ class MmTeamsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
   def get_roster
     @mm_team = MmTeam.find params[:mm_team_id]
     @roster = @mm_team.get_players

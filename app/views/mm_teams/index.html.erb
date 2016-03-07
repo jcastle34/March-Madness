@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>User</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -15,6 +16,7 @@
       <% @mm_teams.each_with_index do |mm_team, index| %>
         <tr class="<%= index.odd? ? 'odd' : 'even' %>">
           <td><%= mm_team.name %></td>
+          <td><%= mm_team.user.email %></td>
           <td>
             <%= link_to 'Edit', edit_mm_team_path(mm_team) %>
             <%= link_to 'Destroy', mm_team, :confirm => 'Are you sure?', :method => :delete %>
