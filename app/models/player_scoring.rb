@@ -7,7 +7,7 @@ class PlayerScoring < ActiveRecord::Base
             join draft_picks dp on dp.ncaa_player_id = np.id
             join ncaa_teams nt on nt.id = np.ncaa_team_id
             right outer join mm_teams mt on mt.id = dp.mm_team_id
-            group by mt.id order by total_points, total_games desc")
+            group by mt.id order by total_points desc, total_games desc, mt.name asc")
   end
 
 	def self.point_and_game_total_for_players
