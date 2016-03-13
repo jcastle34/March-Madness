@@ -69,3 +69,11 @@ div.midwest {
   width: 300px;
   margin: 5px;
 }
+
+#bracket {
+    display: block;
+    width: 1300px;
+    height: 800px;
+    background: asset-url("bracket.png", image) 0 0 no-repeat;
+    margin: 10px auto;
+}
