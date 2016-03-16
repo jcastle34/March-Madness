@@ -27,7 +27,7 @@
       <ul>
         <% @my_draft_picks.each do |dp| %>
           <li>
-            Rd <%= dp.round %>: 
+            Rd <%= dp.round %>:
             <strong><%= (MmTeam.all.size - ((MmTeam.all.size * dp.round) - dp.overall_pick)).ordinalize %> pick</strong>
           </li>
         <% end %>

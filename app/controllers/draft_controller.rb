@@ -3,7 +3,7 @@ require 'draft_pick'
 class DraftController < ApplicationController
 	include DraftHelper
   include DraftExtension
-	
+
 	def index
     # load initial draft page
     if (Draft.is_configured?)
@@ -23,8 +23,7 @@ class DraftController < ApplicationController
           redirect_to root_path
         end
       else
-        flash[:notice] = t(:draft_completed)
-        redirect_to root_path
+        redirect_to :action => 'results'
       end
     else
       flash[:alert] = t(:draft_not_setup)
@@ -37,7 +36,7 @@ class DraftController < ApplicationController
 			@draft = Draft.find(1)
 			@draft.get_current
 			previous_pick = params[:previous_pick].to_i
-		
+
 			if previous_pick != @draft.current_draft_pick.overall_pick
 				@selected_round = @draft.current_draft_pick.round
 			else
@@ -51,14 +50,14 @@ class DraftController < ApplicationController
       end
     end
 	end
-	
+
 	def get_by_ncaa_team
 			@ncaa_players = NcaaPlayer.where(:ncaa_team_id => params[:ncaa_team_id])
 	end
 
 	def draft_player
 			current_draft_pick = DraftPick.get_current_draft_pick
-			
+
 			# Check to see if it is the users turn to draft
 			if session[:mm_team_id] == current_draft_pick.mm_team_id || current_user.is_admin?
 					# Draft Player
@@ -72,7 +71,7 @@ class DraftController < ApplicationController
 			else
 					flash[:alert] = t(:out_of_turn_draft_pick)
 			end
-			
+
 			redirect_to draft_index_path
 	end
 
@@ -80,10 +79,16 @@ class DraftController < ApplicationController
 	end
 
 	def start
-			
+
 	end
 
 	def stop
+  end
+
+  def results
+    p "----------------"
+    @draft_picks = DraftPick.get_all
+    p "----------------"
   end
 
   def get_eligible_players_by_round
@@ -101,9 +106,9 @@ class DraftController < ApplicationController
     @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(get_team_for_current_user, seed_range[0], seed_range[1])
     render "shared/get_preferred_players_by_round"
   end
-	
+
 	private
-	
+
     def get_roster_for_current_user
       if !get_team_for_current_user.nil?
         mm_team = get_team_for_current_user

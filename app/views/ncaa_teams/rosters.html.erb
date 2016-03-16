@@ -1,0 +1,34 @@
+<div id="mm_rosters_container">
+    <div class="module">
+      <div class="module_header">NCAA Team Rosters
+        <div class="clear"></div>
+      </div>
+      <div class="module_container">
+        <table class="mm_rosters_table_headers">
+          <tr>
+            <th rowspan="2" class="school">School</th>
+            <th rowspan="2" class="name">Player Name</th>
+            <th rowspan="2" class="jersey">Jersey #</th>
+            <th rowspan="2" class="position">Position</th>
+            <th rowspan="2" class="ppg">PPG.</th>
+          </tr>
+        </table>
+        <table id="mm_rosters_table">
+          <tbody>
+            <% @ncaa_teams.each_with_index do |ncaa_team, index| %>
+                <% ncaa_team.ncaa_players.each_with_index do |ncaa_player, index| %>
+                  <tr>
+                    <td class="school"><%= ncaa_team.school %></td>
+                    <td class="name"><%= ncaa_player.full_name %></td>
+                    <td class="jersey"><%= ncaa_player.jersey_number %></td>
+                    <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
+                    <td class="ppg"><%= ncaa_player.ppg_avg %></td>
+                  </tr>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+</div>

@@ -1,6 +1,6 @@
 class NcaaTeamsController < ApplicationController
 	before_filter :user_is_admin?
-	
+
   # GET /ncaa_teams
   # GET /ncaa_teams.xml
   def index
@@ -80,6 +80,15 @@ class NcaaTeamsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(ncaa_teams_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def rosters
+    @ncaa_teams = NcaaTeam.get_rosters
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @ncaa_teams }
     end
   end
 end
