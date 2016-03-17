@@ -2,7 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  draft_completed: "The draft has been completed.  You can view the draft result rosters from the MM Rosters menu item."
+  draft_completed: "The draft has been completed.  Results are posted."
   draft_not_setup: "The draft is not setup yet."
   no_team_for_user: "The current user is not associated with a March Madness Team."
   player_drafted: "Player was successfully drafted."

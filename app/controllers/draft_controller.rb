@@ -46,7 +46,7 @@ class DraftController < ApplicationController
       if request.xhr?
         flash[:notice] = t(:draft_completed)
         flash.keep(:notice) # Keep flash notice around for the redirect.
-        render :js => "window.location = #{root_path.to_json}"
+        render :js => "window.location = #{draft_results_path.to_json}"
       end
     end
 	end
