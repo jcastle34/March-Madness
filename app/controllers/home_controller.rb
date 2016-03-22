@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  
+
   def index
     @standings = PlayerScoring.point_and_game_total_for_all_teams
 		@top_scorers = PlayerScoring.point_and_game_total_for_players

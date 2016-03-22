@@ -16,7 +16,18 @@ class PlayerScoring < ActiveRecord::Base
 			            join draft_picks dp on dp.ncaa_player_id = np.id
 			            join ncaa_teams nt on nt.id = np.ncaa_team_id
 			            join mm_teams mt on mt.id = dp.mm_team_id
-			            group by np.id order by total_points desc limit 50")
+			            group by np.id order by total_points desc limit 25")
+  end
+
+  def self.point_and_game_total_for_players_by_seed_range(min, max)
+      self.find_by_sql("select np.id, np.first_name, np.last_name, nt.school, mt.name as team_name, sum(ps.points) as total_points, count(ps.round) as total_games from player_scorings ps
+                  join ncaa_players np on np.id = ps.ncaa_player_id
+                  join draft_picks dp on dp.ncaa_player_id = np.id
+                  join ncaa_teams nt on nt.id = np.ncaa_team_id
+                  join mm_teams mt on mt.id = dp.mm_team_id
+                  join bracket_entries be on be.ncaa_team_id = nt.id
+                  where be.seed between #{min} and #{max}
+                  group by np.id order by total_points desc")
   end
 
 	def self.details_for_player(player_id)

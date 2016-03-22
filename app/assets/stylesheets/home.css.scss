@@ -112,13 +112,17 @@
     }
 }
 
-#top_perf_container_header {
+#top_perf_container_header, #top_scorer_container_header {
     padding: 2px 0px 2px 0px;
     margin: 0 0 0px;
-    font-size: 26px;
+    font-size: 16px;
     font-weight: bold;
     text-align: left;
     color: #000;
+}
+
+#top_scorer_container_header {
+    font-size: 26px;
 }
 
 .top_perf_table_headers {
@@ -133,22 +137,29 @@
         font-size: 10px;
         text-align: center;
         &.position {
-            width: 16%;
+            width: 10%;
         }
-        &.player, &.team_name {
-            width: 30%;
+        &.player {
+            width: 20%;
+        }
+        &.school {
+            width: 20%;
+        }
+        &.team_name {
+            width: 20%;
         }
         &.points, &.games {
-            width: 12%
+            width: 10%
         }
     }
 }
 
-.top_perf_table {
-    height: 720px;
+.top_perf_table, .top_scorer_table{
+    height: 320px;
     overflow: auto;
     display: block;
     width: 100%;
+    margin-bottom: 0px;
     tbody {
         width: 100%;
         display: table;
@@ -158,13 +169,19 @@
         text-align: center;
         width: auto;
         &.position {
-            width: 16%;
+            width: 10%;
         }
-        &.player, &.team_name {
-            width: 30%;
+        &.player {
+            width: 20%;
+        }
+        &.school {
+            width: 20%;
+        }
+        &.team_name {
+            width: 20%;
         }
         &.points, &.games {
-            width: 12%
+            width: 10%;
         }
     }
     tr {
@@ -180,6 +197,9 @@
         }
     }
 }
+.top_scorer_table {
+    height: 720px;
+}
 
 /* Player Scoring */
 
@@ -190,21 +210,24 @@ div.player_scoring_list {
 }
 
 .player_scoring_table_headers {
+    width: 100%;
     th {
+        padding: 10px;
+        text-align: center;
         &.name {
-            width: 120px;
+            width: 30%;
         }
         &.position, &.ppg {
-            width: 50px;
+            width: 10%;
         }
         &.school {
-            width: 120px;
+            width: 30%;
         }
         &.round {
-            width: 40px;
+            width: 10%;
         }
         &.points {
-            width: 50px;
+            width: 10%;
         }
     }
 }
@@ -212,26 +235,31 @@ div.player_scoring_list {
 .player_scoring_table {
     background-color: #fff;
     border: 0px solid;
+    width: 100%;
+    tbody {
+        width: 100%;
+        display: table;
+    }
     td {
         width: auto;
-        padding: 2px;
+        padding: 10px 2px;
         text-align: center;
         &.name {
-            width: 130px;
+            width: 30%;
             text-align: left;
         }
         &.position, &.ppg {
-            width: 50px;
+            width: 10%;
         }
         &.school {
-            width: 130px;
+            width: 30%;
         }
         &.round {
-            width: 40px;
+            width: 10%;
             font-weight: bold;
         }
         &.points {
-            width: 50px;
+            width: 10%;
             font-weight: bold;
         }
     }

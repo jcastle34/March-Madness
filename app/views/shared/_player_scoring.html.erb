@@ -4,39 +4,29 @@
 		<div class="clear"></div>
 	</div>
 	<div class="module_container">
-		<table cellspacing="0" cellpadding="0" border="0">
-		  	<tr>
-		    	<td>
-		       		<table class="player_scoring_table_headers table table-striped no-margin">
-		         		<tr>
-		          		<th class="name">Name</th>
-						    	<th class="position">Position</th>
-									<th class="ppg">PPG.</th>
-									<th class="school">School</th>
-									<th class="round">Round</th>
-									<th class="points">Points</th>
-		         		</tr>
-		       		</table>
-		    	</td>
-		  	</tr>
-		  	<tr>
-				<td>
-					<div class="player_scoring_list">
-						<table class="player_scoring_table table table-striped">
-							<% @scoring_details.each_with_index do |entry, index| %>
-							  <tr>
-								<td class="name"><%= index == 0 ? entry.ncaa_player.full_name : '' %></td>
-								<td class="position"><%= index == 0 ? entry.ncaa_player.position : '' %></td>
-								<td class="ppg"><%= index == 0 ? entry.ncaa_player.ppg_avg : '' %></td>
-								<td class="school"><%= index == 0 ? entry.ncaa_player.ncaa_team.school : '' %></td>
-								<td class="round"><%= entry.round %></td>
-								<td class="points"><%= entry.points %></td>
-							  </tr>
-							<% end %>
-						</table>
-					</div>
-				</td>
-			<tr>
+   		<table class="player_scoring_table_headers table table-striped no-margin">
+     		<tr>
+      			<th class="name">Name</th>
+		    	<th class="position">Position</th>
+				<th class="ppg">PPG.</th>
+				<th class="school">School</th>
+				<th class="round">Round</th>
+				<th class="points">Points</th>
+     		</tr>
+   		</table>
+		<table class="player_scoring_table table table-striped">
+			<tbody>
+				<% @scoring_details.each_with_index do |entry, index| %>
+				  <tr>
+					<td class="name"><%= index == 0 ? entry.ncaa_player.full_name : '' %></td>
+					<td class="position"><%= index == 0 ? entry.ncaa_player.position : '' %></td>
+					<td class="ppg"><%= index == 0 ? entry.ncaa_player.ppg_avg : '' %></td>
+					<td class="school"><%= index == 0 ? entry.ncaa_player.ncaa_team.school : '' %></td>
+					<td class="round"><%= entry.round %></td>
+					<td class="points"><%= entry.points %></td>
+				  </tr>
+				<% end %>
+			</tbody>
 		</table>
 	</div>
 </div>

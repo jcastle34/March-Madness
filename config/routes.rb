@@ -24,6 +24,7 @@ MarchMadness::Application.routes.draw do
   resources :bracket
   resources :ncaa_teams
   resources :ncaa_players
+  resources :player_scoring
 
   resources :mm_teams do
     member do

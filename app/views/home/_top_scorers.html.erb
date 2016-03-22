@@ -1,5 +1,5 @@
 
-<div id="top_perf_container_header">Top Performers</div>
+<div id="top_scorer_container_header">Top Performers</div>
 
 <table class="top_perf_table_headers">
   <tr>
@@ -11,7 +11,7 @@
   </tr>
 </table>
 
-<table class="top_perf_table">
+<table class="top_scorer_table">
   <tbody>
     <% @top_scorers.each_with_index do |player, index| %>
       <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
