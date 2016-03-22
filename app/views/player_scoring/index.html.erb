@@ -1,0 +1,27 @@
+<div id="mm_rosters_container">
+    <div class="module">
+      <div class="module_header">Player Scoring</div>
+      <div class="module_container">
+        <div class="float-left col-md-6">
+              <div id="top_perf_container_header">Seeds 1 - 4</div>
+
+              <%= render "shared/top_performers", :top_scorers => @scoring_for_seeds_1_thru_4 %>
+              <br/>
+              <div id="top_perf_container_header">Seeds 5 - 8</div>
+
+              <%= render "shared/top_performers", :top_scorers => @scoring_for_seeds_5_thru_8 %>
+        </div>
+
+        <div class="float-right col-md-6">
+            <div id="top_perf_container_header">Seeds 9 - 12</div>
+
+            <%= render "shared/top_performers", :top_scorers => @scoring_for_seeds_9_thru_12 %>
+            <br/>
+            <div id="top_perf_container_header">Seeds 13 - 16</div>
+
+            <%= render "shared/top_performers", :top_scorers => @scoring_for_seeds_13_thru_16 %>
+        </div>
+      </div>
+    </div>
+</div>
+
