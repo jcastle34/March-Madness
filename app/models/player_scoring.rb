@@ -11,7 +11,7 @@ class PlayerScoring < ActiveRecord::Base
   end
 
 	def self.point_and_game_total_for_players
-      self.find_by_sql("select np.id, np.first_name, np.last_name, mt.name as team_name, sum(ps.points) as total_points, count(ps.round) as total_games from player_scorings ps
+      self.find_by_sql("select np.id, np.first_name, np.last_name, nt.school, mt.name as team_name, sum(ps.points) as total_points, count(ps.round) as total_games from player_scorings ps
 			            join ncaa_players np on np.id = ps.ncaa_player_id
 			            join draft_picks dp on dp.ncaa_player_id = np.id
 			            join ncaa_teams nt on nt.id = np.ncaa_team_id
