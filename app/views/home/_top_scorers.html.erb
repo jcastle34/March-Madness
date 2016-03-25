@@ -19,7 +19,7 @@
       <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd' %>">
         <td class="rank"><%= index += 1 %></td>
         <td class="player"><%= link_to player.first_name + ' ' + player.last_name, "#", :onclick => "getScoringDetails('#{player.id}');" %></td>
-        <td class="position"><%= player.position %></td>
+        <td class="position"><span class="<%=get_position_css_class player.position %>"><%= player.position %></span></td>
         <td class="school"><%= player.school %></td>
         <td class="team_name"><%= player.team_name %></td>
         <td class="points"><%= player.total_points.nil? ? '0' : sprintf("%.0f", player.total_points) %></td>
