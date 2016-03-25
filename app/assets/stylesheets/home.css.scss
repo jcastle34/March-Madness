@@ -136,6 +136,9 @@
         font-weight: normal;
         font-size: 10px;
         text-align: center;
+        &.rank {
+            width: 10%;
+        }
         &.position {
             width: 10%;
         }
@@ -168,6 +171,9 @@
         padding: 10px 2px;
         text-align: center;
         width: auto;
+        &.rank {
+            width: 10%;
+        }
         &.position {
             width: 10%;
         }
