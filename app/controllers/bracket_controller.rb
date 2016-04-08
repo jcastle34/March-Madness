@@ -1,10 +1,12 @@
 class BracketController < ApplicationController
-  
+
   def index
-    @east_region_bracket_entries = BracketEntry.where(:region_id => 1).order(:seed)
-    @midwest_region_bracket_entries = BracketEntry.where(:region_id => 2).order(:seed)
-    @south_region_bracket_entries = BracketEntry.where(:region_id => 3).order(:seed)
-    @west_region_bracket_entries = BracketEntry.where(:region_id => 4).order(:seed)
+    @east_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 1).order(:seed))
+    @midwest_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 2).order(:seed))
+    @south_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 3).order(:seed))
+    @west_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 4).order(:seed))
+    @play_in_matchups = BracketEntry.where(:is_play_in => 1).order(:seed, :region_id)
+    p @play_in_matchups.inspect
   end
 
   def update_regions
@@ -21,6 +23,28 @@ class BracketController < ApplicationController
       end
     end
     redirect_to admin_bracket_url
+  end
+
+private
+
+  def matchup_seeds(bracket_entries)
+    matchups = []
+        matchups.push bracket_entries.find {|be| be.seed == 1}
+        matchups.push bracket_entries.find {|be| be.seed == 16}
+        matchups.push bracket_entries.find {|be| be.seed == 8}
+        matchups.push bracket_entries.find {|be| be.seed == 9}
+        matchups.push bracket_entries.find {|be| be.seed == 5}
+        matchups.push bracket_entries.find {|be| be.seed == 12}
+        matchups.push bracket_entries.find {|be| be.seed == 4}
+        matchups.push bracket_entries.find {|be| be.seed == 13}
+        matchups.push bracket_entries.find {|be| be.seed == 6}
+        matchups.push bracket_entries.find {|be| be.seed == 11}
+        matchups.push bracket_entries.find {|be| be.seed == 3}
+        matchups.push bracket_entries.find {|be| be.seed == 14}
+        matchups.push bracket_entries.find {|be| be.seed == 7}
+        matchups.push bracket_entries.find {|be| be.seed == 10}
+        matchups.push bracket_entries.find {|be| be.seed == 2}
+        matchups.push bracket_entries.find {|be| be.seed == 15}
   end
 
 end
