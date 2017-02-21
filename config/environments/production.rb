@@ -80,6 +80,5 @@ MarchMadness::Application.configure do
 
   # Mailer configs
   config.action_mailer.delivery_method = :mailgun
-}
 
 end
