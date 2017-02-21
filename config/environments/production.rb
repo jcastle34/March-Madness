@@ -80,5 +80,6 @@ MarchMadness::Application.configure do
 
   # Mailer configs
   config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.default_url_options = { :host => 'march-madness-challenge.herokuapp.com' }
 
 end
