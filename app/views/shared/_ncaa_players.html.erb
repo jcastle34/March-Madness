@@ -2,7 +2,7 @@
 <div style="margin: 5px;">
   <div style="float: left; padding-bottom: 5px;">
     Filter players by:
-    <%= collection_select(:ncaa_player, :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school, {:include_blank => 'All Teams', :selected => @selected_team_id}, html_options = {:onchange => "getNcaaPlayersByTeam()"})  %>
+    <%= collection_select(:ncaa_player, :ncaa_team_id, NcaaTeam.all.order(:school), :id, :school, {:include_blank => 'All Teams', :selected => @selected_team_id}, html_options = {:onchange => "getNcaaPlayersByTeam()"})  %>
   </div>
   <div class="float-right">
     <% if current_user.is_admin? %>
