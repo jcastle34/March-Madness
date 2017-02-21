@@ -91,6 +91,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mailgunner (2.4.0)
     metaclass (0.0.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -211,6 +212,7 @@ DEPENDENCIES
   devise-encryptable
   font-awesome-rails
   jquery-rails
+  mailgunner (~> 2.4)
   mocha
   mysql2 (~> 0.3.17)
   protected_attributes
