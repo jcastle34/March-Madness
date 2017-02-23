@@ -88,7 +88,7 @@ textarea {
     margin: 0px auto;
     height: 900;
     display: block;
-    background: #1C3767;
+    background: #000;
 }
 
 #login_wrapper {
@@ -126,7 +126,7 @@ textarea {
     display: block;
     width: 200px;
     height: 200px;
-    background: asset-url("ncaa_tourney_houston_16.png", image) 0 0 no-repeat;
+    background: asset-url("final_four_logo_2017.png", image) 0 0 no-repeat;
     margin: 10px auto;
 }
 
@@ -224,11 +224,11 @@ textarea {
         text-decoration: none;
     }
     span.current_main_nav {
-        background: image-url("bball_texture_dark.png") 0 0 repeat;
+        background: image-url("bball_texture_light.png") 0 0 repeat;
         margin: 10px 20px 10px 20px;
-        color: #fff;
+        color: #000;
         text-align: center;
-        border-radius: 8px;
+        border-radius: 4px;
         text-transform: uppercase;
     }
 
