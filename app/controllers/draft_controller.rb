@@ -7,7 +7,9 @@ class DraftController < ApplicationController
 	def index
     # load initial draft page
     if (Draft.is_configured?)
-      if(!Draft.is_completed?)
+      if(Draft.is_completed?)
+        redirect_to :action => 'results'
+      else
         @draft = Draft.find(1)
         @draft.get_current
         @selected_round = @draft.current_draft_pick.round
@@ -22,8 +24,6 @@ class DraftController < ApplicationController
           flash[:alert] = t(:no_team_for_user)
           redirect_to root_path
         end
-      else
-        redirect_to :action => 'results'
       end
     else
       flash[:alert] = t(:draft_not_setup)
@@ -86,9 +86,7 @@ class DraftController < ApplicationController
   end
 
   def results
-    p "----------------"
     @draft_picks = DraftPick.get_all
-    p "----------------"
   end
 
   def get_eligible_players_by_round
