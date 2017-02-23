@@ -4,6 +4,7 @@
 en:
   draft_completed: "The draft has been completed.  Results are posted."
   draft_not_setup: "The draft is not setup yet."
+  bracket_not_setup: "The bracket is not setup yet."
   no_team_for_user: "The current user is not associated with a March Madness Team."
   player_drafted: "Player was successfully drafted."
   out_of_turn_draft_pick: "It is not your turn to draft a player."
