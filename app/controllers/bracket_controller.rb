@@ -15,9 +15,11 @@ class BracketController < ApplicationController
 
   def update_regions
     params.each do |key,value|
-      if(key.include? "bracket_entry")
-        key_values = key.split("_")
-        bracket_entry = BracketEntry.find_by_seed_and_region_id_and_is_play_in(key_values[key_values.size - 2], key_values[key_values.size - 3], key_values[key_values.size - 1])
+      if(key.include? "bracket_entry_")
+        # key_values = key.split("_")
+        # bracket_entry = BracketEntry.find_by_seed_and_region_id_and_is_play_in(key_values[key_values.size - 2], key_values[key_values.size - 3], key_values[key_values.size - 1])
+        actual_key = key.gsub("bracket_entry_", '')
+        bracket_entry = BracketEntry.find(actual_key)
         bracket_entry.update_attribute(:ncaa_team_id, value['ncaa_team_id'])
 
         ncaa_team = NcaaTeam.find_by_id(value['ncaa_team_id'])

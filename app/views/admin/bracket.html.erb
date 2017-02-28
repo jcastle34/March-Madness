@@ -1,7 +1,7 @@
 <div id="admin_bracket_container">
 
       <%= form_tag(bracket_update_regions_path, :method => "post") do %>
-
+          <% @previous_seed = -1 %>
           <% @midwest_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
                   <div class="midwest">
@@ -15,6 +15,18 @@
               <% end %>
           <% end %>
 
+          <div class="float-left" style="padding: 5px;">
+            <p style="width: 100%; text-align: center;">Play-in Games</p>
+            <% @play_in_matchups.each do |entry|  %>
+              <div style='padding: 2px'>
+                <div class="float-left" style="width: 60px; text-align:right;"><%= entry.region.location %> <%= entry.seed %></div>
+                <span style='padding-left: 10px'>
+                    <%= collection_select("bracket_entry_#{entry.id}", :ncaa_team_id, NcaaTeam.all.order(:school), :id, :school, {:selected => entry.ncaa_team.id}) %>
+                </span>
+              </div>
+            <% end %>
+          </div>
+          <% @previous_seed = -1 %>
           <% @east_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
                   <div class="east">
@@ -29,7 +41,7 @@
           <% end %>
 
           <div class="clear"></div>
-
+          <% @previous_seed = -1 %>
           <% @west_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
                   <div class="west">
@@ -42,7 +54,7 @@
                   <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
               <% end %>
           <% end %>
-
+          <% @previous_seed = -1 %>
           <% @south_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
                   <div class="south">

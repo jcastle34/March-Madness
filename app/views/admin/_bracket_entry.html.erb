@@ -1,11 +1,16 @@
-
-<div style='padding: 2px'>
-  <div style='width: 20px' class="float-left"><%= entry.seed %></div>
-  <span>
-    <%= collection_select("bracket_entry_#{entry.region.id.to_s}_#{entry.seed.to_s}_#{entry.is_play_in ? 1 : 0}", :ncaa_team_id, NcaaTeam.all(:order => "school"), :id, :school, {:selected => entry.ncaa_team.id}) %>
-    <% if entry.is_play_in %>
-        (Play-in)
-    <% end %>
-  </span>
-</div>
-
+<% if !entry.is_play_in %>
+	<div style='padding: 2px'>
+	  	<div style='width: 20px' class="float-left"><%= entry.seed %></div>
+	  	<span>
+    		<%= collection_select("bracket_entry_#{entry.id}", :ncaa_team_id, NcaaTeam.all.order(:school), :id, :school, {:selected => entry.ncaa_team.id}) %>
+  		</span>
+	</div>
+<% else %>
+	<% if @previous_seed != entry.seed %>
+		<div style='padding: 2px'>
+			<div style='width: 20px' class="float-left"><%= entry.seed %></div>
+			<span>PLAY-IN GAME WINNER</span>
+		</div> 
+		<% @previous_seed = entry.seed %>  
+	<% end %> 	
+<% end %>

@@ -18,6 +18,7 @@ class AdminController < ApplicationController
     @midwest_region_bracket_entries = BracketEntry.where(:region_id => 2).order(:seed)
     @south_region_bracket_entries = BracketEntry.where(:region_id => 3).order(:seed)
     @west_region_bracket_entries = BracketEntry.where(:region_id => 4).order(:seed)
+    @play_in_matchups = BracketEntry.where(:is_play_in => 1).order(:seed, :region_id)
   end
 
 end
