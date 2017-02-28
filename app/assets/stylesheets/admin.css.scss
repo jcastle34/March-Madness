@@ -4,3 +4,25 @@
     padding: 10px;
     margin: 0px;
 }
+
+#admin_nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 5px; 
+    font-size: 14px;
+    color: #fff;
+    float: left;
+
+	a {
+        text-decoration: underline;
+        color: #E7772D;
+	    &:link, &:visited {
+	        color: #E7772D;
+	    }
+	    &:hover {
+	        color: SaddleBrown;
+	        text-decoration: none;
+	    }
+	    padding: 5px 5px 5px 5px;
+	}    
+}

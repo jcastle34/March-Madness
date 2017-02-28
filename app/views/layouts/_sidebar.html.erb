@@ -40,7 +40,7 @@
       </li>
       <% if current_user.is_admin? %>
         <li>
-          <%= link_to_unless_current('Admin', admin_index_path) do |link| %>
+          <%= link_to_if(controller_path.split('/').first != 'admin', 'Admin', admin_index_path) do |link| %>
             <span class="current_main_nav"><%= link %></span>
             <span class="current_main_nav_tip"></span>
           <% end %>

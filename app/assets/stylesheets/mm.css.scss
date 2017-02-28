@@ -252,33 +252,11 @@ textarea {
     height: 100%;
 }
 
-#admin_nav {
-    width: 430px;
-        a {
-            display: inline-block;
-            *display: inline;
-            zoom: 1;
-            padding: 10px 10px;
-            margin: 0px 5px 0px 5px;
-            background: image-url("bball_texture.png") 0 0 repeat;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 5px;
-        }
-
-        a:hover {
-            color: #000;
-            background: image-url("bball_texture_faded.png") 0 0 repeat;
-            text-decoration: none;
-        }
-}
-
 .current_user {
-    display: block;
     margin-top: 0px;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 0px 5px 0px;
     text-align: right;
+    float: right;
     p {
         font-size: 14px;
         color: #fff;

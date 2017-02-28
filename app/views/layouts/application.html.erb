@@ -16,6 +16,14 @@
         <%= render 'layouts/sidebar' %>
       </div>
       <div id="main_container" class="col-md-10">
+        <% if controller.controller_name == 'admin' || controller.controller_name == 'ncaa_players'  || controller.controller_name == 'ncaa_teams' || controller.controller_name == 'mm_teams' %>
+          <div id="admin_nav">
+            <%= link_to_unless_current 'MM Teams', mm_teams_path %>
+            <%= link_to_unless_current 'NCAA Teams', ncaa_teams_path %>
+            <%= link_to_unless_current 'NCAA Players', ncaa_players_path %>
+            <%= link_to_unless_current 'Bracket', admin_bracket_path %>
+          </div>
+        <% end %>
         <% if user_signed_in?  %>
           <div class="current_user">
             <p>
