@@ -1,4 +1,4 @@
-<%= form_for(@ncaa_team) do |f| %>
+<%= form_for([:admin, @ncaa_team]) do |f| %>
   	<% if @ncaa_team.errors.any? %>
 	    <div id="error_explanation">
 	      	<h2><%= pluralize(@ncaa_team.errors.count, "error") %> prohibited this ncaa_team from being saved:</h2>

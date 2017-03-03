@@ -23,6 +23,7 @@ MarchMadness::Application.routes.draw do
 
   namespace :admin do
     resources :ncaa_players
+    resources :ncaa_teams
   end
 
   resources :bracket

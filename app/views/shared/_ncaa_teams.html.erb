@@ -1,6 +1,6 @@
 <h1 id="standings_container_header">NCAA Teams</h1>
 <div class="pull-right padding-sm">
-  <%= link_to 'New Team', new_ncaa_team_path %>
+  <%= link_to 'New Team', new_admin_ncaa_team_path %>
 </div>
 <div class="clear"></div>
 
@@ -18,8 +18,8 @@
         <td><%= ncaa_team.school %></td>
         <td><%= ncaa_team.nickname %></td>
         <td>
-          <%= link_to 'Edit', edit_ncaa_team_path(ncaa_team) %>
-          <%= link_to 'Remove', ncaa_team, :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to 'Edit', edit_admin_ncaa_team_path(ncaa_team) %>
+          <%= link_to 'Remove', [:admin, ncaa_team], :confirm => 'Are you sure?', :method => :delete %>
         </td>
       </tr>
     <% end %>
