@@ -6,7 +6,7 @@
   </div>
   <div class="float-right">
     <% if current_user.is_admin? %>
-      <%= link_to 'New Player', new_ncaa_player_path %>
+      <%= link_to 'New Player', new_admin_ncaa_player_path %>
     <% end %>
   </div>
   <div class="clear"></div>
@@ -17,10 +17,11 @@
   <table class="players_table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>PPG.</th>
-        <th>School</th>
+        <th class="name">Name</th>
+        <th class="position">Position</th>
+        <th class="ppg">PPG.</th>
+        <th class="school">School</th>
+        <th class="jersey">Jersey #</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -28,14 +29,17 @@
       <% @ncaa_players.each_with_index do |ncaa_player, index| %>
         <tr class="<%= index.odd? ? 'odd' : 'even' %>">
           <td class="name"><%= ncaa_player.first_name + " " + ncaa_player.last_name%></td>
-          <td><%= ncaa_player.position %></td>
-          <td><%= ncaa_player.ppg_avg %></td>
-          <td><%= ncaa_player.ncaa_team.school %></td>
+          <td class="position"><%= ncaa_player.position %></td>
+          <td class="ppg"><%= ncaa_player.ppg_avg %></td>
+          <td class="school"><%= ncaa_player.ncaa_team.school %></td>
+          <td class="jersey_number"><%= ncaa_player.jersey_number %></td>
           <td>
             <% if current_user.is_admin? %>
-              <%= link_to 'Edit', edit_ncaa_player_path(ncaa_player) %>
-              <%= link_to 'Draft', ncaa_player, :method => :draft_player %>
-              <%= link_to 'Remove', ncaa_player, :confirm => 'Are you sure?', :method => :delete %>
+              <%= link_to 'Edit', edit_admin_ncaa_player_path(ncaa_player) %>
+              <% if controller_path.split('/').first != 'admin' %>
+                <%= link_to 'Draft', ncaa_player, :method => :draft_player %>
+              <% end %>
+              <%= link_to 'Remove', [:admin, ncaa_player], :confirm => 'Are you sure?', :method => :delete %>
             <% else %>
               <%= link_to 'Draft', draft_draft_player_path(ncaa_player) %>
             <% end %>

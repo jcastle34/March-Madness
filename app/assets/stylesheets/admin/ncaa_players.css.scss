@@ -1,0 +1,73 @@
+#ncaa_players_container {
+    margin: 0px;
+    height: 720px;
+    overflow: auto;
+}
+
+.players_table {
+    display: block;
+    width: 100%;
+    thead, tbody {
+        display: table;
+        width: 100%;
+    }
+    th {
+        padding: 10px 0;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: normal;
+        text-align: center;
+
+        &.name {
+            width: 20%;
+        }
+        &.school {
+            width: 25%;
+        }
+        &.position {
+            width: 10%;
+        }
+        &.ppg {
+            width: 10%;
+        }
+        &.jersey {
+            width: 10%;
+        }
+    }
+
+    td {
+        padding: 10px 2px;
+        text-align: center;
+        &.name {
+            width: 20%;
+        }
+        &.school {
+            width: 25%;
+        }
+        &.position {
+            width: 10%;
+        }
+        &.ppg {
+            width: 10%;
+        }
+        &.jersey {
+            width: 10%;
+        }
+    }
+}
+
+.player_search_container {
+    padding: 5px 5px 5px 5px;
+}
+
+.position_center {
+    color: #000;
+}
+
+.position_forward {
+    color: orange;
+}
+
+.position_guard {
+    color: #21CCF7;
+}

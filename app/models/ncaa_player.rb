@@ -4,6 +4,8 @@ class NcaaPlayer < ActiveRecord::Base
   has_one :draft_pick
 	has_many :player_scorings
 
+  attr_accessible :first_name, :last_name, :ncaa_team_id, :ppg_avg, :position, :jersey_number
+
 	GUARD = 'G'
 	FORWARD = 'F'
 	CENTER = 'C'

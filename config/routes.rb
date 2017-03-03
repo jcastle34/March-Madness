@@ -21,6 +21,10 @@ MarchMadness::Application.routes.draw do
   get "draft/get_draft_picks"
   get "ncaa_teams/rosters"
 
+  namespace :admin do
+    resources :ncaa_players
+  end
+
   resources :bracket
   resources :ncaa_teams
   resources :ncaa_players

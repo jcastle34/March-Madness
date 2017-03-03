@@ -1,4 +1,4 @@
-<%= form_for(@ncaa_player) do |f| %>
+<%= form_for [:admin, @ncaa_player] do |f| %>
 <% if @ncaa_player.errors.any? %>
     <div id="error_explanation">
       	<h2><%= pluralize(@ncaa_player.errors.count, "error") %> prohibited this ncaa_player from being saved:</h2>
@@ -24,6 +24,10 @@
 	<div class="form-group">
 	    PPG.<br />
 	    <%= f.text_field :ppg_avg, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+	    Jersey Number<br />
+	    <%= f.text_field :jersey_number, class: 'form-control' %>
 	</div>
   	<div class="actions padding-md text-center">
 	    <%= f.submit "Submit", class: 'btn btn-success' %>

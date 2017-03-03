@@ -1,4 +1,4 @@
-class NcaaPlayersController < ApplicationController
+class Admin::NcaaPlayersController < ApplicationController
 	before_filter :user_is_admin?
 	
   # GET /ncaa_players
@@ -55,7 +55,7 @@ class NcaaPlayersController < ApplicationController
 
     respond_to do |format|
       if @ncaa_player.save
-        format.html { redirect_to(@ncaa_player, :notice => 'Ncaa player was successfully created.') }
+        format.html { redirect_to([:admin, @ncaa_player], :notice => 'Ncaa player was successfully created.') }
         format.xml  { render :xml => @ncaa_player, :status => :created, :location => @ncaa_player }
       else
         format.html { render :action => "new" }
@@ -71,7 +71,7 @@ class NcaaPlayersController < ApplicationController
 
     respond_to do |format|
       if @ncaa_player.update_attributes(params[:ncaa_player])
-        format.html { redirect_to(@ncaa_player, :notice => 'Ncaa player was successfully updated.') }
+        format.html { redirect_to(admin_ncaa_players_url, :notice => 'Ncaa player was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,9 +87,8 @@ class NcaaPlayersController < ApplicationController
     @ncaa_player.destroy
 
     respond_to do |format|
-      format.html { redirect_to(ncaa_players_url) }
+      format.html { redirect_to(admin_ncaa_players_url) }
       format.xml  { head :ok }
     end
   end
-  
 end
