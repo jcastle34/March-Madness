@@ -7,17 +7,19 @@
 <table class="teams_table">
   <thead>
     <tr>
-      <th>School</th>
-      <th>Nickname</th>
-      <th>Action</th>
+      <th class="school">School</th>
+      <th class="nickname">Nickname</th>
+      <th class="web_id">Web Id</th>
+      <th class="action">Action</th>
     </tr>
   </thead>
   <tbody>
     <% @ncaa_teams.each_with_index do |ncaa_team, index| %>
       <tr class="<%= index.odd? ? 'odd' : 'even' %>">
         <td><%= ncaa_team.school %></td>
-        <td><%= ncaa_team.nickname %></td>
-        <td>
+        <td class="nickname"><%= ncaa_team.nickname %></td>
+        <td class="web_id"><%= ncaa_team.web_id %></td>
+        <td class="action">
           <%= link_to 'Edit', edit_admin_ncaa_team_path(ncaa_team) %>
           <%= link_to 'Remove', [:admin, ncaa_team], :confirm => 'Are you sure?', :method => :delete %>
         </td>
