@@ -110,7 +110,7 @@ function removePreferredPlayer(player_id, mm_team_id) {
 
 function getNcaaPlayersByTeam() {
     id = $("#ncaa_player_ncaa_team_id").val();
-    $.getScript("/ncaa_players/get_by_ncaa_team.js?ncaa_team_id=" + id);
+    $.getScript("/admin/ncaa_players/get_by_ncaa_team.js?ncaa_team_id=" + id);
 }
 
 function getScoringDetails(player_id)

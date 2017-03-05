@@ -5,7 +5,7 @@ MarchMadness::Application.routes.draw do
   get "draft/undraft_player"
   get "draft/results"
   get "draft/get_current_draft_status"
-  get "ncaa_players/get_by_ncaa_team"
+  get "admin/ncaa_players/get_by_ncaa_team"
   get "draft/get_eligible_players_by_round"
   get "draft/get_preferred_players_by_round"
   get "home/player_scoring_details"
