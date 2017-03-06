@@ -3,7 +3,7 @@ class MmTeam < ActiveRecord::Base
   has_many :draft_picks
   has_many :ncaa_players
 
-  attr_accessible :name
+  attr_accessible :name, :user_id
 
   def get_players
       @ncaa_players = NcaaPlayer.joins('left outer join draft_picks dp on dp.ncaa_player_id = ncaa_players.id

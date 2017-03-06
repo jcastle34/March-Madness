@@ -1,29 +1,35 @@
 MarchMadness::Application.routes.draw do
 
+  get "admin/index"
+  get "admin/bracket"
+  post "admin/generate_draft_picks"
+  get "admin/ncaa_players/get_by_ncaa_team"
+
   get "draft/index"
   get "draft/draft_player"
   get "draft/undraft_player"
   get "draft/results"
   get "draft/get_current_draft_status"
-  get "admin/ncaa_players/get_by_ncaa_team"
-  get "draft/get_eligible_players_by_round"
-  get "draft/get_preferred_players_by_round"
-  get "home/player_scoring_details"
-  get "mm_teams/get_roster"
-  get "mm_teams/rosters"
+  get "draft/get_draft_picks"
   get "draft/start"
   get "draft/stop"
-  post "bracket/update_regions"
+  get "draft/get_eligible_players_by_round"
+  get "draft/get_preferred_players_by_round"
+
   get "home/index"
-  get "admin/index"
-  get "admin/bracket"
-	post "admin/generate_draft_picks"
-  get "draft/get_draft_picks"
+  get "home/player_scoring_details"
+
+  get "mm_teams/get_roster"
+  get "mm_teams/rosters"
+
+  post "bracket/update_regions"
+
   get "ncaa_teams/rosters"
 
   namespace :admin do
     resources :ncaa_players
     resources :ncaa_teams
+    resources :mm_teams
   end
 
   resources :bracket

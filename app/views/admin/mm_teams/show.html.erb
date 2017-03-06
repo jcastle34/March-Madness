@@ -1,0 +1,11 @@
+<h1>View March Madness Team</h1>
+
+<p>
+  	<b>First Name:</b>
+  	<%= @mm_team.name %><br/>
+  	<b>User Email:</b>
+  	<%= @mm_team.user.email %><br/>
+</p>
+
+<%= link_to 'Edit', edit_admin__mm_team_path(@mm_team) %> |
+<%= link_to 'Back', admin_mm_teams_path %>

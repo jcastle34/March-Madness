@@ -1,7 +1,7 @@
 <div class="left_container">
   <h1 class="standings_container_header">March Madness Teams</h1>
   <div class="pull-right padding-sm">
-    <%= link_to 'New Team', new_mm_team_path %>
+    <%= link_to 'New Team', new_admin_mm_team_path %>
   </div>
   <div class="clear"></div>
   <table class="mm_teams_table">
@@ -18,8 +18,8 @@
           <td class="name"><%= mm_team.name %></td>
           <td class="user"><%= !mm_team.user.nil? ? mm_team.user.email : 'TBD' %></td>
           <td class="action">
-            <%= link_to 'Edit', edit_mm_team_path(mm_team) %>
-            <%= link_to 'Destroy', mm_team, :confirm => 'Are you sure?', :method => :delete %>
+            <%= link_to 'Edit', edit_admin_mm_team_path(mm_team) %>
+            <%= link_to 'Remove', [:admin, mm_team], :method => :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <% end %>
