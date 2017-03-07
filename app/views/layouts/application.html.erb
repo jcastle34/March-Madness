@@ -18,6 +18,7 @@
       <div id="main_container" class="col-md-10">
         <% if controller.controller_name == 'admin' || controller.controller_name == 'ncaa_players'  || controller.controller_name == 'ncaa_teams' || controller.controller_name == 'mm_teams' %>
           <div id="admin_nav">
+            <%= link_to_unless_current 'Admin Home', admin_index_path %>
             <%= link_to_unless_current 'MM Teams', admin_mm_teams_path %>
             <%= link_to_unless_current 'NCAA Teams', admin_ncaa_teams_path %>
             <%= link_to_unless_current 'NCAA Players', admin_ncaa_players_path %>

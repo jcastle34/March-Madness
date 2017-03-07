@@ -12,10 +12,6 @@
     text-align: left;
 }
 
-#admin_bracket_container {
-  background-color: #eee;
-}
-
 div.bracket_list {
     float: left;
     height: auto;
@@ -46,28 +42,28 @@ div.bracket_list {
 div.midwest {
   float: left;
   height: auto;
-  width: 250px;
+  width: 20%;
   margin: 5px;
 }
 
 div.east {
-  float: right;
+  float: left;
   height: auto;
-  width: 250px;
+  width: 20%;
   margin: 5px;
 }
 
 div.west {
   float: left;
   height: auto;
-  width: 250px;
+  width: 20%;
   margin: 5px;
 }
 
 div.south {
-  float: right;
+  float: left;
   height: auto;
-  width: 250px;
+  width: 20%;
   margin: 5px;
 }
 

@@ -2,8 +2,7 @@ class AdminController < ApplicationController
   before_filter :user_is_admin?
 
   def index    
-      @ncaa_teams = NcaaTeam.all.order(:school)  
-			@ncaa_players = NcaaPlayer.joins('join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id').order('nt.school asc, ncaa_players.position desc')      
+      @draft_picks = DraftPick.where(:round => 1).order(:overall_pick)     
   end
 
 	def generate_draft_picks

@@ -1,31 +1,7 @@
-<div id="admin_bracket_container">
-
+<div class="left_container">
+    <h1>Bracket</h1>
       <%= form_tag(bracket_update_regions_path, :method => "post") do %>
-          <% @previous_seed = -1 %>
-          <% @midwest_region_bracket_entries.each do |entry|  %>
-              <% if entry.seed == 1 %>
-                  <div class="midwest">
-                    <div><%= entry.region.location %></div>
-                    <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-              <% elsif entry == @midwest_region_bracket_entries.last %>
-                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-                  </div>
-              <% else %>
-                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-              <% end %>
-          <% end %>
 
-          <div class="float-left" style="padding: 5px;">
-            <p style="width: 100%; text-align: center;">Play-in Games</p>
-            <% @play_in_matchups.each do |entry|  %>
-              <div style='padding: 2px'>
-                <div class="float-left" style="width: 60px; text-align:right;"><%= entry.region.location %> <%= entry.seed %></div>
-                <span style='padding-left: 10px'>
-                    <%= collection_select("bracket_entry_#{entry.id}", :ncaa_team_id, NcaaTeam.all.order(:school), :id, :school, {:selected => entry.ncaa_team.id}) %>
-                </span>
-              </div>
-            <% end %>
-          </div>
           <% @previous_seed = -1 %>
           <% @east_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
@@ -40,20 +16,20 @@
               <% end %>
           <% end %>
 
-          <div class="clear"></div>
           <% @previous_seed = -1 %>
-          <% @west_region_bracket_entries.each do |entry|  %>
+          <% @midwest_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
-                  <div class="west">
+                  <div class="midwest">
                     <div><%= entry.region.location %></div>
                     <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
-              <% elsif entry == @west_region_bracket_entries.last %>
+              <% elsif entry == @midwest_region_bracket_entries.last %>
                   <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
                   </div>
               <% else %>
                   <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
               <% end %>
           <% end %>
+
           <% @previous_seed = -1 %>
           <% @south_region_bracket_entries.each do |entry|  %>
               <% if entry.seed == 1 %>
@@ -68,12 +44,36 @@
               <% end %>
           <% end %>
 
+          <% @previous_seed = -1 %>
+          <% @west_region_bracket_entries.each do |entry|  %>
+              <% if entry.seed == 1 %>
+                  <div class="west">
+                    <div><%= entry.region.location %></div>
+                    <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+              <% elsif entry == @west_region_bracket_entries.last %>
+                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+                  </div>
+              <% else %>
+                  <%= render :partial => "bracket_entry", :locals => {:entry => entry} %>
+              <% end %>
+          <% end %>
+
+          <div class="float-left" style="padding: 5px;">
+            <p>Play-in Games</p>
+            <% @play_in_matchups.each do |entry|  %>
+              <div style='padding: 2px'>
+                <div class="float-left" style="width: 50px;"><%= entry.seed %> - <%= entry.region.location %></div>
+                <span style='padding-left: 10px'>
+                    <%= collection_select("bracket_entry_#{entry.id}", :ncaa_team_id, NcaaTeam.all.order(:school), :id, :school, {:selected => entry.ncaa_team.id}) %>
+                </span>
+              </div>
+            <% end %>
+          </div>
+
           <div class="clear"></div>
 
           <div class="clear padding-md text-center">
             <%= submit_tag 'Save', class: 'btn btn-success' %>
           </div>
       <% end %>
-
 </div>
-
