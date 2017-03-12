@@ -62,7 +62,7 @@
             <p>Play-in Games</p>
             <% @play_in_matchups.each do |entry|  %>
               <div style='padding: 2px'>
-                <div class="float-left" style="width: 50px;"><%= entry.seed %> - <%= entry.region.location %></div>
+                <div class="float-left" style="width: 60px;"><%= entry.seed %> - <%= entry.region.location %></div>
                 <span style='padding-left: 10px'>
                     <%= collection_select("bracket_entry_#{entry.id}", :ncaa_team_id, NcaaTeam.all.order(:school), :id, :school, {:selected => entry.ncaa_team.id}) %>
                 </span>
