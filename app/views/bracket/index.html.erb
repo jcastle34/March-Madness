@@ -167,21 +167,32 @@
 
     <div class="fifth_round">
         <div class="play_in_left">
-            <div class="home_team_left"><%= @play_in_matchups[2].seed %> <%= @play_in_matchups[2].ncaa_team.school %></div>
-            <div class="away_team_left"><%= @play_in_matchups[3].seed %> <%= @play_in_matchups[3].ncaa_team.school %></div>
-            <div class="home_team_left"><%= @play_in_matchups[6].seed %> <%= @play_in_matchups[6].ncaa_team.school %></div>
-            <div class="away_team_left"><%= @play_in_matchups[7].seed %> <%= @play_in_matchups[7].ncaa_team.school %></div>
+            <div class="home_team_left"><%= @play_in_matchups[0].seed %> <%= @play_in_matchups[0].ncaa_team.school %></div>
+            <div class="away_team_left"><%= @play_in_matchups[1].seed %> <%= @play_in_matchups[1].ncaa_team.school %></div>
+            <div class="home_team_left"><%= @play_in_matchups[4].seed %> <%= @play_in_matchups[4].ncaa_team.school %></div>
+            <div class="away_team_left"><%= @play_in_matchups[5].seed %> <%= @play_in_matchups[5].ncaa_team.school %></div>
         </div>
     </div>
 
-    <div class="sixth_round_bottom"><div style="margin-top: 230px; font-size: 12px;">First 4 Play in Games</div></div>
-
+    <div class="sixth_round_bottom">
+        <div style="margin-top: 230px; font-size: 12px;">
+            <span>First 4 Play in Games</span>
+            <div style="margin-top: 30px;">
+                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[0].region_id) %>"><%= @play_in_matchups[0].region.location.first %></span>
+                <span class="<%= get_region_css_class(@play_in_matchups[2].region_id) %>"><%= @play_in_matchups[2].region.location.first %></span>
+            </div>
+            <div style="margin-top: 28px;">
+                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[4].region_id) %>"><%= @play_in_matchups[4].region.location.first %></span>
+                <span class="<%= get_region_css_class(@play_in_matchups[6].region_id) %>"><%= @play_in_matchups[6].region.location.first %></span>
+            </div>
+        </div>
+    </div>
     <div class="fifth_round">
         <div class="play_in_right">
-            <div class="home_team_right"><%= @play_in_matchups[4].seed %> <%= @play_in_matchups[4].ncaa_team.school %></div>
-            <div class="away_team_right"><%= @play_in_matchups[5].seed %> <%= @play_in_matchups[5].ncaa_team.school %></div>
-            <div class="home_team_right"><%= @play_in_matchups[0].seed %> <%= @play_in_matchups[0].ncaa_team.school %></div>
-            <div class="away_team_right"><%= @play_in_matchups[1].seed %> <%= @play_in_matchups[1].ncaa_team.school %></div>
+            <div class="home_team_right"><%= @play_in_matchups[2].seed %> <%= @play_in_matchups[2].ncaa_team.school %></div>
+            <div class="away_team_right"><%= @play_in_matchups[3].seed %> <%= @play_in_matchups[3].ncaa_team.school %></div>
+            <div class="home_team_right"><%= @play_in_matchups[6].seed %> <%= @play_in_matchups[6].ncaa_team.school %></div>
+            <div class="away_team_right"><%= @play_in_matchups[7].seed %> <%= @play_in_matchups[7].ncaa_team.school %></div>
         </div>
     </div>
 
