@@ -7,6 +7,7 @@
     <th class="pick">Pick</th>
     <th class="mm_team">MM Team (Positions Drafted)</th>
     <th class="player">Player</th>
+    <th class="school">School</th>
     <th class="position">Position</th>
   </tr>
 </table>
@@ -25,6 +26,7 @@
         <% end %>
       </td>
       <td class="player"><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.first_name + " " + pick.ncaa_player.last_name %></td>
+      <td class="school"><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.ncaa_team.school %></td>
       <td><%= pick.ncaa_player.nil? ? "TBD" : pick.ncaa_player.position %></td>
     </tr>
   <% end %>
