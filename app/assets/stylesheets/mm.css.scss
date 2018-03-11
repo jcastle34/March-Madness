@@ -127,7 +127,7 @@ textarea {
     width: 200px;
     height: 200px;
     background: asset-url("final_four_logo_2017.png", image) 0 0 no-repeat;
-    margin: 10px auto;
+    margin: 20px 10px 20px 30px;
 }
 
 #logo_big {
@@ -210,7 +210,7 @@ textarea {
         /*background: asset-url("bball_texture.png", image) 0 0 repeat;*/
         display: block;
         color: #fff;
-        margin: 10px 20px 10px 20px;
+        margin: 10px 30px 10px 30px;
         text-align: center;
         border-radius: 8px;
         background: image-url("bball_texture.png") 0 0 repeat;
@@ -220,12 +220,12 @@ textarea {
     a:hover {
         background: image-url("bball_texture_faded.png") 0 0 repeat;
         border: outset 3px #AE5C38;
-        color: #000;
+        color: #00A2B1;
         text-decoration: none;
     }
     span.current_main_nav {
         background: image-url("bball_texture_light.png") 0 0 repeat;
-        margin: 10px 20px 10px 20px;
+        margin: 10px 30px 10px 30px;
         color: #000;
         text-align: center;
         border-radius: 4px;
