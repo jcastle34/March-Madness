@@ -106,13 +106,13 @@
 
     <div class="first_round">
         <% @midwest_region_bracket_entries.each_with_index do |entry, index| %>
-            <div class="<%= (index + 1) %2 == 0 ? 'away_team_right' : 'home_team_right'%>">
-                <%= entry.seed %>
+            <div class="<%= (index + 1) %2 == 0 ? 'away_team_right' : 'home_team_right'%>">  
                 <% if entry.is_play_in %>
                     Play in Game Winner
                 <% else %>
                     <%= entry.ncaa_team.school %>
                 <% end %>
+                <%= entry.seed %>
             </div>
         <% end %>
     </div>
@@ -189,10 +189,10 @@
     </div>
     <div class="fifth_round">
         <div class="play_in_right">
-            <div class="home_team_right"><%= @play_in_matchups[2].seed %> <%= @play_in_matchups[2].ncaa_team.school %></div>
-            <div class="away_team_right"><%= @play_in_matchups[3].seed %> <%= @play_in_matchups[3].ncaa_team.school %></div>
-            <div class="home_team_right"><%= @play_in_matchups[6].seed %> <%= @play_in_matchups[6].ncaa_team.school %></div>
-            <div class="away_team_right"><%= @play_in_matchups[7].seed %> <%= @play_in_matchups[7].ncaa_team.school %></div>
+            <div class="home_team_right"><%= @play_in_matchups[2].ncaa_team.school %> <%= @play_in_matchups[2].seed %></div>
+            <div class="away_team_right"><%= @play_in_matchups[3].ncaa_team.school %> <%= @play_in_matchups[3].seed %></div>
+            <div class="home_team_right"><%= @play_in_matchups[6].ncaa_team.school %> <%= @play_in_matchups[6].seed %></div>
+            <div class="away_team_right"><%= @play_in_matchups[7].ncaa_team.school %> <%= @play_in_matchups[7].seed %></div>
         </div>
     </div>
 
@@ -233,12 +233,12 @@
     <div class="first_round">
         <% @south_region_bracket_entries.each_with_index do |entry, index| %>
             <div class="<%= (index + 1) %2 == 0 ? 'away_team_right' : 'home_team_right'%>">
-                <%= entry.seed %>
                 <% if entry.is_play_in %>
                     Play in Game Winner
                 <% else %>
                     <%= entry.ncaa_team.school %>
                 <% end %>
+                <%= entry.seed %>
             </div>
         <% end %>
     </div>
