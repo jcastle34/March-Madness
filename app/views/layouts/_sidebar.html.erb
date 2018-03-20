@@ -9,9 +9,16 @@
         <% end %>
       </li>
       <li>
-        <%= link_to_unless_current('Draft', draft_index_path) do |link| %>
-          <span class="current_main_nav"><%= link %></span>
-          <span class="current_main_nav_tip"></span>
+        <% if Draft.is_completed? %>
+          <%= link_to_unless_current('Draft Results', draft_results_path) do |link| %>
+            <span class="current_main_nav"><%= link %></span>
+            <span class="current_main_nav_tip"></span>
+          <% end %>  
+        <% else %>
+          <%= link_to_unless_current('Live Draft', draft_index_path) do |link| %>
+            <span class="current_main_nav"><%= link %></span>
+            <span class="current_main_nav_tip"></span>
+          <% end %>
         <% end %>
       </li>
       <li>
