@@ -22,7 +22,7 @@ $(document).ready(function() {
     });
 
     if ($("#draft_status_container").length > 0){
-        setTimeout(updateDraftStatus, 30000);
+        setTimeout(updateDraftStatus, 120000);
     }
 
     $('#notice').slideDown('slow');
@@ -74,7 +74,7 @@ $(document).ready(function() {
 function updateDraftStatus() {
     var current_pick = $("#current_pick").html();
     $.getScript("/draft/get_current_draft_status.js?previous_pick=" + current_pick);
-    setTimeout(updateDraftStatus, 30000);
+    setTimeout(updateDraftStatus, 120000);
 }
 
 function getEligiblePlayersByRound(mm_team_id) {
