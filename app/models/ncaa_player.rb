@@ -37,6 +37,11 @@ class NcaaPlayer < ActiveRecord::Base
       end
   end
 
+  def self.get_preferred_players_for_mm_team(mm_team_id)
+          NcaaPlayer.joins('join mm_team_preferred_players mtp on mtp.ncaa_player_id = ncaa_players.id join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id join bracket_entries be on be.ncaa_team_id = nt.id')
+          .where('mtp.mm_team_id = ?', mm_team_id).order('ncaa_players.position desc, ncaa_players.ppg_avg desc')
+  end
+
   def self.get_player_scoring_for_mm_team(mm_team)
 
   end

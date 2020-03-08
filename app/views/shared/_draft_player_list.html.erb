@@ -3,8 +3,8 @@
 <div id="draft_players_container_header">NCAA Players</div>
 
 <div class="container">
-  Filter players allowed to be drafted for:
-  <%= select(:player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]], @selected_round), {}, html_options = {:onchange => "getEligiblePlayersByRound('#{@mm_team.id}')"})  %>
+  <!-- Filter players allowed to be drafted for:
+  <%= select(:player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]], @selected_round), {}, html_options = {:onchange => "getEligiblePlayersByRound('#{@mm_team.id}')"})  %> -->
 </div>
 
 <div class="clear"></div>

@@ -1,11 +1,15 @@
 <div id="preferred_players_container_header">My Preferred Players</div>
 <div class="container">
-  Filter players allowed to be drafted for:
+  <!-- Filter players allowed to be drafted for:
   <%= select(:preferred_player, :selected_round, options_for_select([['Round 1 & 2', 1], ['Round 3', 3], ['Round 4', 4], ['Round 5', 5], ['Round 6', 6]],
-      @selected_round), {}, html_options = {:onchange => "getPreferredPlayersByRound(#{@mm_team.id})"})  %>
-
+      @selected_round), {}, html_options = {:onchange => "getPreferredPlayersByRound(#{@mm_team.id})"})  %> -->
 </div>
-
+<div class="container">
+  Total Players Selected: <%= @preferred_players.size %> 
+</div>
+<div class="container">
+  Player Seed Total: <%= @player_seed_total %>
+</div>
 <div class="clear"></div>
 
 <div class="regions_container">

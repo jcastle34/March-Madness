@@ -89,23 +89,20 @@ function getEligiblePlayersByRound(mm_team_id) {
 }
 
 function getPreferredPlayersByRound(mm_team_id) {
-    id = $("#preferred_player_selected_round").val();
     if($('#draft_page_container').length == 0) {
-        $.getScript("/mm_teams/" + mm_team_id + "/get_preferred_players_by_round.js?selected_round=" + id);
+        $.getScript("/mm_teams/" + mm_team_id + "/get_preferred_players_by_round.js");
     }
     else {
-        $.getScript("/draft/get_preferred_players_by_round.js?selected_round=" + id);
+        $.getScript("/draft/get_preferred_players_by_round.js?");
     }
 }
 
 function addPreferredPlayer(player_id, mm_team_id) {
-    id = $("#player_selected_round").val();
-    $.getScript("/mm_teams/" + mm_team_id + "/add_preferred_player.js?ncaa_player_id=" + player_id + "&selected_round=" + id);
+    $.getScript("/mm_teams/" + mm_team_id + "/add_preferred_player.js?ncaa_player_id=" + player_id);
 }
 
 function removePreferredPlayer(player_id, mm_team_id) {
-    id = $("#preferred_player_selected_round").val();
-    $.getScript("/mm_teams/" + mm_team_id + "/remove_preferred_player.js?ncaa_player_id=" + player_id + "&selected_round=" + id);
+    $.getScript("/mm_teams/" + mm_team_id + "/remove_preferred_player.js?ncaa_player_id=" + player_id);
 }
 
 function getNcaaPlayersByTeam() {
@@ -119,8 +116,7 @@ function getScoringDetails(player_id)
 }
 
 function showPreferredPlayers() {
-    id = $("#player_selected_round").val();
-    $.getScript("/draft/get_preferred_players_by_round.js?selected_round=" + id);
+    $.getScript("/draft/get_preferred_players_by_round.js");
     $('#draft_players_container').hide();
     $('#preferred_players_container').show();
     $('#show_preferred_players').addClass('on').siblings().removeClass('on');

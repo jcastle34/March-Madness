@@ -20,4 +20,17 @@ inner join mm_teams mt on mt.id = dp.mm_team_id').order('mt.name')
 left outer join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id').where('dp.mm_team_id = ? and nt.is_active = ?', mm_team_id, 1).count()
   end
 
+  def get_preferred_players
+      @ncaa_players = NcaaPlayer.joins('left outer join mm_team_preferred_players pp on pp.ncaa_player_id = ncaa_players.id').where('pp.mm_team_id = ?', self.id)
+  end
+
+  def get_players_seed_total(mm_team_id)
+    mm_team = MmTeam.find(mm_team_id)
+    roster = mm_team.get_preferred_players
+    player_seed_total = 0
+
+    roster.each { |player| player_seed_total = player_seed_total + player.ncaa_team.bracket_entry.seed}
+    player_seed_total
+  end
+
 end

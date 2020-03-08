@@ -14,42 +14,40 @@ class MmTeamsController < ApplicationController
       @mm_team = MmTeam.find params[:id]
       @draft = Draft.find(1)
 			@draft.get_current
-      @selected_round = 1
-      seed_range = get_seed_ranges_by_round @selected_round
-      @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
-			@preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+      @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
+			@preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
+      @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   end
 
   def add_preferred_player
     @mm_team = MmTeam.find(params[:id])
-    @selected_round = params[:selected_round].to_i
-    preferred_player = MmTeamPreferredPlayer.new(:mm_team_id => @mm_team.id, :ncaa_player_id => params[:ncaa_player_id])
-    preferred_player.save
-    seed_range = get_seed_ranges_by_round @selected_round
-		@ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
-    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
-    flash[:alert] = ""
-    flash[:notice] = t(:preferred_player_added)
-  rescue ActiveRecord::RecordNotUnique
-    seed_range = get_seed_ranges_by_round @selected_round
-    @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
-    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
-    flash[:alert] = t(:preferred_player_already_added)
+    player_id_to_add = params[:ncaa_player_id]
+    preferred_player = MmTeamPreferredPlayer.new
+    result = preferred_player.add(params[:id], player_id_to_add)
+		if preferred_player.errors.empty?
+      flash[:notice] = t(:preferred_player_added)
+    else
+      flash[:alert] = preferred_player.errors.full_messages.to_sentence
+    end
+
+    @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
+    @preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
+    @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   end
 
   def remove_preferred_player
     @mm_team = MmTeam.find(params[:id])
-    @selected_round = params[:selected_round].to_i
     preferred_player = MmTeamPreferredPlayer.find_by_mm_team_id_and_ncaa_player_id(params[:id], params[:ncaa_player_id])
     preferred_player.destroy
-    seed_range = get_seed_ranges_by_round @selected_round
-    @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
-    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
+    @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
+    @preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
+    @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   rescue Exception => e
     seed_range = get_seed_ranges_by_round @selected_round
-    @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
-    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(@mm_team.id, seed_range[0], seed_range[1])
     flash[:alert] = t(:preferred_player_removal_problem)
+    @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
+    @preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
+    @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   end
 
   def rosters
@@ -66,9 +64,7 @@ class MmTeamsController < ApplicationController
 
   def get_preferred_players_by_round
     @mm_team = MmTeam.find(get_team_for_current_user)
-    @selected_round = params[:selected_round]
-    seed_range = get_seed_ranges_by_round @selected_round.to_i
-    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(get_team_for_current_user, seed_range[0], seed_range[1])
+    @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(get_team_for_current_user, 1, 16)
     render "shared/get_preferred_players_by_round"
   end
 

@@ -8,7 +8,7 @@
           <span class="current_main_nav_tip"></span>
         <% end %>
       </li>
-      <li>
+      <!-- <li>
         <% if Draft.is_completed? %>
           <%= link_to_unless_current('Draft Results', draft_results_path) do |link| %>
             <span class="current_main_nav"><%= link %></span>
@@ -19,6 +19,12 @@
             <span class="current_main_nav"><%= link %></span>
             <span class="current_main_nav_tip"></span>
           <% end %>
+        <% end %>
+      </li> -->
+      <li>
+        <%= link_to_unless_current('My Team', preferred_players_mm_team_url(get_team_for_current_user)) do |link| %>
+            <span class="current_main_nav"><%= link %></span>
+            <span class="current_main_nav_tip"></span>
         <% end %>
       </li>
       <li>
