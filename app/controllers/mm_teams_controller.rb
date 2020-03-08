@@ -12,8 +12,6 @@ class MmTeamsController < ApplicationController
 
   def preferred_players
       @mm_team = MmTeam.find params[:id]
-      @draft = Draft.find(1)
-			@draft.get_current
       @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
 			@preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
       @player_seed_total = @mm_team.get_players_seed_total(params[:id])
