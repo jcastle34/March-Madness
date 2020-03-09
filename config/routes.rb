@@ -44,6 +44,7 @@ MarchMadness::Application.routes.draw do
       get "remove_preferred_player", :as => "remove_preferred_player", :action => :remove_preferred_player
       get "get_preferred_players_by_round", :as => "get_preferred_players_by_round", :action => :get_preferred_players_by_round
       get "get_eligible_players_by_round", :as => "get_eligible_players_by_round", :action => :get_eligible_players_by_round
+      get "get_eligible_players_by_position", :as => "get_eligible_players_by_position", :action => :get_eligible_players_by_position
     end
   end
 

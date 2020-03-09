@@ -85,7 +85,11 @@ function getEligiblePlayersByRound(mm_team_id) {
     else {
         $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
     }
+}
 
+function getEligiblePlayersByPosition(mm_team_id) {
+    position = $("#player_selected_position").val();
+    $.getScript("/mm_teams/" + mm_team_id + "/get_eligible_players_by_position.js?selected_position=" + position);
 }
 
 function getPreferredPlayersByRound(mm_team_id) {

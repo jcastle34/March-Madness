@@ -12,7 +12,7 @@ class MmTeamsController < ApplicationController
 
   def preferred_players
       @mm_team = MmTeam.find params[:id]
-      @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
+      @ncaa_players = NcaaPlayer.get_players_by_position('G')
 			@preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
       @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   end
@@ -41,7 +41,6 @@ class MmTeamsController < ApplicationController
     @preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
     @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   rescue Exception => e
-    seed_range = get_seed_ranges_by_round @selected_round
     flash[:alert] = t(:preferred_player_removal_problem)
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
     @preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
@@ -57,6 +56,13 @@ class MmTeamsController < ApplicationController
     @selected_round = params[:selected_round]
     seed_range = get_seed_ranges_by_round @selected_round.to_i
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
+    render "shared/get_eligible_players_by_round"
+  end
+
+  def get_eligible_players_by_position
+    @mm_team = MmTeam.find(get_team_for_current_user)
+    @selected_position = params[:selected_position]
+    @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position)
     render "shared/get_eligible_players_by_round"
   end
 
