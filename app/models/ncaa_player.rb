@@ -2,6 +2,7 @@ class NcaaPlayer < ActiveRecord::Base
   belongs_to :mm_team
   belongs_to :ncaa_team
   has_one :draft_pick
+  has_many :mm_team_preferred_players
 	has_many :player_scorings
 
   attr_accessible :first_name, :last_name, :ncaa_team_id, :ppg_avg, :position, :jersey_number

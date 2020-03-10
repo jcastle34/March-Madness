@@ -48,7 +48,7 @@ class MmTeamsController < ApplicationController
   end
 
   def rosters
-    @players = MmTeam.get_rosters
+    @players = MmTeam.get_all_rosters
   end
 
   def get_eligible_players_by_round

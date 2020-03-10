@@ -1,4 +1,6 @@
 class MmTeamPreferredPlayer < ActiveRecord::Base
+	belongs_to :mm_team
+	belongs_to :ncaa_player
 
   attr_accessible :mm_team_id, :ncaa_player_id
 

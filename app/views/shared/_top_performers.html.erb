@@ -4,7 +4,6 @@
     <th class="player">Player</th>
     <th class="position">Position</th>
     <th class="school">School</th>
-    <th class="team_name">MM Team</th>
     <th class="points">Points</th>
     <th class="games">Games</th>
   </tr>
@@ -18,7 +17,6 @@
         <td class="player"><%= link_to player.first_name + ' ' + player.last_name, "#", :onclick => "getScoringDetails('#{player.id}');" %></td>
         <td class="position"><span class="<%=get_position_css_class player.position %>"><%= player.position %></span></td>
         <td class="school"><%= player.school %></td>
-        <td class="team_name"><%= player.team_name %></td>
         <td class="points"><%= player.total_points.nil? ? '0' : sprintf("%.0f", player.total_points) %></td>
         <td class="games"><%= player.total_games.nil? ? '0' : sprintf("%.0f", player.total_games) %></td>
       </tr>

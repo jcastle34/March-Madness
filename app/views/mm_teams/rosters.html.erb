@@ -20,31 +20,31 @@
         <table id="mm_rosters_table">
           <tbody>
           <% @previous_mm_team_id = -1 %>
-          <% @players.each_with_index do |ncaa_player, index| %>
-              <tr class="<%= ncaa_player.draft_pick.mm_team_id == @previous_mm_team_id ? 'odd' : 'even'%>">
-                <% if ncaa_player.draft_pick.mm_team_id != @previous_mm_team_id %>
-                    <td class="team_name"><strong><%= ncaa_player.draft_pick.mm_team.name %></strong></td>
+          <% @players.each_with_index do |preferred_player, index| %>
+              <tr class="<%= preferred_player.mm_team_id == @previous_mm_team_id ? 'odd' : 'even'%>">
+                <% if preferred_player.mm_team_id != @previous_mm_team_id %>
+                    <td class="team_name"><strong><%= preferred_player.mm_team.name %></strong></td>
                 <% else %>
                     <td class="team_name"></td>
                 <% end %>
-                <td class="name"><%= ncaa_player.full_name %></td>
-                <td class="jersey"><%= ncaa_player.jersey_number %></td>
-                <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
-                <td class="ppg"><%= ncaa_player.ppg_avg %></td>
-                <td class="school"><%= ncaa_player.ncaa_team.school %></td>
-                <td class="seed"><%= ncaa_player.ncaa_team.bracket_entry.seed %></td>
+                <td class="name"><%= preferred_player.ncaa_player.full_name %></td>
+                <td class="jersey"><%= preferred_player.ncaa_player.jersey_number %></td>
+                <td class="position"><span class="<%=get_position_css_class preferred_player.ncaa_player.position %>"><%= preferred_player.ncaa_player.position %></span></td>
+                <td class="ppg"><%= preferred_player.ncaa_player.ppg_avg %></td>
+                <td class="school"><%= preferred_player.ncaa_player.ncaa_team.school %></td>
+                <td class="seed"><%= preferred_player.ncaa_player.ncaa_team.bracket_entry.seed %></td>
                 <td class="region">
-                  <span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location %></span>
+                  <span class="<%= get_region_css_class preferred_player.ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= preferred_player.ncaa_player.ncaa_team.bracket_entry.region.location %></span>
                 </td>
                 <td class="status">
-                  <% if ncaa_player.ncaa_team.is_active == 1 %>
+                  <% if preferred_player.ncaa_player.ncaa_team.is_active == 1 %>
                       <span>Active</span>
                   <% else %>
                       <span style="color: red;">Inactive</span>
                   <% end %>
                 </td>
               </tr>
-            <% @previous_mm_team_id = ncaa_player.draft_pick.mm_team_id %>
+            <% @previous_mm_team_id = preferred_player.mm_team_id %>
           <% end %>
           </tbody>
         </table>
