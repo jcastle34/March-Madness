@@ -253,44 +253,49 @@ div.my_team_list {
     background-color: #fff;
     border: 0px solid;
     display: block;
+    width: 100%;
     thead{
         border-top: 1px solid #E5E5E5;
         border-bottom: 1px solid #E5E5E5;
         background-color: #EEE;
         display: table;
-        width: 800px;
+        width: 100%;
         th {
+            width: 100%;
             text-transform: uppercase;
+            text-align: center;
             font-size: 11px;
             font-weight: normal;
-            padding: 0 5px;
+            padding: 10px 5px;
             &.name {
-                width: 150px;
+                width: 15%;
             }
             &.jersey_number {
-              width: 20px;
-              text-align: left;
+              width: 5%;
             }
             &.position {
-                width: 55px;
+                width: 10%;
             }
             &.ppg {
-                width: 20px;
+                width: 5%;
             }
             &.school {
-                width: 150px;
+                width: 15%;
             }
             &.seed {
-                width: 0%;
+                width: 5%;
             }
             &.region {
-                width: 75px;
+                width: 7%;
             }
             &.scoring {
-              width: 100px;
+                width: 18%;
+            }
+            &.ownership {
+                width: 10%;
             }
             &.status {
-                width: 0%;
+                width: 10%;
             }
         }
     }
@@ -299,38 +304,39 @@ div.my_team_list {
         display: table;
     }
     td {
-        width: auto;
-        padding: 10px 5px;
+        width: 100%;
+        padding: 8px 5px;
         text-align: center;
         &.name {
-            width: 150px;
+            width: 15%;
             text-align: left;
         }
         &.jersey_number {
-          width: 20px;
-          text-align: left;
+          width: 5%;
         }
         &.position {
-            width: 55px;
+            width: 10%;
         }
         &.ppg {
-            width: 30px;
+            width: 5%;
         }
         &.school {
-            width: 150px;
-            text-align: left;
+            width: 15%;
         }
         &.seed {
-            width: 25px;
+            width: 5%;
         }
         &.region {
-            width: 75px;
+            width: 7%;
         }
         &.points {
-          width: 14px;
+          width: 3%;
+        }
+        &.ownership {
+            width: 10%;
         }
         &.status {
-            width: 0%;
+            width: 10%;
         }
     }
 }

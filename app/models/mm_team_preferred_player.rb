@@ -64,4 +64,8 @@ class MmTeamPreferredPlayer < ActiveRecord::Base
 		true
 	end
 
+	def self.ownership_for_player(player_id)
+		(MmTeamPreferredPlayer.where('ncaa_player_id = ?', player_id).count / MmTeamPreferredPlayer.all.group(:mm_team_id).to_a.size.to_f) * 100
+	end
+
 end

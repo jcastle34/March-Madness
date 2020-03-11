@@ -28,6 +28,12 @@
         <% end %>
       </li>
       <li>
+        <%= link_to_unless_current('My Roster', my_roster_mm_team_url(get_team_for_current_user)) do |link| %>
+            <span class="current_main_nav"><%= link %></span>
+            <span class="current_main_nav_tip"></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to_unless_current('MM Rosters', mm_teams_rosters_path) do |link| %>
             <span class="current_main_nav"><%= link %></span>
             <span class="current_main_nav_tip"></span>

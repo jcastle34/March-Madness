@@ -27,7 +27,8 @@ left outer join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id').where('pp.m
   end
 
   def get_preferred_players
-      @ncaa_players = NcaaPlayer.joins('left outer join mm_team_preferred_players pp on pp.ncaa_player_id = ncaa_players.id').where('pp.mm_team_id = ?', self.id)
+      @ncaa_players = NcaaPlayer.joins('left outer join mm_team_preferred_players pp on pp.ncaa_player_id = ncaa_players.id')
+      .where('pp.mm_team_id = ?', self.id).order('position desc')
   end
 
   def get_players_seed_total(mm_team_id)

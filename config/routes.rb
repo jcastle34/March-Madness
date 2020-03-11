@@ -21,6 +21,7 @@ MarchMadness::Application.routes.draw do
 
   get "mm_teams/get_roster"
   get "mm_teams/rosters"
+  get "mm_teams/my_roster"
 
   post "bracket/update_regions"
 
@@ -40,6 +41,7 @@ MarchMadness::Application.routes.draw do
   resources :mm_teams do
     member do
       get "preferred_players", :as => "preferred_players", :action => :preferred_players
+      get "my_roster", :as => "my_roster", :action => :my_roster
       get "add_preferred_player", :as => "add_preferred_player", :action => :add_preferred_player
       get "remove_preferred_player", :as => "remove_preferred_player", :action => :remove_preferred_player
       get "get_preferred_players_by_round", :as => "get_preferred_players_by_round", :action => :get_preferred_players_by_round

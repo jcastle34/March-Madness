@@ -1,0 +1,54 @@
+<div id="mm_rosters_container">
+  <div class="module">
+    <div class="module_header">Roster for <%= @mm_team.name %>
+      <div class="clear"></div>
+    </div>
+    <div class="module_container">
+      <table class="my_team_table">
+        <thead>
+          <tr>
+            <th class="name">Name</th>
+            <th class="jersey_number">#</th>
+            <th class="position">Position</th>
+            <th class="ppg">PPG.</th>
+            <th class="school">School</th>
+            <th class="seed">Seed</th>
+            <th class="region">Region</th>
+            <th colspan="6" class="scoring">Scoring by Round</th>
+            <th class="ownership">Ownership</th>
+            <th class="status">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @roster.each_with_index do |ncaa_player, index| %>
+            <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
+              <td class="name"><%= ncaa_player.full_name %></td>
+              <td class="jersey_number"><%= ncaa_player.jersey_number %></td>
+              <td class="position"><span class="<%=get_position_css_class ncaa_player.position %>"><%= ncaa_player.position %></span></td>
+              <td class="ppg"><%= ncaa_player.ppg_avg %></td>
+              <td class="school"><%= ncaa_player.ncaa_team.school %></td>
+              <td class="seed"><%= ncaa_player.ncaa_team.bracket_entry.seed %></td>
+              <td class="region">
+                <span class="<%= get_region_css_class ncaa_player.ncaa_team.bracket_entry.region.id %>"><%= ncaa_player.ncaa_team.bracket_entry.region.location %></span>
+              </td>
+              <td class="points"><%= !ncaa_player.player_scorings[0].nil? ? ncaa_player.player_scorings[0].points : '--' %></td>
+              <td class="points"><%= !ncaa_player.player_scorings[1].nil? ? ncaa_player.player_scorings[1].points : '--' %></td>
+              <td class="points"><%= !ncaa_player.player_scorings[2].nil? ? ncaa_player.player_scorings[2].points : '--' %></td>
+              <td class="points"><%= !ncaa_player.player_scorings[3].nil? ? ncaa_player.player_scorings[3].points : '--' %></td>
+              <td class="points"><%= !ncaa_player.player_scorings[4].nil? ? ncaa_player.player_scorings[4].points : '--' %></td>
+              <td class="points"><%= !ncaa_player.player_scorings[5].nil? ? ncaa_player.player_scorings[5].points : '--' %></td>
+              <td class="ownership"><%= MmTeamPreferredPlayer.ownership_for_player(ncaa_player.id) %> %</td>
+              <td class="status">
+                <% if ncaa_player.ncaa_team.is_active == 1 %>
+                  <span>Active</span>
+                <% else %>
+                  <span style="color: red;">Inactive</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
