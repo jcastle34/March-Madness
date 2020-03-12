@@ -584,6 +584,12 @@ html[xmlns] .clearfix {
   box-sizing: content-box;
 }
 
+#colorbox #cboxClose {
+    top: 0 !important;
+    right: 0 !important;
+    background-image: asset-url("close.png", image);
+}
+
 :focus {
     outline: none !important;
 }
