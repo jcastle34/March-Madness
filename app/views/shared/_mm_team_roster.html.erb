@@ -7,15 +7,15 @@
     <table class="my_team_table">
       <thead>
         <tr>
-          <th rowspan="2" class="name">Name</th>
-          <th rowspan="2" class="jersey_number">#</th>
-          <th rowspan="2" class="position">Position</th>
-          <th rowspan="2" class="ppg">PPG.</th>
-          <th rowspan="2" class="school">School</th>
-          <th rowspan="2" class="seed">Seed</th>
-          <th rowspan="2" class="region">Region</th>
-          <th colspan="6" class="scoring">Scoring by Round</th>
-          <th rowspan="2" class="status">Status</th>
+          <th class="name">Name</th>
+          <th class="jersey_number">#</th>
+          <th class="position">Position</th>
+          <th class="ppg">PPG.</th>
+          <th class="school">School</th>
+          <th class="seed">Seed</th>
+          <th class="region">Region</th>
+          <th rowspan="6" class="scoring">Scoring by Round</th>
+          <th class="status">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +36,7 @@
             <td class="points"><%= !ncaa_player.player_scorings[3].nil? ? ncaa_player.player_scorings[3].points : '--' %></td>
             <td class="points"><%= !ncaa_player.player_scorings[4].nil? ? ncaa_player.player_scorings[4].points : '--' %></td>
             <td class="points"><%= !ncaa_player.player_scorings[5].nil? ? ncaa_player.player_scorings[5].points : '--' %></td>
-            <td>
+            <td class="status">
               <% if ncaa_player.ncaa_team.is_active == 1 %>
                 <span>Active</span>
               <% else %>
@@ -49,3 +49,4 @@
     </table>
   </div>
 </div>
+
