@@ -81,7 +81,7 @@ class MmTeamsController < ApplicationController
   private
 
   def verify_owner?
-    owner = MmTeam.find_by_id_and_user_id(params[:id], get_team_for_current_user.id)
+    owner = MmTeam.find_by_id_and_user_id(params[:id], current_user.id )
     if(owner.nil?)
       flash[:alert] = t(:invalid_access)
       redirect_to(root_path)
