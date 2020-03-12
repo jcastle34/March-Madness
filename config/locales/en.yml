@@ -16,3 +16,4 @@ en:
   preferred_player_removal_problem: "There was a problem removing the preferred player."
   invalid_access: "Invalid Access!"
   bracket_updated: "The bracket has been updated."
+  rosters_locked: "All rosters are now locked."

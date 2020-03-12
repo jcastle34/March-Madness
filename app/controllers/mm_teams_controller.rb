@@ -1,5 +1,6 @@
 class MmTeamsController < ApplicationController
   before_filter :verify_owner?, :only => [:preferred_players, :add_preferred_player, :remove_preferred_player]
+  before_filter :rosters_locked?, :only => [:add_preferred_player, :remove_preferred_player]
 	include DraftHelper
   include DraftExtension
 
@@ -84,6 +85,13 @@ class MmTeamsController < ApplicationController
     if(owner.nil?)
       flash[:alert] = t(:invalid_access)
       redirect_to(root_path)
+    end
+  end
+
+  def rosters_locked?
+    if(Draft.is_completed?)
+      flash[:alert] = t(:rosters_locked)
+      render js: "window.location = '#{my_roster_mm_team_path}'"
     end
   end
 

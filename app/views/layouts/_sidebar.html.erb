@@ -22,23 +22,26 @@
         <% end %>
       </li> -->
       <li>
-        <%= link_to_unless_current('Create Team', preferred_players_mm_team_url(get_team_for_current_user)) do |link| %>
-            <span class="current_main_nav"><%= link %></span>
-            <span class="current_main_nav_tip"></span>
+        <% if Draft.is_completed? %>
+          <%= link_to_unless_current('My Roster', my_roster_mm_team_url(get_team_for_current_user)) do |link| %>
+              <span class="current_main_nav"><%= link %></span>
+              <span class="current_main_nav_tip"></span>
+          <% end %>
+        <% else %>
+          <%= link_to_unless_current('Create Team', preferred_players_mm_team_url(get_team_for_current_user)) do |link| %>
+              <span class="current_main_nav"><%= link %></span>
+              <span class="current_main_nav_tip"></span>
+          <% end %>
         <% end %>
       </li>
-      <!-- <li>
-        <%= link_to_unless_current('My Roster', my_roster_mm_team_url(get_team_for_current_user)) do |link| %>
-            <span class="current_main_nav"><%= link %></span>
-            <span class="current_main_nav_tip"></span>
-        <% end %>
-      </li> -->
-      <!-- <li>
-        <%= link_to_unless_current('MM Rosters', mm_teams_rosters_path) do |link| %>
-            <span class="current_main_nav"><%= link %></span>
-            <span class="current_main_nav_tip"></span>
-        <% end %>
-      </li> -->
+      <% if Draft.is_completed? %>
+        <li>
+          <%= link_to_unless_current('MM Rosters', mm_teams_rosters_path) do |link| %>
+              <span class="current_main_nav"><%= link %></span>
+              <span class="current_main_nav_tip"></span>
+          <% end %>
+        </li>
+      <% end %>
 <!--       <li>
         <%= link_to_unless_current('Player Scoring', player_scoring_index_path) do |link| %>
           <span class="current_main_nav"><%= link %></span>
