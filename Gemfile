@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 4.2'
-gem 'devise', '~> 3.4.0'
+gem 'devise', '~> 4.7.1'
 gem 'devise-encryptable'
 gem 'mysql2', '~> 0.3.17'
 gem 'test-unit'
