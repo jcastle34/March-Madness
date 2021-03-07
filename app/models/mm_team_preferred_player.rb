@@ -5,19 +5,21 @@ class MmTeamPreferredPlayer < ActiveRecord::Base
   attr_accessible :mm_team_id, :ncaa_player_id
 
   	def add(mm_team_id, player_id_to_add)
-		player_to_add = NcaaPlayer.find(player_id_to_add)
-		seed = player_to_add.ncaa_team.bracket_entry.seed
-		current_draft_pick = DraftPick.get_current_draft_pick
+  		if(DraftPick.get_current_draft_pick.nil?)
+  			errors[:base] << I18n.t(:rosters_locked)
+  		else
+			player_to_add = NcaaPlayer.find(player_id_to_add)
 
-		if is_preferred_player_selection_valid?(mm_team_id, player_to_add)
-			begin
-				preferred_player = MmTeamPreferredPlayer.new(:mm_team_id => mm_team_id, :ncaa_player_id => player_id_to_add)
-				preferred_player.save
-			rescue ActiveRecord::RecordNotUnique
-				errors[:base] << I18n.t(:preferred_player_already_added)
+			if is_preferred_player_selection_valid?(mm_team_id, player_to_add)
+				begin
+					preferred_player = MmTeamPreferredPlayer.new(:mm_team_id => mm_team_id, :ncaa_player_id => player_id_to_add)
+					preferred_player.save
+				rescue ActiveRecord::RecordNotUnique
+					errors[:base] << I18n.t(:preferred_player_already_added)
+				end
+			else
+				errors[:base] << I18n.t(:invalid_roster)
 			end
-		else
-			errors[:base] << I18n.t(:invalid_roster)
 		end
 	end
 
@@ -65,7 +67,8 @@ class MmTeamPreferredPlayer < ActiveRecord::Base
 	end
 
 	def self.ownership_for_player(player_id)
-		(MmTeamPreferredPlayer.where('ncaa_player_id = ?', player_id).count / MmTeamPreferredPlayer.all.group(:mm_team_id).to_a.size.to_f) * 100
+		result = (MmTeamPreferredPlayer.where('ncaa_player_id = ?', player_id).count / MmTeamPreferredPlayer.all.group(:mm_team_id).to_a.size.to_f) * 100
+		result.round(2) 
 	end
 
 end
