@@ -58,7 +58,7 @@
 
     <div class="fourth_round">
         <div class="home_team_left"></div>
-        <div class="fourth_round_right_border_spacer"><p class="<%= get_region_css_class(@south_region_bracket_entries[0].region_id) %>">South</p></div>
+        <div class="fourth_round_right_border_spacer"><p class="<%= get_region_css_class(@south_region_bracket_entries[0].region_id) %>"><%= @south_region_bracket_entries[0].region.location %></p></div>
         <div class="away_team_left"></div>
     </div>
 
@@ -72,7 +72,7 @@
 
     <div class="fourth_round">
         <div class="home_team_right"></div>
-        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@east_region_bracket_entries[0].region_id) %>">East</p></div>
+        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@east_region_bracket_entries[0].region_id) %>"><%= @east_region_bracket_entries[0].region.location %></p></div>
         <div class="away_team_right"></div>
     </div>
 
@@ -161,7 +161,7 @@
 
     <div class="fourth_round">
         <div class="home_team_left"></div>
-        <div class="fourth_round_right_border_spacer"><p class="<%= get_region_css_class(@west_region_bracket_entries[0].region_id) %>">West</p></div>
+        <div class="fourth_round_right_border_spacer"><p class="<%= get_region_css_class(@west_region_bracket_entries[0].region_id) %>"><%= @west_region_bracket_entries[0].region.location %></p></div>
         <div class="away_team_left"></div>
     </div>
 
@@ -178,12 +178,12 @@
         <div style="margin-top: 230px; font-size: 12px;">
             <span>First 4 Play in Games</span>
             <div style="margin-top: 30px;">
-                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[0].region_id) %>"><%= @play_in_matchups[0].region.location.first %></span>
-                <span class="<%= get_region_css_class(@play_in_matchups[2].region_id) %>"><%= @play_in_matchups[2].region.location.first %></span>
+                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[0].region_id) %>"><%= @play_in_matchups[0].region.location.last %></span>
+                <span class="<%= get_region_css_class(@play_in_matchups[2].region_id) %>"><%= @play_in_matchups[2].region.location.last %></span>
             </div>
             <div style="margin-top: 32px;">
-                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[4].region_id) %>"><%= @play_in_matchups[4].region.location.first %></span>
-                <span class="<%= get_region_css_class(@play_in_matchups[6].region_id) %>"><%= @play_in_matchups[6].region.location.first %></span>
+                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[4].region_id) %>"><%= @play_in_matchups[4].region.location.last %></span>
+                <span class="<%= get_region_css_class(@play_in_matchups[6].region_id) %>"><%= @play_in_matchups[6].region.location.last %></span>
             </div>
         </div>
     </div>
@@ -198,7 +198,7 @@
 
     <div class="fourth_round">
         <div class="home_team_right"></div>
-        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@midwest_region_bracket_entries[0].region_id) %>">Midwest</p></div>
+        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@midwest_region_bracket_entries[0].region_id) %>"><%= @midwest_region_bracket_entries[0].region.location %></p></div>
         <div class="away_team_right"></div>
     </div>
 
