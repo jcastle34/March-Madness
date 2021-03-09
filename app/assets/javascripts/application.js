@@ -87,9 +87,14 @@ function getEligiblePlayersByRound(mm_team_id) {
     }
 }
 
-function getEligiblePlayersByPosition(mm_team_id) {
+function getEligiblePlayersByPosition(mm_team_id, sort, sort_order) {
     position = $("#player_selected_position").val();
-    $.getScript("/mm_teams/" + mm_team_id + "/get_eligible_players_by_position.js?selected_position=" + position);
+    $.getScript("/mm_teams/" + mm_team_id + "/get_eligible_players_by_position.js?selected_position=" + position + "&sort=" + sort + "&sort_order=" + sort_order);
+}
+
+function sortEligiblePlayers(mm_team_id, sort, sort_order) {
+    position = $("#player_selected_position").val();
+    $.getScript("/mm_teams/" + mm_team_id + "/sort_eligible_players.js?selected_position=" + position + "&sort=" + sort + "&sort_order=" + sort_order);
 }
 
 function getPreferredPlayersByRound(mm_team_id) {

@@ -4,7 +4,7 @@
 
 <div class="container">
   Filter players by position:
-  <%= select(:player, :selected_position, options_for_select([['Guard', 'G'], ['Forward', 'F'], ['Center', 'C']], @selected_position), {}, html_options = {:onchange => "getEligiblePlayersByPosition('#{@mm_team.id}')"})  %>
+  <%= select(:player, :selected_position, options_for_select([['Guard', 'G'], ['Forward', 'F'], ['Center', 'C']], @selected_position), {}, html_options = {:onchange => "getEligiblePlayersByPosition('#{@mm_team.id}', '#{@sort}', '#{@sort_order}')"})  %>
 </div>
 
 <div class="clear"></div>
@@ -19,10 +19,18 @@
 
 <table class="draft_players_table_headers">
   <tr>
-    <th class="seed">Seed</th>
+    <% if @sort == 'seed' %>
+      <th class="<%= @sort_order == 'asc' ? 'seed_asc' : 'seed_desc'%>"><%= link_to 'Seed', '#', :onclick => "sortEligiblePlayers('#{@mm_team.id}','seed','#{@sort_order}')" %></th>
+    <% else %>
+      <th class="seed"><%= link_to 'Seed', '#', :onclick => "sortEligiblePlayers('#{@mm_team.id}','seed','#{@sort_order}')" %></th>
+    <% end %>
     <th class="name">Name</th>
     <th class="position">Pos.</th>
-    <th class="ppg">PPG.</th>
+    <% if @sort == 'ppg_avg' %>
+      <th class="<%= @sort_order == 'asc' ? 'ppg_asc' : 'ppg_desc'%>"><%= link_to 'PPG', '#', :onclick => "sortEligiblePlayers('#{@mm_team.id}','ppg_avg','#{@sort_order}')" %></th>
+    <% else %>
+      <th class="ppg"><%= link_to 'PPG', '#', :onclick => "sortEligiblePlayers('#{@mm_team.id}','ppg_avg','#{@sort_order}')" %></th>
+    <% end %>
     <th class="school">School</th>
     <th class="region">Region</th>
     <th class="action"></th>

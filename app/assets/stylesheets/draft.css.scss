@@ -367,11 +367,35 @@ div.my_team_list {
         &.seed {
             width: 10%;
         }
+        &.seed_asc {
+            width: 10%;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-image: asset-url("sort_asc_arrow.png");
+        }
+        &.seed_desc {
+            width: 10%;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-image: asset-url("sort_desc_arrow.png");
+        }
         &.name {
             width: 30%;
         }
         &.position, &.ppg {
             width: 10%;
+        }
+        &.ppg_asc {
+            width: 10%;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-image: asset-url("sort_asc_arrow.png");
+        }
+        &.ppg_desc {
+            width: 10%;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-image: asset-url("sort_desc_arrow.png");
         }
         &.school {
             width: 20%;

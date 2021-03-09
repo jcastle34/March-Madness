@@ -18,7 +18,10 @@ class MmTeamsController < ApplicationController
 
   def preferred_players
       @mm_team = MmTeam.find params[:id]
-      @ncaa_players = NcaaPlayer.get_players_by_position('G')
+      @selected_position = 'G'
+      @sort = 'seed'
+      @sort_order = 'asc'
+      @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position, @sort, @sort_order)
 			@preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
       @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   end
@@ -68,7 +71,26 @@ class MmTeamsController < ApplicationController
   def get_eligible_players_by_position
     @mm_team = MmTeam.find(get_team_for_current_user)
     @selected_position = params[:selected_position]
-    @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position)
+    @sort = params[:sort]
+    @sort_order = params[:sort_order]
+    
+    @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position, @sort, @sort_order)
+    render "shared/get_eligible_players_by_round"
+  end
+
+  def sort_eligible_players
+    @mm_team = MmTeam.find(get_team_for_current_user)
+    @selected_position = params[:selected_position]
+    @sort = params[:sort]
+    @sort_order = params[:sort_order]
+
+    if @sort_order == 'asc'
+      @sort_order = 'desc'
+    else
+      @sort_order = 'asc'
+    end
+    
+    @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position, @sort, @sort_order)
     render "shared/get_eligible_players_by_round"
   end
 

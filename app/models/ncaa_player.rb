@@ -43,11 +43,17 @@ class NcaaPlayer < ActiveRecord::Base
           .where('mtp.mm_team_id = ?', mm_team_id).order('ncaa_players.position desc, ncaa_players.ppg_avg desc')
   end
 
-  def self.get_players_by_position(position)
+  def self.get_players_by_position(position, sort_by, sort_order)
       if !position.empty?
+        if(sort_by == 'seed')
           NcaaPlayer.joins('join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id join bracket_entries be on be.ncaa_team_id = nt.id')
           .where('ncaa_players.position = ?', position)
-          .order('be.seed asc, region_id, ncaa_players.ncaa_team_id asc, ncaa_players.ppg_avg desc')
+          .order("be.seed #{sort_order}, region_id, ncaa_players.ncaa_team_id asc, ncaa_players.ppg_avg desc")
+        else
+          NcaaPlayer.joins('join ncaa_teams nt on nt.id = ncaa_players.ncaa_team_id join bracket_entries be on be.ncaa_team_id = nt.id')
+          .where('ncaa_players.position = ?', position)
+          .order("ncaa_players.ppg_avg #{sort_order}")
+        end
       else
           []
       end
