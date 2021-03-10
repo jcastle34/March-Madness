@@ -11,3 +11,15 @@ if (flashAlert){
     $("#flash").html('<div class="flash_alert message"><a onclick="javascript:void(0);" class="hideText icon_close">Close</a><span><%=flash[:alert]%></span></div>');
     $("#flash").show();
 }
+
+var flashNotice = "<%=flash[:notice]%>";
+if (flashNotice){
+    $('#flash').fadeIn('slow');
+    setTimeout(function(){
+        $('#flash').fadeOut('slow');
+    }, 5000);
+
+    $("#flash").html("<div class='flash_notice message'><a onclick='javascript:void(0);' class='hideText icon_close''>Close</a><span>" + flashNotice + "</span></div>");
+    $("#flash").show();
+    <%=flash[:notice] = nil%>
+}

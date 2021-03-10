@@ -1,9 +1,17 @@
 class HomeController < ApplicationController
 
-  def index
-    @standings = PlayerScoring.point_and_game_total_for_all_teams
+	def index
+		mm_team = MmTeam.find_by_user_id(current_user.id)
+		if !mm_team.nil?
+		  session['mm_team_id'] = mm_team.id
+		else
+		  flash[:alert] = t(:no_team_for_user)
+		  redirect_to new_mm_team_path
+		end
+
+		@standings = PlayerScoring.point_and_game_total_for_all_teams
 		@top_scorers = PlayerScoring.point_and_game_total_for_players
-  end
+	end
 
 	def player_scoring_details
 		player_id = params[:player_id]

@@ -4,6 +4,30 @@ class MmTeamsController < ApplicationController
 	include DraftHelper
   include DraftExtension
 
+  def new
+    @mm_team = MmTeam.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @mm_team }
+    end
+  end
+
+  def create
+    @mm_team = MmTeam.new(params[:mm_team])
+    @mm_team.user = User.find(current_user.id)
+
+    respond_to do |format|
+      if @mm_team.save
+        format.html { redirect_to(home_index_url, :notice => 'Mm team was successfully created.') }
+        format.xml  { render :xml => @mm_team, :status => :created, :location => @mm_team }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @mm_team.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def get_roster
     @mm_team = MmTeam.find params[:mm_team_id]
     @roster = @mm_team.get_preferred_players
@@ -49,6 +73,7 @@ class MmTeamsController < ApplicationController
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)
     @preferred_players = NcaaPlayer.get_preferred_players_for_mm_team(@mm_team.id)
     @player_seed_total = @mm_team.get_players_seed_total(params[:id])
+    flash[:notice] = t(:preferred_player_removed)
   rescue Exception => e
     flash[:alert] = t(:preferred_player_removal_problem)
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(1, 16)

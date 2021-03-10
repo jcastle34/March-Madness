@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
     end
 
     def get_team_for_current_user
-        MmTeam.find session['mm_team_id']
+        if session['mm_team_id'].nil?
+            
+        else
+            MmTeam.find session['mm_team_id']
+        end
     end
   
 end
