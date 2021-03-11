@@ -86,7 +86,7 @@ class MmTeamsController < ApplicationController
   end
 
   def get_eligible_players_by_round
-    @mm_team = MmTeam.find(get_team_for_current_user)
+    @mm_team = get_team_for_current_user
     @selected_round = params[:selected_round]
     seed_range = get_seed_ranges_by_round @selected_round.to_i
     @ncaa_players = NcaaPlayer.get_players_by_seed_range(seed_range[0], seed_range[1])
@@ -94,7 +94,7 @@ class MmTeamsController < ApplicationController
   end
 
   def get_eligible_players_by_position
-    @mm_team = MmTeam.find(get_team_for_current_user)
+    @mm_team = get_team_for_current_user
     @selected_position = params[:selected_position]
     @sort = params[:sort]
     @sort_order = params[:sort_order]
@@ -104,7 +104,7 @@ class MmTeamsController < ApplicationController
   end
 
   def sort_eligible_players
-    @mm_team = MmTeam.find(get_team_for_current_user)
+    @mm_team = get_team_for_current_user
     @selected_position = params[:selected_position]
     @sort = params[:sort]
     @sort_order = params[:sort_order]
@@ -120,7 +120,7 @@ class MmTeamsController < ApplicationController
   end
 
   def get_preferred_players_by_round
-    @mm_team = MmTeam.find(get_team_for_current_user)
+    @mm_team = get_team_for_current_user
     @preferred_players = NcaaPlayer.get_preferred_players_by_seed_range_for_mm_team(get_team_for_current_user, 1, 16)
     render "shared/get_preferred_players_by_round"
   end
