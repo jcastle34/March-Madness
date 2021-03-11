@@ -6,6 +6,8 @@ class MmTeam < ActiveRecord::Base
 
   attr_accessible :name, :user_id
 
+  validates :name , presence: { message: "Team Name is required" }
+
   def get_players
     @ncaa_players = NcaaPlayer.joins('left outer join draft_picks dp on dp.ncaa_player_id = ncaa_players.id
 left outer join player_scorings ps on ps.ncaa_player_id = ncaa_players.id').where('dp.mm_team_id = ?', self.id).group('ncaa_players.id')

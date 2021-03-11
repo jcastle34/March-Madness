@@ -21,7 +21,7 @@
           <% end %>
         <% end %>
       </li> -->
-      <% if !get_team_for_current_user.nil? %>
+      <% unless !user_has_team? %>
         <li>
           <% if Draft.is_completed? %>
             <%= link_to_unless_current('My Roster', my_roster_mm_team_url(get_team_for_current_user)) do |link| %>

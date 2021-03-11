@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     before_filter :authenticate_user!
     protect_from_forgery
     layout :layout_by_resource
-    helper_method :get_team_for_current_user
+    helper_method :get_team_for_current_user, :user_has_team?
 
     def layout_by_resource
         user_signed_in? ? 'application' : 'login'
@@ -17,11 +17,14 @@ class ApplicationController < ActionController::Base
     end
 
     def get_team_for_current_user
-        if session['mm_team_id'].nil?
-            
+        MmTeam.find session['mm_team_id']
+    end
+
+    def user_has_team?
+        if MmTeam.find_by_user_id(current_user.id).nil?
+            false
         else
-            MmTeam.find session['mm_team_id']
+            true
         end
     end
-  
 end

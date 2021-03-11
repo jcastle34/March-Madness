@@ -19,7 +19,7 @@ class MmTeamsController < ApplicationController
 
     respond_to do |format|
       if @mm_team.save
-        format.html { redirect_to(home_index_url, :notice => 'Mm team was successfully created.') }
+        format.html { redirect_to(home_index_url, :notice => t(:mm_team_created)) }
         format.xml  { render :xml => @mm_team, :status => :created, :location => @mm_team }
       else
         format.html { render :action => "new" }
