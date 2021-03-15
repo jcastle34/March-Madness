@@ -4,7 +4,7 @@
 
 <div class="container">
   Filter players by position:
-  <%= select(:player, :selected_position, options_for_select([['Guard', 'G'], ['Forward', 'F'], ['Center', 'C']], @selected_position), {}, html_options = {:onchange => "getEligiblePlayersByPosition('#{@mm_team.id}', '#{@sort}', '#{@sort_order}')"})  %>
+  <%= select(:player, :selected_position, options_for_select([['All', 'All'], ['Guard', 'G'], ['Forward', 'F'], ['Center', 'C']], @selected_position), {}, html_options = {:onchange => "getEligiblePlayersByPosition('#{@mm_team.id}', '#{@sort}', '#{@sort_order}')"})  %>
 </div>
 
 <div class="clear"></div>

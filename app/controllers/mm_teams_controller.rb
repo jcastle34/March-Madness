@@ -42,7 +42,7 @@ class MmTeamsController < ApplicationController
 
   def preferred_players
       @mm_team = MmTeam.find params[:id]
-      @selected_position = 'G'
+      @selected_position = 'All'
       @sort = 'seed'
       @sort_order = 'asc'
       @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position, @sort, @sort_order)
