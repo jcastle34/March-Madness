@@ -10,10 +10,10 @@ class Region < ActiveRecord::Base
       region_id = self.id
 
       case region_id
-        when 1 then return '2'
-        when 2 then return '3'
-        when 3 then return '1'
-        when 4 then return '4'
+        when 1 then return 'S'
+        when 2 then return 'M'
+        when 3 then return 'W'
+        when 4 then return 'E'
       end
 
     end
