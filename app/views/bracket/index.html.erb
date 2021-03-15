@@ -178,12 +178,12 @@
         <div style="margin-top: 230px; font-size: 12px;">
             <span>First 4 Play in Games</span>
             <div style="margin-top: 30px;">
-                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[0].region_id) %>"><%= @play_in_matchups[0].region.location.last %></span>
-                <span class="<%= get_region_css_class(@play_in_matchups[2].region_id) %>"><%= @play_in_matchups[2].region.location.last %></span>
+                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[0].region_id) %>"><%= @play_in_matchups[0].region.location.first %></span>
+                <span class="<%= get_region_css_class(@play_in_matchups[2].region_id) %>"><%= @play_in_matchups[2].region.location.first %></span>
             </div>
             <div style="margin-top: 32px;">
-                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[4].region_id) %>"><%= @play_in_matchups[4].region.location.last %></span>
-                <span class="<%= get_region_css_class(@play_in_matchups[6].region_id) %>"><%= @play_in_matchups[6].region.location.last %></span>
+                <span style="margin-right: 15px;" class="<%= get_region_css_class(@play_in_matchups[4].region_id) %>"><%= @play_in_matchups[4].region.location.first %></span>
+                <span class="<%= get_region_css_class(@play_in_matchups[6].region_id) %>"><%= @play_in_matchups[6].region.location.first %></span>
             </div>
         </div>
     </div>
