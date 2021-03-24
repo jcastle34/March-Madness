@@ -71,4 +71,13 @@ class MmTeamPreferredPlayer < ActiveRecord::Base
 		result.round(2) 
 	end
 
+  	def self.get_preferred_players_ownership
+  		mm_team_total = MmTeamPreferredPlayer.all.group(:mm_team_id).to_a.size.to_f
+    	MmTeamPreferredPlayer.find_by_sql("select count(np.id) as total_owned, np.first_name, np.last_name, np.position, nt.school, be.seed, round(count(np.id) / #{mm_team_total} * 100, 2) as percentage_owned, nt.is_active from mm_team_preferred_players pp 
+		join ncaa_players np on np.id = pp.ncaa_player_id
+		join ncaa_teams nt on nt.id = np.ncaa_team_id
+		join bracket_entries be on be.ncaa_team_id = nt.id
+		group by np.id
+		order by total_owned desc")
+  	end
 end

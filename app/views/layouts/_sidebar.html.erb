@@ -43,6 +43,12 @@
               <span class="current_main_nav_tip"></span>
           <% end %>
         </li>
+        <li>
+          <%= link_to_unless_current('Player Ownership', mm_teams_preferred_players_ownership_path) do |link| %>
+              <span class="current_main_nav"><%= link %></span>
+              <span class="current_main_nav_tip"></span>
+          <% end %>
+        </li>
   <!--       <li>
           <%= link_to_unless_current('Player Scoring', player_scoring_index_path) do |link| %>
             <span class="current_main_nav"><%= link %></span>

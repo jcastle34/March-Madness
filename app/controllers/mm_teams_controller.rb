@@ -50,6 +50,10 @@ class MmTeamsController < ApplicationController
       @player_seed_total = @mm_team.get_players_seed_total(params[:id])
   end
 
+  def preferred_players_ownership
+      @preferred_players_ownership = MmTeamPreferredPlayer.get_preferred_players_ownership
+  end
+
   def add_preferred_player
     @mm_team = MmTeam.find(params[:id])
     player_id_to_add = params[:ncaa_player_id]

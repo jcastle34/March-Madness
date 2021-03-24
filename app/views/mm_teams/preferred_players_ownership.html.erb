@@ -1,0 +1,42 @@
+<div id="mm_rosters_container">
+    <div class="module">
+      <div class="module_header">Player Ownership
+        <div class="clear"></div>
+      </div>
+      <div class="module_container">
+        <table class="mm_rosters_table_headers">
+          <tr>
+            <th rowspan="2" class="position">Total Owned</th>
+            <th rowspan="2" class="name">Player Name</th>
+            <th rowspan="2" class="position">Position</th>
+            <th rowspan="2" class="school">School</th>
+            <th rowspan="2" class="seed">Seed</th>
+            <th rowspan="2" class="seed">% Owned</th>
+            <th rowspan="2" class="status">Status</th>
+          </tr>
+        </table>
+        <table id="mm_rosters_table">
+          <tbody>
+          <% @preferred_players_ownership.each_with_index do |preferred_player, index| %>
+              <tr class="<%= (index + 1) %2 == 0 ? 'even' : 'odd'%>">
+                <td class="position"><%= preferred_player.total_owned %></td>
+                <td class="name"><%= preferred_player.first_name + ' ' + preferred_player.last_name %></td>
+                <td class="position"><span class="<%=get_position_css_class preferred_player.position %>"><%= preferred_player.position %></span></td>
+                <td class="school"><%= preferred_player.school %></td>
+                <td class="seed"><%= preferred_player.seed %></td>
+                <td class="seed"><%= preferred_player.percentage_owned %></td>
+                <td class="status">
+                  <% if preferred_player.is_active == 1 %>
+                      <span>Active</span>
+                  <% else %>
+                      <span style="color: red;">Inactive</span>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+</div>

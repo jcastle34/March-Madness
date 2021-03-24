@@ -22,6 +22,7 @@ MarchMadness::Application.routes.draw do
   get "mm_teams/get_roster"
   get "mm_teams/rosters"
   get "mm_teams/my_roster"
+  get "mm_teams/preferred_players_ownership"
 
   post "bracket/update_regions"
 
