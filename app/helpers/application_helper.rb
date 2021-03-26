@@ -1,9 +1,9 @@
 module ApplicationHelper
   def get_region_css_class region_id
-		if region_id == Region::SOUTHEAST
-			'southeast_region'
-		elsif region_id == Region::SOUTHWEST
-			'southwest_region'
+		if region_id == Region::MIDWEST
+			'midwest_region'
+		elsif region_id == Region::SOUTH
+			'south_region'
 		elsif region_id == Region::WEST 
 			'west_region'
 		elsif region_id == Region::EAST 

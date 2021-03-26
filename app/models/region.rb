@@ -2,8 +2,8 @@ class Region < ActiveRecord::Base
     has_one :bracket_entry
 
 		EAST = 1
-		SOUTHEAST = 2
-		SOUTHWEST = 3
+		MIDWEST = 2
+		SOUTH = 3
 		WEST = 4
 
     def location_abbr
