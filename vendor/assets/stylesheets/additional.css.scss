@@ -12,7 +12,7 @@
     outline: none;
     vertical-align: middle;
     background: #F2F2F2;
-    background: white asset-url("bg_field.png", image) 0 0 repeat-x;
+    background: white asset-url("bg_field.png") 0 0 repeat-x;
     color: #242424;
     font-weight: normal;
     font-size: 12px;
@@ -60,7 +60,7 @@
         right: 0;
         width: 23px;
         height: 100%;
-        background: asset-url("select_arrow.png", image) 50% center no-repeat;
+        background: asset-url("select_arrow.png") 50% center no-repeat;
         cursor: pointer;
     }
 }
@@ -395,60 +395,60 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 #cboxTopLeft {
     width: 21px;
     height: 21px;
-    background: asset-url("colorbox/controls.png", image) no-repeat -27px 0;
+    background: asset-url("colorbox/controls.png") no-repeat -27px 0;
     float: left;
 }
 
 #cboxTopRight {
     width: 21px;
     height: 21px;
-    background: asset-url("colorbox/controls.png", image) no-repeat -56px 0;
+    background: asset-url("colorbox/controls.png") no-repeat -56px 0;
    float: left;
 }
 
 #cboxBottomLeft {
     width: 21px;
     height: 21px;
-    background: asset-url("colorbox/controls.png", image) no-repeat -27px -29px;
+    background: asset-url("colorbox/controls.png") no-repeat -27px -29px;
     float: left;
 }
 
 #cboxBottomRight {
     width: 21px;
     height: 21px;
-    background: asset-url("colorbox/controls.png", image) no-repeat -56px -29px;
+    background: asset-url("colorbox/controls.png") no-repeat -56px -29px;
     float: left;
 }
 
 #cboxMiddleLeft {
     width: 14px;
-    background: asset-url("colorbox/controls.png", image) left top repeat-y;
+    background: asset-url("colorbox/controls.png") left top repeat-y;
     float: left;
     height: 478px;
 }
 
 #cboxMiddleRight {
     width: 14px;
-    background: asset-url("colorbox/controls.png", image) right top repeat-y;
+    background: asset-url("colorbox/controls.png") right top repeat-y;
     float: left;
     height: 478px;
 }
 
 #cboxTopCenter {
     height: 21px;
-    background: asset-url("colorbox/border.png", image) 0 0 repeat-x;
+    background: asset-url("colorbox/border.png") 0 0 repeat-x;
 float: left; width: 570px;
 }
 
 #cboxBottomCenter {
     height: 21px;
-    background: asset-url("colorbox/border.png", image) 0 -29px repeat-x;
+    background: asset-url("colorbox/border.png") 0 -29px repeat-x;
     float: left;
     width: 570px;
 }
 
 #cboxContent {
-    background: white asset-url("colorbox/bg_tile_bottom.png", image) 0 107% repeat-x;
+    background: white asset-url("colorbox/bg_tile_bottom.png") 0 107% repeat-x;
     overflow: hidden;
     padding-left: 7px;
     padding-right: 7px;
@@ -493,7 +493,7 @@ float: left; width: 570px;
     position: absolute;
     bottom: 0;
     left: 10px;
-    background: asset-url("colorbox/controls-ui.png", image) no-repeat -25px 0;
+    background: asset-url("colorbox/controls-ui.png") no-repeat -25px 0;
     width: 25px;
     height: 25px;
     text-indent: -9999px;
@@ -506,7 +506,7 @@ float: left; width: 570px;
     position: absolute;
     bottom: 0;
     left: 37px;
-    background: asset-url("colorbox/controls-ui.png", image) no-repeat -50px 0;
+    background: asset-url("colorbox/controls-ui.png") no-repeat -50px 0;
     width: 25px;
     height: 25px;
     text-indent: -9999px;
@@ -516,13 +516,13 @@ float: left; width: 570px;
 }
 
 #cboxLoadingOverlay {
-    background: asset-url("colorbox/loading_background.png", image) no-repeat center center;
+    background: asset-url("colorbox/loading_background.png") no-repeat center center;
     height: 580px;
     display: none;
 }
 
 #cboxLoadingGraphic {
-    background: asset-url("colorbox/loading.gif", image) no-repeat center center;
+    background: asset-url("colorbox/loading.gif") no-repeat center center;
     height: 580px;
     display: none;
 }
@@ -531,7 +531,7 @@ float: left; width: 570px;
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: asset-url("colorbox/controls-ui.png", image) no-repeat 0 0;
+    background: asset-url("colorbox/controls-ui.png") no-repeat 0 0;
     width: 15px;
     height: 15px;
     text-indent: -9999px;
@@ -557,30 +557,30 @@ The following provides PNG transparency support for IE6
 
 .cboxIE6 {
     #cboxTopLeft {
-        background: asset-url("colorbox/ie6/borderTopLeft.png", image);
+        background: asset-url("colorbox/ie6/borderTopLeft.png");
     }
     #cboxTopCenter {
-        background: asset-url("colorbox/ie6/borderTopCenter.png", image);
+        background: asset-url("colorbox/ie6/borderTopCenter.png");
     }
     #cboxTopRight {
-        background: asset-url("colorbox/ie6/borderTopRight.png", image);
+        background: asset-url("colorbox/ie6/borderTopRight.png");
     }
     #cboxBottomLeft {
-        background: asset-url("colorbox/ie6/borderBottomLeft.png", image);
+        background: asset-url("colorbox/ie6/borderBottomLeft.png");
     }
     #cboxBottomCenter {
-        background: asset-url("colorbox/ie6/borderBottomCenter.png", image);
+        background: asset-url("colorbox/ie6/borderBottomCenter.png");
     }
     #cboxBottomRight {
-        background: asset-url("colorbox/ie6/borderBottomRight.png", image);
+        background: asset-url("colorbox/ie6/borderBottomRight.png");
     }
     #cboxMiddleLeft {
-        background: asset-url("colorbox/ie6/borderMiddleLeft.png", image);
+        background: asset-url("colorbox/ie6/borderMiddleLeft.png");
     }
     #cboxMiddleRight {
-        background: asset-url("colorbox/ie6/borderMiddleRight.png", image);
+        background: asset-url("colorbox/ie6/borderMiddleRight.png");
     }
-    #cboxTopLeft, #cboxTopCenter, #cboxTopRight, #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight, #cboxMiddleLeft, #cboxMiddleRight {
+/*    #cboxTopLeft, #cboxTopCenter, #cboxTopRight, #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight, #cboxMiddleLeft, #cboxMiddleRight {
         _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
-    }
+    }*/
 }

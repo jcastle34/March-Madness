@@ -61,7 +61,7 @@ input {
 }
 
 textarea {
-    background: white asset-url("bg_field.png", image) 0 0 repeat-x;
+    background: white asset-url("bg_field.png") 0 0 repeat-x;
     color: #242424;
     font-weight: bold;
     font-size: 16px;
@@ -126,14 +126,14 @@ textarea {
     display: block;
     width: 200px;
     height: 200px;
-    background: asset-url("final_four_logo.png", image) 0 0 no-repeat;
+    background: asset-url("final_four_logo.png") 0 0 no-repeat;
     margin: 20px 10px 10px 20px;
 }
 
 #logo_big {
     display: block;
     height: 126px;
-    background: asset-url("march_madness_logo_big.png", image) center center no-repeat;
+    background: asset-url("march_madness_logo_big.png") center center no-repeat;
     margin: 5% 0 3%;
 }
 
@@ -179,7 +179,7 @@ textarea {
 
 #nav_container {
     display: block;
-    background: asset-url("bg_menu_wood.png", image) right 0 repeat-y;
+    background: asset-url("bg_menu_wood.png") right 0 repeat-y;
     /*background-color: #000;*/
     height: 900px;
     max-width: 250px;
@@ -207,7 +207,7 @@ textarea {
         display: block;
     }
     a {
-        /*background: asset-url("bball_texture.png", image) 0 0 repeat;*/
+        /*background: asset-url("bball_texture.png") 0 0 repeat;*/
         display: block;
         color: #fff;
         margin: 10px 30px 10px 30px;
@@ -233,7 +233,7 @@ textarea {
     }
 
     /*span.current_main_nav_tip {
-        background: asset-url("menu_active_orange_bball.png", image) 0 0 no-repeat;
+        background: asset-url("menu_active_orange_bball.png") 0 0 no-repeat;
         position: absolute;
         z-index: 10;
         margin-top: 1px;
@@ -284,11 +284,11 @@ textarea {
 }
 
 .left_container {
-    background: #f9f9f9;
+    background: #fff;
 }
 
 .right_container {
-    background: #fff;
+    background: #f9f9f9;
 }
 
 .module_header {
@@ -506,12 +506,12 @@ div {
 
 .flash_warning span {
     border-top: 1px solid #ffcb80;
-    background-image: asset-url("icon_flash_warning.png", image);
+    background-image: asset-url("icon_flash_warning.png");
 }
 
 .flash_info span {
     border-top: 1px solid #52ABC5;
-    background-image: asset-url("icon_flash_info.png", image);
+    background-image: asset-url("icon_flash_info.png");
 }
 
 .hideText {
@@ -587,7 +587,7 @@ html[xmlns] .clearfix {
 #colorbox #cboxClose {
     top: 0 !important;
     right: 0 !important;
-    background-image: asset-url("close.png", image);
+    background-image: asset-url("close.png");
 }
 
 :focus {
