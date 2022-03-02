@@ -20,7 +20,7 @@
         <td class="nickname"><%= ncaa_team.nickname %></td>
         <td class="web_id"><%= ncaa_team.web_id %></td>
         <td class="action">
-          <%= link_to 'Edit', edit_admin_ncaa_team_path(ncaa_team) %>
+          <%= link_to 'Edit', edit_admin_ncaa_team_path(ncaa_team) %> |
           <%= link_to 'Remove', [:admin, ncaa_team], :method => :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>

@@ -35,9 +35,9 @@
           <td class="jersey_number"><%= ncaa_player.jersey_number %></td>
           <td>
             <% if current_user.is_admin? %>
-              <%= link_to 'Edit', edit_admin_ncaa_player_path(ncaa_player) %>
+              <%= link_to 'Edit', edit_admin_ncaa_player_path(ncaa_player) %> |
               <% if controller_path.split('/').first != 'admin' %>
-                <%= link_to 'Draft', ncaa_player, :method => :draft_player %>
+                <%= link_to 'Draft', ncaa_player, :method => :draft_player %> |
               <% end %>
               <%= link_to 'Remove', [:admin, ncaa_player], :method => :delete, data: { confirm: 'Are you sure?' } %>
             <% else %>
