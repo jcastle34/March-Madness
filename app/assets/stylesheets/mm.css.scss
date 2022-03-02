@@ -13,10 +13,10 @@ html, body {
 a {
     color: #E7772D;
     &:link, &:visited {
-        color: #E7772D;
+        color: green;
     }
     &:hover {
-        color: SaddleBrown;
+        color: green;
     }
 }
 
@@ -25,7 +25,7 @@ button {
 }
 
 h1 {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: bold;
     color: #242424;
     margin: 0 0 20px;
@@ -207,19 +207,18 @@ textarea {
         display: block;
     }
     a {
-        /*background: asset-url("bball_texture.png") 0 0 repeat;*/
         display: block;
         color: #fff;
         margin: 10px 30px 10px 30px;
         text-align: center;
-        border-radius: 8px;
+        border-radius: 10px;
         background: image-url("bball_texture.png") 0 0 repeat;
-        border: outset 3px #CC2A0E;
+        border: outset 2px #A84120;
         text-transform: uppercase;
     }
     a:hover {
         background: image-url("bball_texture_faded.png") 0 0 repeat;
-        border: outset 3px #AE5C38;
+        border: outset 2px #A84120;
         color: #000;
         text-decoration: none;
     }
@@ -228,7 +227,7 @@ textarea {
         margin: 10px 30px 10px 30px;
         color: #000;
         text-align: center;
-        border-radius: 4px;
+        border-radius: 10px;
         text-transform: uppercase;
     }
 
@@ -263,10 +262,10 @@ textarea {
         color: #fff;
     }
     a {
-        text-decoration: underline;
+/*       text-decoration: underline;
         &:hover {
             text-decoration: none;
-        }
+        }*/
     }
 }
 
@@ -289,6 +288,10 @@ textarea {
 
 .right_container {
     background: #f9f9f9;
+}
+
+#draft_page_container {
+
 }
 
 .module_header {

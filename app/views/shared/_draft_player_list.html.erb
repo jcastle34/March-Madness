@@ -2,13 +2,10 @@
 
 <div id="draft_players_container_header">NCAA Players</div>
 
-<div class="container">
+<div class="regions_container">
   Filter players by position:
   <%= select(:player, :selected_position, options_for_select([['All', 'All'], ['Guard', 'G'], ['Forward', 'F'], ['Center', 'C']], @selected_position), {}, html_options = {:onchange => "getEligiblePlayersByPosition('#{@mm_team.id}', '#{@sort}', '#{@sort_order}')"})  %>
 </div>
-
-<div class="clear"></div>
-
 <div class="regions_container">
   <b>Regions</b> - <span class="<%= get_region_css_class(4) %>">E = East</span>,
   <span class="<%= get_region_css_class(2) %>">M = Midwest</span>,

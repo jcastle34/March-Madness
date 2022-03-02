@@ -15,14 +15,13 @@
     float: left;
 
 	a {
-        text-decoration: underline;
+        text-decoration: none;
         color: #E7772D;
 	    &:link, &:visited {
 	        color: #E7772D;
 	    }
 	    &:hover {
-	        color: SaddleBrown;
-	        text-decoration: none;
+	       text-decoration: underline;
 	    }
 	    padding: 5px 5px 5px 5px;
 	}    

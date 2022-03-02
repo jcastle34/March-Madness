@@ -5,7 +5,7 @@
       @selected_round), {}, html_options = {:onchange => "getPreferredPlayersByRound(#{@mm_team.id})"})  %> -->
 </div>
 <div class="regions_container">
-  A roster must contain <b>8</b> <span class="position_guard">guards</span>, <b>8</b> <span class="position_forward">forwards</span> and <b>4</b> centers for a total of <b>20</b> players.  Also, the player seed total must be <b>120</b> or higher once rosters lock in order to be valid!
+  A roster must contain <b>8</b> <span class="position_guard">guards</span>, <b>8</b> <span class="position_forward">forwards</span> and <b>4</b> <span class="position_center">centers</span> for a total of <b>20</b> players.  Also, the player seed total must be <b>120</b> or higher once rosters lock in order for the roster to be valid!
 </div>
 <div class="regions_container">
    <p>Your current player total is <b><%= @preferred_players.size %></b> </p>
