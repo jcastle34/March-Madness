@@ -342,6 +342,7 @@ div.my_team_list {
 
 #draft_players_container {
     padding: 5px;
+    height:  100%;
 }
 
 #draft_players_container_header {
@@ -408,7 +409,7 @@ div.my_team_list {
 
 #draft_players_table {
     background-color: #fff;
-    height: 690px;
+    height: 720px;
     overflow: auto;
     display: block;
     tbody {
@@ -488,7 +489,7 @@ div.my_team_list {
     display: block;
     background-color: #fff;
     height: 690px;
-    overflow: auto;
+    overflow: scroll;
     tbody {
         width: 100%;
         display: table;
