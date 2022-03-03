@@ -18,4 +18,5 @@ en:
   invalid_access: "Invalid Access!"
   bracket_updated: "The bracket has been updated."
   rosters_locked: "All rosters are now locked."
+  rosters_unlocked: "All rosters are now locked."
   mm_team_created: "March Madness team was successfully created."

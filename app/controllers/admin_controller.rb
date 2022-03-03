@@ -12,6 +12,34 @@ class AdminController < ApplicationController
 			redirect_to admin_index_url
 	end
 
+  def lock_rosters
+      draft_pick = DraftPick.find_by(overall_pick: 1)
+      draft_pick.ncaa_player_id = 1
+      draft_pick.save
+
+      if draft_pick.errors.empty?
+        flash[:notice] = t(:rosters_locked)
+      else
+        flash[:alert] = draft_pick.errors.full_messages.to_sentence
+      end
+
+      redirect_to admin_index_url
+  end
+
+  def unlock_rosters
+      draft_pick = DraftPick.find_by(overall_pick: 1)
+      draft_pick.ncaa_player_id = nil
+      draft_pick.save
+
+      if draft_pick.errors.empty?
+        flash[:notice] = t(:rosters_unlocked)
+      else
+        flash[:alert] = draft_pick.errors.full_messages.to_sentence
+      end
+
+      redirect_to admin_index_url
+  end
+
   def bracket
     @east_region_bracket_entries = BracketEntry.where(:region_id => 1).order(:seed)
     @midwest_region_bracket_entries = BracketEntry.where(:region_id => 2).order(:seed)

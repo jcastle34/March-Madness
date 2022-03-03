@@ -1,5 +1,5 @@
-<h1>Draft Order</h1>
-<div class="float-left" style="width: 73%;">
+<div class="clear">
+	<h2>Draft Order</h2>
 	<table class="draft_order_table">
 	  	<thead>
 		    <tr>
@@ -18,9 +18,4 @@
 		  <% end %>
 	  </tbody>
 	</table>
-</div>
-<div class="float-right">
-<%= form_tag(admin_generate_draft_picks_path, method: "post") do %>
-  <%= submit_tag("Generate Draft Picks", class: 'btn btn-success', confirm: 'This will Delete all current draft picks. Are you sure?') %>
-<% end %>
 </div>

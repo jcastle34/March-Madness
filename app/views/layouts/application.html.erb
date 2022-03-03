@@ -18,10 +18,10 @@
       <div id="main_container" class="col-md-10">
         <% if current_page?(admin_index_path) || current_page?(admin_mm_teams_path) || current_page?(admin_ncaa_teams_path) || current_page?(admin_ncaa_players_path) || current_page?(admin_bracket_path) %>
           <div id="admin_nav">
-            <%= link_to_unless_current 'Admin Home', admin_index_path %>
-            <%= link_to_unless_current 'Bracket', admin_bracket_path %>
-            <%= link_to_unless_current 'NCAA Teams', admin_ncaa_teams_path %>
-            <%= link_to_unless_current 'NCAA Players', admin_ncaa_players_path %>
+            <%= link_to_unless_current 'Home', admin_index_path %> |
+            <%= link_to_unless_current 'Bracket', admin_bracket_path %> |
+            <%= link_to_unless_current 'NCAA Teams', admin_ncaa_teams_path %> |
+            <%= link_to_unless_current 'NCAA Players', admin_ncaa_players_path %> |
             <%= link_to_unless_current 'MM Teams', admin_mm_teams_path %>
           </div>
         <% end %>

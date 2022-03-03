@@ -1,6 +1,18 @@
-
-  <div id="admin_container">
-    <div class="left_container col-md-6">
-      <%= render "draft_order" %>
+<div id="admin_container">
+    <h1>Admin Home</h1>
+    <div class="pad">
+      <%= form_tag(admin_lock_rosters_path, method: "post") do %>
+        <%= submit_tag("Lock Rosters", class: 'btn btn-success', confirm: 'Are you sure want to lock all rosters?')%>
+      <% end %>
     </div>
-  </div>
+    <div class="pad">
+      <%= form_tag(admin_unlock_rosters_path, method: "post") do %>
+        <%= submit_tag("Unlock Rosters", class: 'btn btn-success', confirm: 'Are you sure want to lock all rosters?')%>
+      <% end %>
+    </div>
+    <!-- <div class="float-left pad">
+      <%= form_tag(admin_generate_draft_picks_path, method: "post") do %>
+        <%= submit_tag("Generate Draft Picks", class: 'btn btn-success', confirm: 'This will Delete all current draft picks. Are you sure?') %>
+      <% end %>
+    </div> -->
+</div>
