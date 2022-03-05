@@ -28,6 +28,27 @@ class MmTeamsController < ApplicationController
     end
   end
 
+  # GET /mm_teams/1/edit
+  def edit
+    @mm_team = MmTeam.find(params[:id])
+  end
+
+  # PUT /mm_teams/1
+  # PUT /mm_teams/1.xml
+  def update
+    @mm_team = MmTeam.find(params[:id])
+
+    respond_to do |format|
+      if @mm_team.update_attributes(params[:mm_team])
+        format.html { redirect_to(my_roster_mm_team_url, :notice => 'Your march madness team name was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @mm_team.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def get_roster
     @mm_team = MmTeam.find params[:mm_team_id]
     @roster = @mm_team.get_preferred_players

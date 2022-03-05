@@ -1,7 +1,7 @@
 <div id="mm_rosters_container">
   <div class="module">
     <div class="module_header">Roster for <%= @mm_team.name %>
-      <div class="clear"></div>
+      <div class="float-right"><p style="font-size: 14px; font-weight: normal;"><%= link_to 'Change Team Name', edit_mm_team_path(@mm_team.id) %></p></div>
     </div>
     <div class="module_container">
       <table class="my_team_table">

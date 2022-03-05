@@ -24,7 +24,7 @@
       <% unless !user_has_team? %>
         <li>
           <% if Draft.is_completed? %>
-            <%= link_to_unless_current('My Roster', my_roster_mm_team_url(get_team_for_current_user)) do |link| %>
+            <%= link_to_unless_current('My Team', my_roster_mm_team_url(get_team_for_current_user)) do |link| %>
                 <span class="current_main_nav"><%= link %></span>
                 <span class="current_main_nav_tip"></span>
             <% end %>
@@ -60,12 +60,6 @@
         <%= link_to_unless_current('Bracket', bracket_index_path) do |link| %>
           <span class="current_main_nav"><%= link %></span>
           <span class="current_main_nav_tip"></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to_unless_current('My Profile', edit_user_registration_path) do |link| %>
-            <span class="current_main_nav"><%= link %></span>
-            <span class="current_main_nav_tip"></span>
         <% end %>
       </li>
       <% if current_user.is_admin? %>

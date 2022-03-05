@@ -28,8 +28,9 @@
         <% if user_signed_in?  %>
           <div class="current_user">
             <p>
-              You are signed in as <%= current_user.email %>
-              <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+              You are signed in as <%= current_user.email %> |
+              <%= link_to 'Change Password', edit_user_registration_path %> |
+              <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> |    
             </p>
           </div>
           <div class="clear"></div>
