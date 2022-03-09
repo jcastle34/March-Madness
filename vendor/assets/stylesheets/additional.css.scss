@@ -388,14 +388,13 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 #colorbox #cboxClose {
     top: 0 !important;
     right: 0 !important;
-    /*background-image: asset-url("close.png") no-repeat -10px 10px;*/
 }
 
 #cboxClose {
     position: absolute;
-    background: asset-url("colorbox/controls-ui.png") no-repeat 0px 8px;
-    width: 10px;
-    height: 21px;
+    background: asset-url("close_new.png") no-repeat 10px 2px;
+    width: 20px;
+    height: 20px;
     text-indent: -9999px;
     &.hover {
         background-position: 0 bottom;
