@@ -303,20 +303,10 @@ The following CSS is consistent between example themes and should not be altered
     z-index: 9999;
     overflow: hidden;
 }
-#colorbox {
-padding-bottom: 42px;
-padding-right: 42px;
-position: absolute;
- display: block;
-width: 570px;
- height: 347px;
- top: 101px;
-left: 342px;
-}
 
 #cboxWrapper {
-width: 630px;
-height: 530px;
+    width: 630px;
+    height: 530px;
 }
 
 #cboxOverlay {
@@ -382,9 +372,6 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 }
 
 #colorbox {
-  padding-bottom: 42px;
-  padding-right: 42px;
-  position: absolute;
   display: block;
   width: 570px;
   height: 500px;
@@ -392,69 +379,97 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
   left: 342px;
 }
 
-#cboxTopLeft {
-    width: 21px;
+#colorbox, #colorbox * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+#colorbox #cboxClose {
+    top: 0 !important;
+    right: 0 !important;
+    /*background-image: asset-url("close.png") no-repeat -10px 10px;*/
+}
+
+#cboxClose {
+    position: absolute;
+    background: asset-url("colorbox/controls-ui.png") no-repeat 0px 8px;
+    width: 10px;
     height: 21px;
+    text-indent: -9999px;
+    &.hover {
+        background-position: 0 bottom;
+    }
+}
+
+#cboxTopLeft {
+    width: 24px;
+    height: 14px;
     background: asset-url("colorbox/controls.png") no-repeat -27px 0;
+    /*background: #F5F5F5;*/
     float: left;
 }
 
 #cboxTopRight {
-    width: 21px;
-    height: 21px;
-    background: asset-url("colorbox/controls.png") no-repeat -56px 0;
+    width: 14px;
+    height: 14px;
+    background: asset-url("colorbox/controls.png") no-repeat -62px 0;
+    /*background: #F5F5F5;*/
    float: left;
 }
 
 #cboxBottomLeft {
-    width: 21px;
-    height: 21px;
-    background: asset-url("colorbox/controls.png") no-repeat -27px -29px;
+    width: 14px;
+    height: 24px;
+    margin-top: -10px;
+    background: asset-url("colorbox/controls.png") no-repeat -27px -26px;
+    /*background: #F5F5F5;*/
     float: left;
 }
 
 #cboxBottomRight {
-    width: 21px;
-    height: 21px;
-    background: asset-url("colorbox/controls.png") no-repeat -56px -29px;
+    width: 24px;
+    height: 24px;
+    margin-top: -10px;
+    background: asset-url("colorbox/controls.png") no-repeat -53px -26px;
+    /*background: #F5F5F5;*/
     float: left;
 }
 
 #cboxMiddleLeft {
     width: 14px;
     background: asset-url("colorbox/controls.png") left top repeat-y;
+    /*background: #F5F5F5;*/
     float: left;
-    height: 478px;
 }
 
 #cboxMiddleRight {
     width: 14px;
     background: asset-url("colorbox/controls.png") right top repeat-y;
+    /*background: #F5F5F5;*/
     float: left;
-    height: 478px;
 }
 
 #cboxTopCenter {
-    height: 21px;
+    height: 14px;
     background: asset-url("colorbox/border.png") 0 0 repeat-x;
-float: left; width: 570px;
+    /*background: #F5F5F5;*/
+    float: left; 
 }
 
 #cboxBottomCenter {
-    height: 21px;
-    background: asset-url("colorbox/border.png") 0 -29px repeat-x;
+    height: 14px;
+    background: asset-url("colorbox/border.png") 0 0 repeat-x;
+    /*background: #F5F5F5;*/
     float: left;
-    width: 570px;
 }
 
 #cboxContent {
-    background: white asset-url("colorbox/bg_tile_bottom.png") 0 107% repeat-x;
+    /*background: white asset-url("colorbox/bg_tile_bottom.png") 0 0 repeat-x;*/
     overflow: hidden;
-    padding-left: 7px;
-    padding-right: 7px;
+    padding: 5px;
     float: left;
-    width: 570px;
-    height: 478px;
+    background: #fff;
 }
 
 #cboxError {
@@ -463,7 +478,8 @@ float: left; width: 570px;
 }
 
 #cboxLoadedContent {
-    margin-bottom: 28px;
+    margin-bottom: 28px !important;;
+    margin-bottom: 0 !important;
 }
 
 #cboxTitle {
@@ -525,19 +541,6 @@ float: left; width: 570px;
     background: asset-url("colorbox/loading.gif") no-repeat center center;
     height: 580px;
     display: none;
-}
-
-#cboxClose {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: asset-url("colorbox/controls-ui.png") no-repeat 0 0;
-    width: 15px;
-    height: 15px;
-    text-indent: -9999px;
-    &.hover {
-        background-position: 0 bottom;
-    }
 }
 
 /*

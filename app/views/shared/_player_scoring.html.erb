@@ -1,31 +1,32 @@
 <div class="module">
 	<div class="module_header">
-		Scoring Details for <%= @scoring_details[0].ncaa_player.full_name %>
+		Details for <%= @scoring_details[0].ncaa_player.full_name %>
 		<div class="clear"></div>
 	</div>
 	<div class="module_container">
-   		<table class="player_scoring_table_headers table table-striped no-margin">
+   		<table class="player_scoring_table_headers no-margin">
      		<tr>
       			<th class="name">Name</th>
 		    	<th class="position">Position</th>
 				<th class="ppg">PPG.</th>
 				<th class="school">School</th>
-				<th class="round">Round</th>
-				<th class="points">Points</th>
+				<th colspan="6" class="points">Scoring by Round</th>
      		</tr>
    		</table>
-		<table class="player_scoring_table table table-striped">
+		<table class="player_scoring_table table-striped table">
 			<tbody>
-				<% @scoring_details.each_with_index do |entry, index| %>
 				  <tr>
-					<td class="name"><%= index == 0 ? entry.ncaa_player.full_name : '' %></td>
-					<td class="position"><%= index == 0 ? entry.ncaa_player.position : '' %></td>
-					<td class="ppg"><%= index == 0 ? entry.ncaa_player.ppg_avg : '' %></td>
-					<td class="school"><%= index == 0 ? entry.ncaa_player.ncaa_team.school : '' %></td>
-					<td class="round"><%= entry.round %></td>
-					<td class="points"><%= entry.points %></td>
+					<td class="name"><%= @scoring_details[0].ncaa_player.full_name %></td>
+					<td class="position"><%= @scoring_details[0].ncaa_player.position %></td>
+					<td class="ppg"><%= @scoring_details[0].ncaa_player.ppg_avg %></td>
+					<td class="school"><%= @scoring_details[0].ncaa_player.ncaa_team.school %></td>
+					<td class="points"><%= !@scoring_details[0].nil? ? @scoring_details[0].points : '-' %></td>
+					<td class="points"><%= !@scoring_details[1].nil? ? @scoring_details[1].points : '-' %></td>
+					<td class="points"><%= !@scoring_details[2].nil? ? @scoring_details[2].points : '-' %></td>
+					<td class="points"><%= !@scoring_details[3].nil? ? @scoring_details[3].points : '-' %></td>
+					<td class="points"><%= !@scoring_details[4].nil? ? @scoring_details[4].points : '-' %></td>
+					<td class="points"><%= !@scoring_details[5].nil? ? @scoring_details[5].points : '--' %></td>
 				  </tr>
-				<% end %>
 			</tbody>
 		</table>
 	</div>

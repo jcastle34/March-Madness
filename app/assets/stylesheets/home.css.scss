@@ -211,7 +211,7 @@
 /* Player Scoring */
 
 div.player_scoring_list {
-    width: 100%;
+    width: 50%;
     min-height: 140px;
     overflow: auto;
 }
@@ -219,22 +219,23 @@ div.player_scoring_list {
 .player_scoring_table_headers {
     width: 100%;
     th {
-        padding: 10px;
+        padding: 5px;
         text-align: center;
+        background-color: #EEEEEE;
         &.name {
-            width: 30%;
+            width: 25%;
         }
         &.position, &.ppg {
             width: 10%;
         }
         &.school {
-            width: 30%;
+            width: 25%;
         }
         &.round {
             width: 10%;
         }
         &.points {
-            width: 10%;
+            width: 30%;
         }
     }
 }
@@ -249,24 +250,24 @@ div.player_scoring_list {
     }
     td {
         width: auto;
-        padding: 10px 2px;
+        padding: 5px 2px;
         text-align: center;
         &.name {
-            width: 30%;
+            width: 24%;
             text-align: left;
         }
         &.position, &.ppg {
             width: 10%;
         }
         &.school {
-            width: 30%;
+            width: 24%;
         }
         &.round {
             width: 10%;
             font-weight: bold;
         }
         &.points {
-            width: 10%;
+            width: 5%;
             font-weight: bold;
         }
     }
