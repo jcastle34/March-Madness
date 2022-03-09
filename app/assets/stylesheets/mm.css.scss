@@ -582,18 +582,6 @@ html[xmlns] .clearfix {
     margin: 0 !important;
 }
 
-#colorbox, #colorbox * {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-#colorbox #cboxClose {
-    top: 0 !important;
-    right: 0 !important;
-    background-image: asset-url("close.png");
-}
-
 :focus {
     outline: none !important;
 }
