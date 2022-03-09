@@ -5,11 +5,13 @@
       @selected_round), {}, html_options = {:onchange => "getPreferredPlayersByRound(#{@mm_team.id})"})  %> -->
 </div>
 <div class="regions_container">
-  A roster must contain <b>8</b> <span class="position_guard">guards</span>, <b>8</b> <span class="position_forward">forwards</span> and <b>4</b> <span class="position_center">centers</span> for a total of <b>20</b> players.  Also, the player seed total must be <b>120</b> or higher once rosters lock in order for the roster to be valid!
+  A roster must contain <b>8</b> <span class="position_guard">guards</span>, <b>8</b> <span class="position_forward">forwards</span> and <b>4</b> <span class="position_center">centers</span> for a total of <b>20</b> players.  Also, the player seed total must be <b>120</b> or higher.  This must be completed before rosters lock at <b>12 PM</b> on <b>3-17-22</b> for your entry to be valid.
 </div>
 <div class="regions_container">
-   <p>Your current player total is <b><%= @preferred_players.size %></b> </p>
-   <p>Your current player seed total is <b><%= @player_seed_total %></b></p>
+  <span style="padding-bottom: 8px;">
+    Your roster currently has <b><%= @preferred_players.size %></b> players and the player seed total is <b><%= @player_seed_total %></b>, so your roster is <b><font style='color: <%= @preferred_players.size < 20 || @player_seed_total < 120 ? 'red' : 'green'%>;'>
+      <%= @preferred_players.size < 20 || @player_seed_total < 120 ? 'Invalid' : 'Valid' %></font></b>  
+  </span>
 </div>
 
 <table class="preferred_players_table_headers">
