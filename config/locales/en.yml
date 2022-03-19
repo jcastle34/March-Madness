@@ -20,3 +20,4 @@ en:
   rosters_locked: "All rosters are now locked."
   rosters_unlocked: "All rosters are now locked."
   mm_team_created: "Your March Madness team was successfully created."
+  no_new_registrations: "March Madness has already began, so no new registrations are being accepted."
