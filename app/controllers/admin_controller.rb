@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_filter :user_is_admin?
 
   def index    
-      @draft_picks = DraftPick.where(:round => 1).order(:overall_pick)     
+     
   end
 
   def lock_rosters

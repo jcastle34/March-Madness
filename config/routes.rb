@@ -6,10 +6,6 @@ MarchMadness::Application.routes.draw do
   post "admin/unlock_rosters"
   get "admin/ncaa_players/get_by_ncaa_team"
 
-  get "draft/index"
-  get "draft/results"
-  get "draft/get_current_draft_status"
-
   get "home/index"
   get "home/player_scoring_details"
 
