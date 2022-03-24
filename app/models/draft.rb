@@ -20,66 +20,6 @@ class Draft < ActiveRecord::Base
       @last_player_drafted = DraftPick.where("ncaa_player_id > 0").last
   end
 
-	def draft_player player_id
-			player = NcaaPlayer.find(player_id)
-			seed = player.ncaa_team.bracket_entry.seed
-			current_draft_pick = DraftPick.get_current_draft_pick
-
-			if draft_pick_seed_valid? seed, current_draft_pick
-				if roster_valid? current_draft_pick.mm_team_id, player.position
-					begin
-						pick = DraftPick.find_by_overall_pick(current_draft_pick.overall_pick)
-						pick.ncaa_player_id = player_id
-						pick.save
-					rescue ActiveRecord::RecordNotUnique
-						errors[:base] << I18n.t(:player_already_drafted)
-					end
-				else
-					errors[:base] << I18n.t(:invalid_roster)
-					false
-				end
-			else
-				errors[:base] << I18n.t(:ineligible_player_draft_pick)
-				false
-			end
-	end
-
-	def self.generate_draft_picks mm_teams
-		draft = Draft.find(1)
-		total_teams = draft.total_teams
-		total_rounds = draft.total_rounds
-		overall_pick = 0
-		round = 1
-
-		@picks = DraftPick.all
-		@picks.each { |pick| pick.destroy }
-
-    mm_teams = mm_teams.shuffle
-
-		while round <= total_rounds
-			DraftPick.transaction do
-				mm_teams.each do |team|
-						overall_pick =+ overall_pick + 1
-						draft_pick = DraftPick.new
-						draft_pick.id = overall_pick
-						draft_pick.overall_pick = overall_pick
-						draft_pick.round = round
-						draft_pick.mm_team_id = team.id
-						draft_pick.ncaa_player_id = nil
-						draft_pick.save!
-				end
-			end
-
-			round =+ round + 1
-
-			if round != 3
-				mm_teams = mm_teams.reverse
-			end
-		end
-
-		return overall_pick
-  end
-
   def self.is_configured?
     Draft.exists?(1) && DraftPick.all.count > 0
   end
@@ -94,31 +34,6 @@ class Draft < ActiveRecord::Base
 
 	private
 
-	def draft_pick_seed_valid? seed, current_draft_pick
-		valid_draft_pick_seed = false
-
-		if current_draft_pick.round == 1 || current_draft_pick.round == 2
-			if seed < 5
-				valid_draft_pick_seed = true
-			end
-		elsif current_draft_pick.round == 3
-			if @@round_3_seed_range === seed
-				valid_draft_pick_seed = true
-			end
-		elsif current_draft_pick.round == 4
-			if @@round_4_seed_range === seed
-				valid_draft_pick_seed = true
-			end
-		elsif current_draft_pick.round == 5
-			if @@round_5_seed_range === seed
-				valid_draft_pick_seed = true
-			end
-		else current_draft_pick.round == 6
-			valid_draft_pick_seed = true
-		end
-
-		return valid_draft_pick_seed
-	end
 
 	def roster_valid? mm_team_id, position_to_draft
 		mm_team = MmTeam.find(mm_team_id)

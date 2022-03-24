@@ -5,13 +5,6 @@ class AdminController < ApplicationController
       @draft_picks = DraftPick.where(:round => 1).order(:overall_pick)     
   end
 
-	def generate_draft_picks
-      mm_teams = MmTeam.all
-			pick_total = Draft.generate_draft_picks mm_teams
-			flash[:notice] = "Total draft picks generated: " + pick_total.to_s
-			redirect_to admin_index_url
-	end
-
   def lock_rosters
       draft_pick = DraftPick.find_by(overall_pick: 1)
       draft_pick.ncaa_player_id = 1

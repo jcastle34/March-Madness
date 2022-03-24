@@ -8,16 +8,6 @@ class DraftControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get draft_player" do
-    get :draft_player
-    assert_response :success
-  end
-
-  test "should get undraft_player" do
-    get :undraft_player
-    assert_response :success
-  end
-
   test "should get start" do
     get :start
     assert_response :success
