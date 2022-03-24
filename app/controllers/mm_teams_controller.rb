@@ -117,6 +117,7 @@ class MmTeamsController < ApplicationController
     @sort_order = params[:sort_order]
     
     @ncaa_players = NcaaPlayer.get_players_by_position(@selected_position, @sort, @sort_order)
+    render "shared/get_eligible_players"
   end
 
   def sort_eligible_players
