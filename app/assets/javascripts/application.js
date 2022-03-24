@@ -21,10 +21,6 @@ $(document).ready(function() {
         height: heightFix+"px"
     });
 
-    if ($("#draft_status_container").length > 0){
-        setTimeout(updateDraftStatus, 120000);
-    }
-
     $('#notice').slideDown('slow');
     setTimeout(function(){
         $('#notice').slideUp('slow');
@@ -70,22 +66,6 @@ $(document).ready(function() {
     });
 
 });
-
-function updateDraftStatus() {
-    var current_pick = $("#current_pick").html();
-    $.getScript("/draft/get_current_draft_status.js?previous_pick=" + current_pick);
-    setTimeout(updateDraftStatus, 120000);
-}
-
-function getEligiblePlayersByRound(mm_team_id) {
-    id = $("#player_selected_round").val();
-    if($('#draft_page_container').length == 0) {
-        $.getScript("/mm_teams/" + mm_team_id + "/get_eligible_players_by_round.js?selected_round=" + id);
-    }
-    else {
-        $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
-    }
-}
 
 function getEligiblePlayersByPosition(mm_team_id, sort, sort_order) {
     position = $("#player_selected_position").val();
