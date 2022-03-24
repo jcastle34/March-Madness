@@ -9,13 +9,4 @@ class DraftPick < ActiveRecord::Base
     DraftPick.find_by_sql("select * from draft_picks where ncaa_player_id is null order by overall_pick").first
   end
 
-  def self.get_position_count
-      DraftPick.find_by_sql("select np.position, count(np.position) as total from draft_picks dp join ncaa_players np on np.id = dp.ncaa_player_id group by np.position order by np.position desc")
-  end
-
-  def self.get_all
-    # DraftPick.all.order(:overall_pick)
-    DraftPick.find_by_sql("select * from draft_picks where ncaa_player_id is not null order by overall_pick")
-  end
-
 end
