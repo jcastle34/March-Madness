@@ -77,15 +77,6 @@ function sortEligiblePlayers(mm_team_id, sort, sort_order) {
     $.getScript("/mm_teams/" + mm_team_id + "/sort_eligible_players.js?selected_position=" + position + "&sort=" + sort + "&sort_order=" + sort_order);
 }
 
-function getPreferredPlayersByRound(mm_team_id) {
-    if($('#draft_page_container').length == 0) {
-        $.getScript("/mm_teams/" + mm_team_id + "/get_preferred_players_by_round.js");
-    }
-    else {
-        $.getScript("/draft/get_preferred_players_by_round.js?");
-    }
-}
-
 function addPreferredPlayer(player_id, mm_team_id) {
     $.getScript("/mm_teams/" + mm_team_id + "/add_preferred_player.js?ncaa_player_id=" + player_id);
 }
@@ -104,19 +95,6 @@ function getScoringDetails(player_id)
     $.getScript("/home/player_scoring_details.js?player_id=" + player_id);
 }
 
-function showPreferredPlayers() {
-    $.getScript("/draft/get_preferred_players_by_round.js");
-    $('#draft_players_container').hide();
-    $('#preferred_players_container').show();
-    $('#show_preferred_players').addClass('on').siblings().removeClass('on');
-}
-
-function showEligiblePlayers() {
-    id = $("#preferred_player_selected_round").val();
-    $.getScript("/draft/get_eligible_players_by_round.js?selected_round=" + id);
-    $('#preferred_players_container').hide();
-    $('#draft_players_container').show();
-    $('#show_all_players').addClass('on').siblings().removeClass('on');
 }
 
 function initChosen() {
