@@ -9,7 +9,6 @@ MarchMadness::Application.routes.draw do
   get "draft/index"
   get "draft/results"
   get "draft/get_current_draft_status"
-  get "draft/get_draft_picks"
 
   get "home/index"
   get "home/player_scoring_details"
