@@ -2,21 +2,14 @@ MarchMadness::Application.routes.draw do
 
   get "admin/index"
   get "admin/bracket"
-  post "admin/generate_draft_picks"
   post "admin/lock_rosters"
   post "admin/unlock_rosters"
   get "admin/ncaa_players/get_by_ncaa_team"
 
   get "draft/index"
-  get "draft/draft_player"
-  get "draft/undraft_player"
   get "draft/results"
   get "draft/get_current_draft_status"
   get "draft/get_draft_picks"
-  get "draft/start"
-  get "draft/stop"
-  get "draft/get_eligible_players_by_round"
-  get "draft/get_preferred_players_by_round"
 
   get "home/index"
   get "home/player_scoring_details"
