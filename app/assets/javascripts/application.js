@@ -95,8 +95,6 @@ function getScoringDetails(player_id)
     $.getScript("/home/player_scoring_details.js?player_id=" + player_id);
 }
 
-}
-
 function initChosen() {
     $('select').chosen();
 }
