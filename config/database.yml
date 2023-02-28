@@ -20,11 +20,13 @@ test:
     timeout: 5000
 
 production:
-    adapter: mysql2
-    encoding: utf8
-    reconnect: false
-    database: march_madness
-    pool: 15
-    username: march_madness
-    password: jiggy1
-    socket: /var/run/mysqld/mysqld.sock
+    url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+    # url: mysql2://b610a0b550f428:7a6831a9@us-cdbr-iron-east-03.cleardb.net/heroku_b6d240b551426fb?reconnect=true
+    # adapter: mysql2
+    # encoding: utf8
+    # reconnect: false
+    # database: march_madness
+    # pool: 15
+    # username: march_madness
+    # password: jiggy1
+    # socket: /var/run/mysqld/mysqld.sock
