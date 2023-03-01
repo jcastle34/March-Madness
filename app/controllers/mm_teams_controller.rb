@@ -136,8 +136,6 @@ class MmTeamsController < ApplicationController
     render "shared/get_eligible_players"
   end
 
-  end
-
   private
 
   def verify_owner?
