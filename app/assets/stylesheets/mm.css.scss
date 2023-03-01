@@ -13,10 +13,10 @@ html, body {
 a {
     color: #E7772D;
     &:link, &:visited {
-        color: green;
+        color: #20A1E5;
     }
     &:hover {
-        color: green;
+        color: #20A1E5;
     }
 }
 
@@ -124,10 +124,10 @@ textarea {
 
 #logo {
     display: block;
-    width: 200px;
+    width: 210px;
     height: 120px;
-    background: asset-url("player_challenge.png") 0 0 no-repeat;
-    margin: 20px 20px 30px 20px;
+    background: asset-url("mm_pc_logo.png") 0 0 no-repeat;
+    margin: 20px 20px 30px 10px;
 }
 
 #logo_big {
