@@ -11,7 +11,6 @@ html, body {
 }
 
 a {
-    color: #E7772D;
     &:link, &:visited {
         color: #20A1E5;
     }
@@ -88,7 +87,7 @@ textarea {
     margin: 0px auto;
     height: 880px;
     display: block;
-    background: #000;
+    background: #2F2B2F;
 }
 
 #login_wrapper {
@@ -127,7 +126,7 @@ textarea {
     width: 210px;
     height: 120px;
     background: asset-url("mm_pc_logo.png") 0 0 no-repeat;
-    margin: 20px 20px 30px 10px;
+    margin: 10px 20px 30px 10px;
 }
 
 #logo_big {
@@ -180,7 +179,7 @@ textarea {
 #nav_container {
     display: block;
     background: asset-url("bg_menu_wood.png") right 0 repeat-y;
-    /*background-color: #88B08F;*/
+    /*background-color: #E6E0D4;*/
     min-height: 100%;
     max-width: 250px;
     padding: 0;
@@ -206,27 +205,33 @@ textarea {
     }
     a {
         display: block;
-        color: #fff;
         margin: 10px 30px 10px 30px;
         text-align: center;
-        border-radius: 10px;
-        background: image-url("bball_texture.png") 0 0 repeat;
-        border-style: double;
         text-transform: uppercase;
+        border-radius: 5px;
+        background: image-url("bball_texture.png") 0 0 repeat;
+        /*background-color: #fff;*/
+        border-style: double;
+        border-color: #000;
+        color: #fff;
     }
     a:hover {
         background: image-url("bball_texture_faded.png") 0 0 repeat;
+        text-decoration: none;
+        border-color: #fff;
+        /*background-color: #375CA8;*/
         border-style: double;
         color: #000;
-        text-decoration: none;
     }
     span.current_main_nav {
-        background: image-url("bball_texture_light.png") 0 0 repeat;
         margin: 10px 30px 10px 30px;
-        color: #000;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 5px;
         text-transform: uppercase;
+        background: image-url("bball_texture_light.png") 0 0 repeat;
+        /*background-color: #E7EAED;*/
+        border-color: #fff;
+        color: #000;
     }
 }
 
@@ -240,7 +245,7 @@ textarea {
 
 .current_user {
     margin-top: 0px;
-    padding: 5px 5px 5px 0px;
+    padding: 5px 5px 5px 5px;
     text-align: right;
     float: right;
     p {
@@ -253,6 +258,27 @@ textarea {
             text-decoration: none;
         }*/
     }
+}
+
+#info_nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 5px; 
+    padding-LEFT: 10px;
+    font-size: 14px;
+    color: #fff;
+    float: left;
+
+    a {
+        text-decoration: none;
+        &:link, &:visited {
+            color: #E7772D;
+        }
+        &:hover {
+           text-decoration: underline;
+        }
+        padding: 5px 5px 5px 5px;
+    }    
 }
 
 #main_container {
@@ -269,11 +295,11 @@ textarea {
 }
 
 .left_container {
-    background: #fff;
+    background: #f9f9f9;
 }
 
 .right_container {
-    background: #f9f9f9;
+    background: #eee;
 }
 
 #draft_page_container {

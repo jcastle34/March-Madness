@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312021128) do
+ActiveRecord::Schema.define(version: 20230303203003) do
 
   create_table "bracket_entries", force: :cascade do |t|
     t.integer  "ncaa_team_id", limit: 4
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150312021128) do
     t.integer  "total_teams",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "roster_lock"
   end
 
   create_table "mm_team_preferred_players", force: :cascade do |t|
@@ -53,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150312021128) do
   add_index "mm_team_preferred_players", ["ncaa_player_id", "mm_team_id"], name: "index_mm_team_preferred_players_on_ncaa_player_id_and_mm_team_id", unique: true, using: :btree
 
   create_table "mm_teams", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",       limit: 255, null: false
     t.integer  "user_id",    limit: 4
     t.integer  "year",       limit: 4
     t.datetime "created_at"

@@ -26,11 +26,18 @@
           </div>
         <% end %>
         <% if user_signed_in?  %>
+          <div id="info_nav">
+          <% if Draft.is_completed? %>
+            <font style="color: #2CCA51;">Rosters are locked!</font>
+          <% else %>
+            <font style="color: red;">REMINDER - </font>Rosters will lock on <%= Draft.first.roster_lock.utc.strftime('%B %d, %Y at %I:%M%p') %> EST
+          <% end %>  
+          </div>
           <div class="current_user">
             <p>
-              You are signed in as <%= current_user.email %> |
+              <%= current_user.email %> |
               <%= link_to 'Change Password', edit_user_registration_path %> |
-              <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> |    
+              <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>    
             </p>
           </div>
           <div class="clear"></div>
