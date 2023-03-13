@@ -2,10 +2,10 @@ class BracketController < ApplicationController
 
   def index
     if(BracketEntry.is_configured?)
-        @east_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 1).order(:seed))
+        @east_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 4).order(:seed))
         @midwest_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 2).order(:seed))
-        @south_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 3).order(:seed))
-        @west_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 4).order(:seed))
+        @south_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 1).order(:seed))
+        @west_region_bracket_entries = matchup_seeds(BracketEntry.where(:region_id => 3).order(:seed))
         @play_in_matchups = BracketEntry.where(:is_play_in => 1).order(:seed, :region_id)
     else
         redirect_to root_path
