@@ -17,109 +17,6 @@
     <div class="clear"></div>
 
     <div class="first_round">
-        <% @south_region_bracket_entries.each_with_index do |entry, index| %>
-            <div class="<%= (index + 1) %2 == 0 ? 'away_team_left' : 'home_team_left'%>">
-                <%= entry.seed %>
-                <% if entry.is_play_in %>
-                    Play in Game Winner
-                <% else %>
-                    <%= entry.ncaa_team.school %>
-                <% end %>
-            </div>
-        <% end %>
-    </div>
-    <div class="second_round">
-        <div class="home_team_left"></div>
-        <div class="second_round_right_border_spacer"></div>
-        <div class="away_team_left"></div>
-        <div class="second_round_empty_spacer"></div>
-        <div class="home_team_left"></div>
-        <div class="second_round_right_border_spacer"></div>
-        <div class="away_team_left"></div>
-        <div class="second_round_empty_spacer"></div>
-        <div class="home_team_left"></div>
-        <div class="second_round_right_border_spacer"></div>
-        <div class="away_team_left"></div>
-        <div class="second_round_empty_spacer"></div>
-        <div class="home_team_left"></div>
-        <div class="second_round_right_border_spacer"></div>
-        <div class="away_team_left"></div>
-    </div>
-
-    <div class="third_round">
-        <div class="home_team_left"></div>
-        <div class="third_round_right_border_spacer"></div>
-        <div class="away_team_left"></div>
-        <div class="third_round_empty_spacer"></div>
-        <div class="home_team_left"></div>
-        <div class="third_round_right_border_spacer"></div>
-        <div class="away_team_left"></div>
-    </div>
-
-    <div class="fourth_round">
-        <div class="home_team_left"></div>
-        <div class="fourth_round_right_border_spacer"><p class="<%= get_region_css_class(@south_region_bracket_entries[0].region_id) %>"><%= @south_region_bracket_entries[0].region.location %></p></div>
-        <div class="away_team_left"></div>
-    </div>
-
-    <div class="fifth_round"></div>
-
-    <div class="sixth_round_top">
-        <div class="champion"></div>
-    </div>
-
-    <div class="fifth_round"></div>
-
-    <div class="fourth_round">
-        <div class="home_team_right"></div>
-        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@midwest_region_bracket_entries[0].region_id) %>"><%= @midwest_region_bracket_entries[0].region.location %></p></div>
-        <div class="away_team_right"></div>
-    </div>
-
-    <div class="third_round">
-        <div class="home_team_right"></div>
-        <div class="third_round_left_border_spacer"></div>
-        <div class="away_team_right"></div>
-        <div class="third_round_empty_spacer"></div>
-        <div class="home_team_right"></div>
-        <div class="third_round_left_border_spacer"></div>
-        <div class="away_team_right"></div>
-    </div>
-
-    <div class="second_round">
-        <div class="home_team_right"></div>
-        <div class="second_round_left_border_spacer"></div>
-        <div class="away_team_right"></div>
-        <div class="second_round_empty_spacer"></div>
-        <div class="home_team_right"></div>
-        <div class="second_round_left_border_spacer"></div>
-        <div class="away_team_right"></div>
-        <div class="second_round_empty_spacer"></div>
-        <div class="home_team_right"></div>
-        <div class="second_round_left_border_spacer"></div>
-        <div class="away_team_right"></div>
-        <div class="second_round_empty_spacer"></div>
-        <div class="home_team_right"></div>
-        <div class="second_round_left_border_spacer"></div>
-        <div class="away_team_right"></div>
-    </div>
-
-    <div class="first_round">
-        <% @midwest_region_bracket_entries.each_with_index do |entry, index| %>
-            <div class="<%= (index + 1) %2 == 0 ? 'away_team_right' : 'home_team_right'%>">  
-                <% if entry.is_play_in %>
-                    Play in Game Winner
-                <% else %>
-                    <%= entry.ncaa_team.school %>
-                <% end %>
-                <%= entry.seed %>
-            </div>
-        <% end %>
-    </div>
-
-    <div class="clear"></div>
-
-     <div class="first_round">
         <% @east_region_bracket_entries.each_with_index do |entry, index| %>
             <div class="<%= (index + 1) %2 == 0 ? 'away_team_left' : 'home_team_left'%>">
                 <%= entry.seed %>
@@ -165,6 +62,109 @@
         <div class="away_team_left"></div>
     </div>
 
+    <div class="fifth_round"></div>
+
+    <div class="sixth_round_top">
+        <div class="champion"></div>
+    </div>
+
+    <div class="fifth_round"></div>
+
+    <div class="fourth_round">
+        <div class="home_team_right"></div>
+        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@south_region_bracket_entries[0].region_id) %>"><%= @south_region_bracket_entries[0].region.location %></p></div>
+        <div class="away_team_right"></div>
+    </div>
+
+    <div class="third_round">
+        <div class="home_team_right"></div>
+        <div class="third_round_left_border_spacer"></div>
+        <div class="away_team_right"></div>
+        <div class="third_round_empty_spacer"></div>
+        <div class="home_team_right"></div>
+        <div class="third_round_left_border_spacer"></div>
+        <div class="away_team_right"></div>
+    </div>
+
+    <div class="second_round">
+        <div class="home_team_right"></div>
+        <div class="second_round_left_border_spacer"></div>
+        <div class="away_team_right"></div>
+        <div class="second_round_empty_spacer"></div>
+        <div class="home_team_right"></div>
+        <div class="second_round_left_border_spacer"></div>
+        <div class="away_team_right"></div>
+        <div class="second_round_empty_spacer"></div>
+        <div class="home_team_right"></div>
+        <div class="second_round_left_border_spacer"></div>
+        <div class="away_team_right"></div>
+        <div class="second_round_empty_spacer"></div>
+        <div class="home_team_right"></div>
+        <div class="second_round_left_border_spacer"></div>
+        <div class="away_team_right"></div>
+    </div>
+
+    <div class="first_round">
+        <% @south_region_bracket_entries.each_with_index do |entry, index| %>
+            <div class="<%= (index + 1) %2 == 0 ? 'away_team_right' : 'home_team_right'%>">  
+                <% if entry.is_play_in %>
+                    Play in Game Winner
+                <% else %>
+                    <%= entry.ncaa_team.school %>
+                <% end %>
+                <%= entry.seed %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="clear"></div>
+
+     <div class="first_round">
+        <% @west_region_bracket_entries.each_with_index do |entry, index| %>
+            <div class="<%= (index + 1) %2 == 0 ? 'away_team_left' : 'home_team_left'%>">
+                <%= entry.seed %>
+                <% if entry.is_play_in %>
+                    Play in Game Winner
+                <% else %>
+                    <%= entry.ncaa_team.school %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <div class="second_round">
+        <div class="home_team_left"></div>
+        <div class="second_round_right_border_spacer"></div>
+        <div class="away_team_left"></div>
+        <div class="second_round_empty_spacer"></div>
+        <div class="home_team_left"></div>
+        <div class="second_round_right_border_spacer"></div>
+        <div class="away_team_left"></div>
+        <div class="second_round_empty_spacer"></div>
+        <div class="home_team_left"></div>
+        <div class="second_round_right_border_spacer"></div>
+        <div class="away_team_left"></div>
+        <div class="second_round_empty_spacer"></div>
+        <div class="home_team_left"></div>
+        <div class="second_round_right_border_spacer"></div>
+        <div class="away_team_left"></div>
+    </div>
+
+    <div class="third_round">
+        <div class="home_team_left"></div>
+        <div class="third_round_right_border_spacer"></div>
+        <div class="away_team_left"></div>
+        <div class="third_round_empty_spacer"></div>
+        <div class="home_team_left"></div>
+        <div class="third_round_right_border_spacer"></div>
+        <div class="away_team_left"></div>
+    </div>
+
+    <div class="fourth_round">
+        <div class="home_team_left"></div>
+        <div class="fourth_round_right_border_spacer"><p class="<%= get_region_css_class(@west_region_bracket_entries[0].region_id) %>"><%= @west_region_bracket_entries[0].region.location %></p></div>
+        <div class="away_team_left"></div>
+    </div>
+
     <div class="fifth_round">
         <div class="play_in_left">
             <div class="home_team_left"><%= @play_in_matchups[0].seed %> <%= @play_in_matchups[0].ncaa_team.school %></div>
@@ -198,7 +198,7 @@
 
     <div class="fourth_round">
         <div class="home_team_right"></div>
-        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@west_region_bracket_entries[0].region_id) %>"><%= @west_region_bracket_entries[0].region.location %></p></div>
+        <div class="fourth_round_left_border_spacer"><p class="<%= get_region_css_class(@midwest_region_bracket_entries[0].region_id) %>"><%= @midwest_region_bracket_entries[0].region.location %></p></div>
         <div class="away_team_right"></div>
     </div>
 
@@ -231,7 +231,7 @@
     </div>
 
     <div class="first_round">
-        <% @west_region_bracket_entries.each_with_index do |entry, index| %>
+        <% @midwest_region_bracket_entries.each_with_index do |entry, index| %>
             <div class="<%= (index + 1) %2 == 0 ? 'away_team_right' : 'home_team_right'%>">
                 <% if entry.is_play_in %>
                     Play in Game Winner
